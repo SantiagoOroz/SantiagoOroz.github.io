@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santiago Oroz - Portfolio</title>
+    <link rel="icon" href="portfolio_office_business_suitcase.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2d3436;
+            --accent-color: #0984e3;
+            --text-color: #2d3436;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        a {
+            text-decoration: none; /* Elimina el subrayado */
+            color: inherit; /* Hereda el color del texto del h3 */
+        }
+        
+        .nombre {
+            font-size: 5em;
+        }
+
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            padding: 8px 15px;
+            border: 2px solid var(--accent-color);
+            border-radius: 25px;
+            background-color: var(--accent-color);
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .language-toggle:hover {
+            background-color: white;
+            color: var(--accent-color);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px 50px;
+            background: linear-gradient(45deg, #f6f6f6, #ffffff);
+        }
+
+        .section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin: 30px 0;
+            padding: 20px;
+            border-left: 3px solid var(--accent-color);
+            transition: transform 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: #eee;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .contact-info {
+            text-align: center;
+            padding: 40px 20px;
+            background: #f8f9fa;
+        }
+
+        .company-name {
+            transition: color 0.3s;
+        }
+
+        .company-name:hover {
+            color: #ed463a;
+        }
+
+        .poli-name {
+            transition: color 0.3s;
+        }
+
+        .poli-name:hover {
+            color: #3a64ed;
+        }
+
+        .curso-name {
+            transition: color 0.3s;
+        }
+
+        .curso-name:hover {
+            color: #73ed3a;
+        }
+
+        .contenedor-imagen {
+            position: relative; /* Necesario para posicionar la imagen */
+            display: inline-block /* Para que el contenedor se ajuste al contenido */
+        }
+
+        .imagen-oculta {
+            display: none; /* Oculta la imagen por defecto */
+            position: absolute; /* Permite posicionar la imagen dentro del contenedor */
+            top: 0; /* Coloca la imagen debajo del h3 */
+            left: 100%; /* Alinea la imagen a la izquierda */
+            z-index: 1; /* Asegura que la imagen esté encima del h3 */
+            margin-left: 4em;
+            width: 35em;
+        }
+
+        .contenedor-imagen:hover .imagen-oculta {
+            display: block; /* Muestra la imagen al pasar el ratón */
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-toggle" id="languageToggle">EN/ES</div>
+
+    <section class="hero">
+        <h1 class="nombre">Santiago Oroz</h1>
+        <p data-key="titles">Programador | Científico de Datos | Creativo</p>
+    </section>
+
+    <section class="section">
+        <h2 data-key="about">Sobre mí</h2>
+        <p data-key="aboutText">Apasionado por la ciencia de datos. Me encanta transformar datos en información útil para la toma de decisiones estratégicas. Mi área de interés principal es la exploración de datos. Siempre buscando nuevos desafíos y aprendiendo cosas nuevas.</p>
+    </section>
+
+    <section class="section">
+        <h2 data-key="education">Educación</h2>
+        <div class="timeline-item">
+            <div>
+                <a href="https://politecnico.ar/"><h3 class="poli-name">Politécnico Malvinas Argentinas</h3></a>
+                <p><span data-key="techTitle">Técnico en Ciencia de Datos e IA</span> (<span data-key="current">2024 - Actualidad</span>)</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="contenedor-imagen">
+                <h3 class="curso-name" data-key="aiCourse">Inteligencia Artificial para Negocios</h3>
+                <p>Digital House · 2024 - 2025</p>
+                <img src="DigitalHouseDiploma.png" alt="Descripción de la imagen" class="imagen-oculta">
+            </div>
+        </div>
+        <!-- Agrega más items educativos aquí -->
+
+    </section>
+
+    <section class="section">
+        <h2 data-key="experience">Experiencia</h2>
+        <div class="timeline-item">
+            <div>
+                <a href="https://www.newsan.com.ar/es/home"><h3 class="company-name"> Newsan - <span data-key="internship">Pasante Profesional</span></h3></a>
+                <p data-key="newsanDates">2024 - 2025</p>
+                <p data-key="newsan1">Reportes de análisis ergonómico en PowerBI</p>
+                <p data-key="newsan2">Trabajo en equipo de 5 personas</p>
+            </div>
+        </div>
+        <!-- Agrega más items de experiencia aquí -->
+    </section>
+
+    <section class="section">
+        <h2 data-key="skills">Habilidades</h2>
+        <div class="skills-container">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag" data-key="stadistic">Estadística</span>
+            <span class="skill-tag" data-key="sciedata">Ciencia de datos</span>
+            <span class="skill-tag" data-key="languajes">Español e Inglés</span>
+            <span class="skill-tag">Machine learning</span>
+        </div>
+    </section>
+
+    <section class="contact-info">
+        <h2 data-key="contact">Contacto</h2>
+        <p><i class="fas fa-envelope"></i> Santiago.Oroz1510@gmail.com</p>
+        <p><i class="fas fa-phone"></i> +54 2964 543015</p>
+        <p><i class="fab fa-linkedin"></i> @santyoroz15</p>
+        <p><i class="fab fa-instagram"></i> @santyoroz</p>
+    </section>
+
+    <script>
+        const translations = {
+            es: {
+                titles: "Programador | Científico de Datos | Creativo",
+                about: "Sobre mí",
+                aboutText: "Apasionado por la ciencia de datos. Me encanta transformar datos en información útil para la toma de decisiones estratégicas. Mi área de interés principal es la exploración de datos. Siempre buscando nuevos desafíos y aprendiendo cosas nuevas.",
+                education: "Educación",
+                experience: "Experiencia",
+                skills: "Habilidades",
+                contact: "Contacto",
+                stadistic: "Estadística",
+                sciedata: "Ciencia de datos",
+                languajes: "Español e Ingles",
+                newsanDates: "2024 - 2025",
+                newsan1: "Reportes de análisis ergonómico en PowerBI",
+                newsan2: "Trabajo en equipo de 5 personas",
+                techTitle: "Técnico en Ciencia de Datos e IA",
+                current: "2024 - Actualidad",
+                internship: "Pasante Profesional",
+                aiCourse: "Inteligencia Artificial para Negocios"
+            },
+            en: {
+                titles: "Developer | Data Scientist | Creative",
+                about: "About Me",
+                aboutText: "Passionate about data science. I love transforming data into actionable insights to support strategic decision-making. My main area of interest is data exploration. Always seeking new challenges and learning opportunities.",
+                education: "Education",
+                experience: "Experience",
+                skills: "Skills",
+                contact: "Contact",
+                stadistic: "Statistic",
+                sciedata: "Data science",
+                languajes: "English and Spanish",
+                newsanDates: "2024 - 2025",
+                newsan1: "Ergonomics analysis reports using PowerBI",
+                newsan2: "Collaborated with 5-person team",
+                techTitle: "Data Science and AI Technician",
+                current: "2024 - Present",
+                internship: "Professional Intern",
+                aiCourse: "AI for Business"
+            }
+        };
+
+        let currentLang = 'es';
+        const toggle = document.getElementById('languageToggle');
+        
+        toggle.addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            document.documentElement.lang = currentLang;
+            
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.dataset.key;
+                element.textContent = translations[currentLang][key];
+            });
+        });
+    </script>
+    <script>
+        window.addEventListener('load', function() {
+            const contenedores = document.querySelectorAll('.contenedor-imagen');
+
+            contenedores.forEach(contenedor => {
+                const imagen = contenedor.querySelector('.imagen-oculta');
+                const h3 = contenedor.querySelector('h3');
+
+                contenedor.addEventListener('mouseenter', function() {
+                const espacioDisponible = window.innerWidth - (contenedor.offsetLeft + contenedor.offsetWidth);
+
+                if (espacioDisponible < imagen.offsetWidth) {
+                    imagen.style.left = '0';
+                    imagen.style.top = '100%';
+                } else {
+                    imagen.style.left = '100%';
+                    imagen.style.top = '0';
+                }
+                });
+
+                contenedor.addEventListener('mouseleave', function() {
+                imagen.style.left = '100%';
+                imagen.style.top = '0';
+                });
+            });
+            });
+    </script>
+</body>
+</html>

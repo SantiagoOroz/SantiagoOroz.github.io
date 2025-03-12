@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Santiago Oroz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+        }
+        .lang-switch {
+            text-align: right;
+            margin: 10px;
+        }
+        .lang-switch button {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .company-name {
+            transition: color 0.3s;
+        }
+
+        .company-name:hover {
+            color: #ed463a;
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switch">
+        <button onclick="changeLanguage('es')">Español</button>
+        <button onclick="changeLanguage('en')">English</button>
+    </div>
+    <header>
+        <h1 id="title">Santiago Oroz</h1>
+        <p id="subtitle">Programador | Científico de Datos | Creativo</p>
+    </header>
+    <nav>
+        <a href="#about" id="nav-about">Sobre mí</a>
+        <a href="#education" id="nav-education">Educación</a>
+        <a href="#experience" id="nav-experience">Experiencia</a>
+        <a href="#skills" id="nav-skills">Habilidades</a>
+        <a href="#contact" id="nav-contact">Contacto</a>
+    </nav>
+    <section id="about">
+        <h2 id="about-title">Sobre mí</h2>
+        <p id="about-text">Soy un apasionado de la ciencia de datos. Me encanta transformar datos en información útil para apoyar la toma de decisiones estratégicas. Mi área de interés particular es la exploración de datos. Siempre estoy buscando nuevos desafíos y aprendiendo cosas nuevas.</p>
+    </section>
+    <section id="education">
+        <h2 id="education-title">Educación</h2>
+        <ul>
+            <li>Curso de Inteligencia Artificial para Negocios - Digital House (Oct 2024 - Ene 2025)</li>
+            <li>Técnico en Ciencia de Datos e Inteligencia Artificial - Politécnico Malvinas Argentinas (2024 - Actualidad)</li>
+            <li>Curso Nacional “Yo Programo” - Digital (2022 - 2023)</li>
+            <li>Estudios Secundarios - Colegio Don Bosco (2018 - 2023)</li>
+        </ul>
+    </section>
+    <section id="experience">
+        <h2 id="experience-title">Experiencia</h2>
+        <ul>
+            <li>Especialista en Soporte Técnico - Tech Solutions (Ene 2024 - Oct 2024)</li>
+            <li>Pasantía Profesional - Newsan Digital (Ago 2024 - Actualidad)</li>
+        </ul>
+    </section>
+    <section id="skills">
+        <h2 id="skills-title">Habilidades</h2>
+        <ul>
+            <li>Estadística</li>
+            <li>SQL</li>
+            <li>PowerBI</li>
+            <li>Python</li>
+            <li>Trabajo en equipo</li>
+            <li>Resolución de problemas</li>
+        </ul>
+    </section>
+    <section id="contact">
+        <h2 id="contact-title">Contacto</h2>
+        <p>Email: Santiago.Oroz1510@gmail.com</p>
+        <p>Teléfono: 2964 543015</p>
+        <p>Instagram: @santyoroz15</p>
+    </section>
+    <footer>
+        <p>&copy; 2025 Santiago Oroz</p>
+    </footer>
+    <script>
+        const translations = {
+            es: {
+                title: "Santiago Oroz",
+                subtitle: "Programador | Científico de Datos | Creativo",
+                navAbout: "Sobre mí",
+                navEducation: "Educación",
+                navExperience: "Experiencia",
+                navSkills: "Habilidades",
+                navContact: "Contacto",
+                aboutTitle: "Sobre mí",
+                aboutText: "Soy un apasionado de la ciencia de datos. Me encanta transformar datos en información útil para apoyar la toma de decisiones estratégicas. Mi área de interés particular es la exploración de datos. Siempre estoy buscando nuevos desafíos y aprendiendo cosas nuevas.",
+                educationTitle: "Educación",
+                experienceTitle: "Experiencia",
+                skillsTitle: "Habilidades",
+                contactTitle: "Contacto"
+            },
+            en: {
+                title: "Santiago Oroz",
+                subtitle: "Programmer | Data Scientist | Creative",
+                navAbout: "About Me",
+                navEducation: "Education",
+                navExperience: "Experience",
+                navSkills: "Skills",
+                navContact: "Contact",
+                aboutTitle: "About Me",
+                aboutText: "I am passionate about data science. I love transforming data into usable information to support strategic decision-making. My particular area of interest is Data exploration. I am always looking for new challenges and learning new things.",
+                educationTitle: "Education",
+                experienceTitle: "Experience",
+                skillsTitle: "Skills",
+                contactTitle: "Contact"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.getElementById('title').innerText = translations[lang].title;
+            document.getElementById('subtitle').innerText = translations[lang].subtitle;
+            document.getElementById('nav-about').innerText = translations[lang].navAbout;
+            document.getElementById('nav-education').innerText = translations[lang].navEducation;
+            document.getElementById('nav-experience').innerText = translations[lang].navExperience;
+            document.getElementById('nav-skills').innerText = translations[lang].navSkills;
+            document.getElementById('nav-contact').innerText = translations[lang].navContact;
+            document.getElementById('about-title').innerText = translations[lang].aboutTitle;
+            document.getElementById('about-text').innerText = translations[lang].aboutText;
+            document.getElementById('education-title').innerText = translations[lang].educationTitle;
+            document.getElementById('experience-title').innerText = translations[lang].experienceTitle;
+            document.getElementById('skills-title').innerText = translations[lang].skillsTitle;
+            document.getElementById('contact-title').innerText = translations[lang].contactTitle;
+        }
+    </script>
+</body>
+</html>
