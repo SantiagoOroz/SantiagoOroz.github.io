@@ -341,21 +341,506 @@
             });
         });
     </script>
-    <script>
-      window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":""};
-      (function(d,t) {
-        var BASE_URL="https://app.chatwoot.com";
-        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=BASE_URL+"/packs/js/sdk.js";
-        g.async = true;
-        s.parentNode.insertBefore(g,s);
-        g.onload=function(){
-          window.chatwootSDK.run({
-            websiteToken: 'VGhpCt5hTHtUegePn1emH8tQ',
-            baseUrl: BASE_URL
-          })
+    <!-- === Chat Widget Custom — Techi AI (Tech del Fuego) === -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@500;600;700&display=swap');
+
+        /* === Paleta Tech del Fuego ===
+           --tdf-azul:    #1B3A6B  (Azul Magallánico — dominante)
+           --tdf-blanco:  #FFFFFF  (Blanco Antártico)
+           --tdf-gris:    #4A4A4A  (Gris Glaciar — cuerpo de texto)
+           --tdf-celeste: #7EAECE  (Celeste Glaciar — soporte)
+           --tdf-rojo:    #C41E3A  (Rojo Fueguino — CTAs / alertas)
+           --tdf-hielo:   #B8D4E3  (Hielo Patagónico — detalles)
+        */
+
+        #techi-chat-bubble {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #1B3A6B;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(27, 58, 107, 0.28);
+            z-index: 9999;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: none;
         }
-      })(document,"script");
+        #techi-chat-bubble:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(27, 58, 107, 0.35);
+        }
+        #techi-chat-bubble:focus-visible {
+            outline: 2px solid #B8D4E3;
+            outline-offset: 3px;
+        }
+
+        #techi-chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            width: 370px;
+            height: 540px;
+            max-height: 82vh;
+            background: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 18px 48px rgba(27, 58, 107, 0.22);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 9999;
+            font-family: 'Inter', system-ui, sans-serif;
+            color: #4A4A4A;
+            border: 1px solid #B8D4E3;
+        }
+        #techi-chat-window.open { display: flex; }
+
+        .techi-chat-header {
+            background: #1B3A6B;
+            color: #FFFFFF;
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .techi-chat-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            color: #1B3A6B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .techi-chat-title { flex: 1; line-height: 1.15; }
+        .techi-chat-title strong {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: -0.01em;
+        }
+        .techi-chat-title span {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            opacity: 0.85;
+            font-weight: 400;
+        }
+        #techi-chat-close {
+            background: transparent;
+            border: none;
+            color: #FFFFFF;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0 4px;
+            line-height: 1;
+            opacity: 0.9;
+        }
+        #techi-chat-close:hover { opacity: 1; }
+
+        .techi-chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 18px 16px;
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .techi-chat-messages::-webkit-scrollbar { width: 6px; }
+        .techi-chat-messages::-webkit-scrollbar-thumb {
+            background: #B8D4E3;
+            border-radius: 3px;
+        }
+
+        .techi-msg {
+            max-width: 82%;
+            padding: 10px 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14.5px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .techi-msg.bot {
+            background: #FFFFFF;
+            color: #4A4A4A;
+            align-self: flex-start;
+            border: 1px solid #B8D4E3;
+            border-left: 3px solid #1B3A6B;
+            border-radius: 10px;
+            border-top-left-radius: 3px;
+        }
+        .techi-msg.user {
+            background: #1B3A6B;
+            color: #FFFFFF;
+            align-self: flex-end;
+            border-radius: 10px;
+            border-top-right-radius: 3px;
+        }
+        .techi-msg.error {
+            background: #FFFFFF;
+            color: #C41E3A;
+            border: 1px solid #C41E3A;
+            border-left: 3px solid #C41E3A;
+            align-self: flex-start;
+            border-radius: 10px;
+            border-top-left-radius: 3px;
+        }
+
+        .techi-typing {
+            align-self: flex-start;
+            background: #FFFFFF;
+            padding: 12px 14px;
+            border: 1px solid #B8D4E3;
+            border-left: 3px solid #1B3A6B;
+            border-radius: 10px;
+            border-top-left-radius: 3px;
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+        .techi-typing span {
+            width: 6px;
+            height: 6px;
+            background: #7EAECE;
+            border-radius: 50%;
+            animation: techi-bounce 1.2s infinite;
+        }
+        .techi-typing span:nth-child(2) { animation-delay: 0.15s; }
+        .techi-typing span:nth-child(3) { animation-delay: 0.3s; }
+        @keyframes techi-bounce {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.45; }
+            30% { transform: translateY(-4px); opacity: 1; }
+        }
+
+        .techi-chat-input {
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #B8D4E3;
+            padding: 10px 12px;
+            gap: 8px;
+            background: #FFFFFF;
+        }
+        .techi-chat-input input {
+            flex: 1;
+            border: 1px solid #B8D4E3;
+            border-radius: 22px;
+            padding: 9px 14px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            color: #4A4A4A;
+            outline: none;
+            background: #FFFFFF;
+            transition: border-color 0.15s ease;
+        }
+        .techi-chat-input input::placeholder { color: #9aa5ae; }
+        .techi-chat-input input:focus { border-color: #1B3A6B; }
+        .techi-chat-input button {
+            background: #1B3A6B;
+            color: #FFFFFF;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background 0.15s ease;
+        }
+        .techi-chat-input button:hover { background: #142d56; }
+        .techi-chat-input button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .techi-chat-footer {
+            padding: 6px 12px 10px;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: #7EAECE;
+            background: #FFFFFF;
+            letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 480px) {
+            #techi-chat-window {
+                width: 100vw;
+                height: 100vh;
+                bottom: 0;
+                right: 0;
+                max-height: 100vh;
+                border-radius: 0;
+                border: none;
+            }
+        }
+    </style>
+
+    <button id="techi-chat-bubble" aria-label="Abrir chat con Techi AI">
+        <i class="fas fa-snowflake"></i>
+    </button>
+
+    <div id="techi-chat-window" aria-hidden="true" role="dialog" aria-label="Chat con Techi AI">
+        <div class="techi-chat-header">
+            <div class="techi-chat-avatar"><i class="fas fa-snowflake"></i></div>
+            <div class="techi-chat-title">
+                <strong>Techi AI</strong>
+                <span>Tech del Fuego — Del glaciar a la nube</span>
+            </div>
+            <button id="techi-chat-close" aria-label="Cerrar chat">&times;</button>
+        </div>
+        <div class="techi-chat-messages" id="techi-chat-messages"></div>
+        <form class="techi-chat-input" id="techi-chat-form">
+            <input type="text" id="techi-chat-text" placeholder="Escribí tu consulta..." autocomplete="off" required>
+            <button type="submit" aria-label="Enviar mensaje"><i class="fas fa-paper-plane"></i></button>
+        </form>
+        <div class="techi-chat-footer">Respondemos en segundos</div>
+    </div>
+
+    <script>
+        (function () {
+            const INBOX_IDENTIFIER = '2kaHx8qSNd9p9qoUmvAoP26E';
+            const BASE_URL = 'https://app.chatwoot.com';
+            const POLL_INTERVAL_MS = 3000;
+            const STORAGE_KEY = 'techi_chat_session_v1';
+
+            const bubble = document.getElementById('techi-chat-bubble');
+            const windowEl = document.getElementById('techi-chat-window');
+            const closeBtn = document.getElementById('techi-chat-close');
+            const form = document.getElementById('techi-chat-form');
+            const input = document.getElementById('techi-chat-text');
+            const messagesEl = document.getElementById('techi-chat-messages');
+
+            const GREETING = 'Hola, soy el asistente de Tech del Fuego. ¿Qué te trae por acá?\n' +
+                '- Quiero resolver un problema específico en mi empresa\n' +
+                '- Estoy explorando servicios\n' +
+                '- Ya soy cliente y necesito soporte\n' +
+                '- Otro motivo (prensa, alianzas, trabajo)';
+
+            let session = null;
+            try { session = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch (e) { session = null; }
+            let lastMessageId = 0;
+            let pollTimer = null;
+            let typingEl = null;
+            let initializing = null;
+            let historyLoaded = false;
+            let greetingShown = false;
+            // Defensa contra duplicados del polling: IDs ya pintados en pantalla.
+            const renderedIds = new Set();
+
+            function saveSession() {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+            }
+
+            function appendMessage(content, role) {
+                const div = document.createElement('div');
+                const cls = role === 'user' ? 'user' : (role === 'error' ? 'error' : 'bot');
+                div.className = 'techi-msg ' + cls;
+                div.textContent = content;
+                messagesEl.appendChild(div);
+                messagesEl.scrollTop = messagesEl.scrollHeight;
+            }
+
+            function showTyping() {
+                if (typingEl) return;
+                typingEl = document.createElement('div');
+                typingEl.className = 'techi-typing';
+                typingEl.innerHTML = '<span></span><span></span><span></span>';
+                messagesEl.appendChild(typingEl);
+                messagesEl.scrollTop = messagesEl.scrollHeight;
+            }
+            function hideTyping() {
+                if (typingEl) { typingEl.remove(); typingEl = null; }
+            }
+
+            async function apiCreateContact() {
+                const res = await fetch(
+                    BASE_URL + '/public/api/v1/inboxes/' + INBOX_IDENTIFIER + '/contacts',
+                    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' }
+                );
+                if (!res.ok) throw new Error('createContact ' + res.status);
+                return res.json();
+            }
+
+            async function apiCreateConversation(sourceId) {
+                const res = await fetch(
+                    BASE_URL + '/public/api/v1/inboxes/' + INBOX_IDENTIFIER + '/contacts/' + sourceId + '/conversations',
+                    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' }
+                );
+                if (!res.ok) throw new Error('createConversation ' + res.status);
+                return res.json();
+            }
+
+            async function apiSendMessage(text) {
+                const res = await fetch(
+                    BASE_URL + '/public/api/v1/inboxes/' + INBOX_IDENTIFIER +
+                    '/contacts/' + session.sourceId +
+                    '/conversations/' + session.conversationId + '/messages',
+                    {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ content: text, echo_id: String(Date.now()) })
+                    }
+                );
+                if (!res.ok) throw new Error('sendMessage ' + res.status);
+                return res.json();
+            }
+
+            async function apiFetchMessages() {
+                const res = await fetch(
+                    BASE_URL + '/public/api/v1/inboxes/' + INBOX_IDENTIFIER +
+                    '/contacts/' + session.sourceId +
+                    '/conversations/' + session.conversationId + '/messages',
+                    { method: 'GET' }
+                );
+                if (!res.ok) throw new Error('fetchMessages ' + res.status);
+                const data = await res.json();
+                if (Array.isArray(data)) return data;
+                return data.payload || data.data || [];
+            }
+
+            function ensureSession() {
+                if (session && session.sourceId && session.conversationId) return Promise.resolve();
+                if (initializing) return initializing;
+                initializing = (async () => {
+                    const contact = await apiCreateContact();
+                    const src = contact.source_id;
+                    const conv = await apiCreateConversation(src);
+                    session = {
+                        sourceId: src,
+                        conversationId: conv.id,
+                        pubsubToken: contact.pubsub_token || null
+                    };
+                    saveSession();
+                })().finally(() => { initializing = null; });
+                return initializing;
+            }
+
+            async function loadHistory() {
+                if (historyLoaded) return;
+                try {
+                    const msgs = await apiFetchMessages();
+                    msgs.sort((a, b) => a.id - b.id);
+                    for (const m of msgs) {
+                        lastMessageId = Math.max(lastMessageId, m.id);
+                        if (renderedIds.has(m.id)) continue;
+                        if (!m.content) continue;
+                        if (m.message_type === 2 || m.message_type === 'activity') continue;
+                        const role = (m.message_type === 0 || m.message_type === 'incoming') ? 'user' : 'bot';
+                        renderedIds.add(m.id);
+                        appendMessage(m.content, role);
+                    }
+                    historyLoaded = true;
+                } catch (e) {
+                    // si falla, seguimos sin historial
+                }
+            }
+
+            async function pollNewMessages() {
+                if (!session) return;
+                try {
+                    const msgs = await apiFetchMessages();
+                    msgs.sort((a, b) => a.id - b.id);
+                    for (const m of msgs) {
+                        if (m.id <= lastMessageId && renderedIds.has(m.id)) continue;
+                        lastMessageId = Math.max(lastMessageId, m.id);
+                        if (renderedIds.has(m.id)) continue;
+                        if (!m.content) continue;
+                        if (m.message_type === 2 || m.message_type === 'activity') continue;
+                        // Solo renderizamos outgoing (bot); los del usuario ya están en pantalla.
+                        if (m.message_type === 1 || m.message_type === 'outgoing') {
+                            renderedIds.add(m.id);
+                            hideTyping();
+                            appendMessage(m.content, 'bot');
+                        } else {
+                            // Marcar como visto para no reprocesarlo.
+                            renderedIds.add(m.id);
+                        }
+                    }
+                } catch (e) { /* reintento silencioso */ }
+            }
+
+            function startPolling() {
+                if (pollTimer) return;
+                pollTimer = setInterval(pollNewMessages, POLL_INTERVAL_MS);
+            }
+
+            function showGreetingIfNeeded() {
+                // El saludo es puramente local: no se guarda en Chatwoot, así que
+                // lo mostramos siempre que la ventana esté vacía al abrir.
+                if (greetingShown) return;
+                if (messagesEl.children.length > 0) return;
+                appendMessage(GREETING, 'bot');
+                greetingShown = true;
+            }
+
+            async function openChat() {
+                windowEl.classList.add('open');
+                windowEl.setAttribute('aria-hidden', 'false');
+                setTimeout(() => input.focus(), 50);
+
+                // 1. UI lista inmediatamente: saludo local sin esperar a Chatwoot.
+                showGreetingIfNeeded();
+
+                // 2. En background, preparar la sesión y (si corresponde) historial.
+                //    Un fallo acá NO muestra error: el error solo aparece al intentar enviar.
+                const fresh = !session;
+                ensureSession()
+                    .then(() => {
+                        if (!fresh) return loadHistory();
+                    })
+                    .then(() => {
+                        startPolling();
+                    })
+                    .catch((err) => {
+                        console.error('openChat background init failed:', err);
+                    });
+            }
+
+            function closeChat() {
+                windowEl.classList.remove('open');
+                windowEl.setAttribute('aria-hidden', 'true');
+            }
+
+            bubble.addEventListener('click', openChat);
+            closeBtn.addEventListener('click', closeChat);
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const text = input.value.trim();
+                if (!text) return;
+                input.value = '';
+                appendMessage(text, 'user');
+                showTyping();
+                try {
+                    await ensureSession();
+                    const msg = await apiSendMessage(text);
+                    if (msg && msg.id) {
+                        lastMessageId = Math.max(lastMessageId, msg.id);
+                        // Marcamos el mensaje del usuario como ya renderizado para
+                        // que el polling nunca lo vuelva a pintar.
+                        renderedIds.add(msg.id);
+                    }
+                    // Si el polling no arrancó (porque ensureSession falló al abrir),
+                    // arrancalo ahora.
+                    startPolling();
+                } catch (err) {
+                    hideTyping();
+                    appendMessage('No pude enviar tu mensaje. Intentá de nuevo.', 'error');
+                }
+            });
+        })();
     </script>
 </body>
 </html>
