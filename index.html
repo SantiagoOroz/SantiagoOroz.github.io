@@ -813,7 +813,13 @@
                 windowEl.setAttribute('aria-hidden', 'true');
             }
 
-            bubble.addEventListener('click', openChat);
+            bubble.addEventListener('click', () => {
+                if (windowEl.classList.contains('open')) {
+                    closeChat();
+                } else {
+                    openChat();
+                }
+            });
             closeBtn.addEventListener('click', closeChat);
 
             form.addEventListener('submit', async (e) => {
