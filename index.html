@@ -7,7 +7,7 @@
 <meta name="description" content="Ingeniero de IA en Río Grande, Tierra del Fuego. Asistentes con LLM privados, automatización de procesos, modelos predictivos y visión artificial que corren en producción. Ganador nacional del Capstone Samsung Innovation Campus 2025.">
 <meta name="author" content="Santiago Oroz">
 <link rel="canonical" href="https://santiagooroz.github.io/">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
 
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Santiago Oroz — Ingeniero de Inteligencia Artificial">
@@ -192,10 +192,20 @@ ul { margin: 0; padding: 0; list-style: none; }
   margin-inline: auto; padding-inline: var(--gutter);
 }
 .brand {
-  display: flex; align-items: baseline; gap: .55rem;
+  display: flex; align-items: center; gap: .55rem;
   text-decoration: none; font-family: var(--f-display);
   font-weight: 800; letter-spacing: -0.03em; font-size: 1rem; white-space: nowrap;
 }
+/* La marca se pinta por máscara: toma el acento y sirve en ambos temas
+   sin necesidad de una versión clara y otra oscura del archivo. */
+.brand__mark {
+  width: 28px; height: 17px; flex: none;
+  background: var(--signal);
+  -webkit-mask: url(logo.png) center / contain no-repeat;
+  mask: url(logo.png) center / contain no-repeat;
+  transition: background .2s;
+}
+.brand:hover .brand__mark { background: var(--ink); }
 .brand span { color: var(--signal); }
 .brand small { font-family: var(--f-mono); font-size: .625rem; letter-spacing: .12em; color: var(--muted); font-weight: 400; }
 .navlinks { display: none; gap: 1.3rem; margin-left: auto; }
@@ -331,12 +341,14 @@ h1.name em { display: block; font-style: normal; color: var(--signal); }
    MÉTRICAS
    ============================================================ */
 .metrics { border-bottom: 1px solid var(--line-soft); background: var(--surface); }
-.metrics__grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); }
-@media (min-width: 900px) { .metrics__grid { grid-template-columns: repeat(4, minmax(0,1fr)); } }
-.metric { padding: 1.6rem var(--gutter) 1.5rem; border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
-@media (min-width: 900px) { .metric { border-bottom: 0; } }
-.metric:last-child { border-right: 0; }
-@media (max-width: 899px) { .metric:nth-child(2n) { border-right: 0; } }
+.metrics__grid { display: grid; grid-template-columns: 1fr; }
+@media (min-width: 800px) { .metrics__grid { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+.metric { padding: 1.6rem var(--gutter) 1.5rem; border-bottom: 1px solid var(--line-soft); }
+.metric:last-child { border-bottom: 0; }
+@media (min-width: 800px) {
+  .metric { border-bottom: 0; border-right: 1px solid var(--line-soft); }
+  .metric:last-child { border-right: 0; }
+}
 .metric__n {
   font-family: var(--f-display); font-weight: 800;
   font-size: clamp(2.1rem, 4.4vw, 3rem); letter-spacing: -0.045em; line-height: 1;
@@ -511,18 +523,15 @@ h1.name em { display: block; font-style: normal; color: var(--signal); }
 .tl--hi::before { background: var(--signal); border-color: var(--signal); }
 .tl__date { margin-bottom: .25rem; }
 .tl h3 { font-size: 1.0625rem; margin-bottom: .15rem; }
-.tl__org { color: var(--signal); font-size: .875rem; font-weight: 500; margin-bottom: .35rem; }
+.tl__org { color: var(--signal); font-size: .875rem; font-weight: 500; margin-bottom: .35rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+/* Placa clara: los logos institucionales son a color sobre blanco,
+   así que necesitan su propio fondo para leerse en el tema oscuro. */
+.orglogo {
+  width: 24px; height: 24px; flex: none; padding: 2px;
+  background: #fff; border: 1px solid var(--line-soft);
+}
+.orglogo img { width: 100%; height: 100%; object-fit: contain; }
 .tl p { color: var(--ink-2); font-size: .9375rem; font-weight: 300; max-width: var(--measure); line-height: 1.55; }
-
-/* ---------- Reconocimientos ---------- */
-.awards { display: grid; gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); }
-/* dos columnas: los cuatro reconocimientos llenan la grilla exacta, sin huecos */
-@media (min-width: 720px) { .awards { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-.award { background: var(--ground); padding: 1.4rem; display: flex; flex-direction: column; gap: .45rem; }
-.section--tint .award { background: var(--surface); }
-.award__y { color: var(--signal); }
-.award h3 { font-size: 1rem; }
-.award p { color: var(--ink-2); font-size: .875rem; font-weight: 300; line-height: 1.5; }
 
 /* ---------- Sobre / Contacto ---------- */
 .about { display: grid; gap: clamp(2rem, 4vw, 3.5rem); }
@@ -557,8 +566,12 @@ h1.name em { display: block; font-style: normal; color: var(--signal); }
 
 footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep); padding-block: 1.6rem; }
 .foot { display: flex; flex-wrap: wrap; gap: 1rem 1.75rem; align-items: center; justify-content: space-between; }
-.foot__map { width: 32px; height: 44px; flex: none; opacity: .55; }
-.foot__map path { fill: none; stroke: var(--signal); stroke-width: 3; stroke-linejoin: round; }
+.foot__map {
+  width: 46px; height: 28px; flex: none; opacity: .75;
+  background: var(--signal);
+  -webkit-mask: url(logo.png) center / contain no-repeat;
+  mask: url(logo.png) center / contain no-repeat;
+}
 
 /* Entrada al cargar — parte de un estado visible tras la animación */
 @media (prefers-reduced-motion: no-preference) {
@@ -572,7 +585,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
 
 <header class="topbar">
   <div class="topbar__inner">
-    <a class="brand" href="#top">Santiago<span>.</span>Oroz <small>IA / DATOS</small></a>
+    <a class="brand" href="#top"><span class="brand__mark" aria-hidden="true"></span>Santiago<span>.</span>Oroz <small>IA / DATOS</small></a>
     <nav class="navlinks" aria-label="Secciones">
       <a href="#capacidades"><span data-l="es">Capacidades</span><span data-l="en">Capabilities</span></a>
       <a href="#casos"><span data-l="es">Casos</span><span data-l="en">Work</span></a>
@@ -601,7 +614,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
   <canvas id="relieve" aria-hidden="true"></canvas>
   <div class="wrap hero__inner">
     <div class="rise">
-      <div class="coord"><span class="mono">53°47′S&nbsp; 67°42′O — Río Grande, Tierra del Fuego</span></div>
+      <div class="coord"><span class="mono">Río Grande, Tierra del Fuego, Argentina</span></div>
 
       <p class="proof">
         <b>★ <span data-l="es">1er puesto nacional</span><span data-l="en">1st place, national</span></b>
@@ -667,17 +680,10 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       </p>
     </div>
     <div class="metric">
-      <div class="metric__n"><span data-count="400">400</span></div>
+      <div class="metric__n">24/7</div>
       <p class="metric__l">
-        <span data-l="es">Aspirantes, un lugar — Beca Full Stack ITBA 2026<span class="metric__s">Santander Open Academy · Stack MERN</span></span>
-        <span data-l="en">Applicants, one seat — ITBA Full Stack Scholarship 2026<span class="metric__s">Santander Open Academy · MERN stack</span></span>
-      </p>
-    </div>
-    <div class="metric">
-      <div class="metric__n"><span data-count="0">0</span></div>
-      <p class="metric__l">
-        <span data-l="es">Datos que salen de la red del cliente en despliegues on-premise<span class="metric__s">LLM local, inferencia en sitio</span></span>
-        <span data-l="en">Data leaving the client network in on-premise deployments<span class="metric__s">Local LLM, on-site inference</span></span>
+        <span data-l="es">Sistemas desplegados y sostenidos en producción, sin caídas<span class="metric__s">VPS Linux + servicios systemd</span></span>
+        <span data-l="en">Systems deployed and kept running in production, without downtime<span class="metric__s">Linux VPS + systemd services</span></span>
       </p>
     </div>
   </div>
@@ -1107,7 +1113,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
     <div class="shead">
       <span class="mono shead__idx">§03</span>
       <h2><span data-l="es">Stack técnico</span><span data-l="en">Technical stack</span></h2>
-      <span class="mono shead__note"><span data-l="es">Resaltado = uso diario</span><span data-l="en">Highlighted = daily use</span></span>
+      <span class="mono shead__note"><span data-l="es">Todo esto está usado en los casos de arriba</span><span data-l="en">All of it is used in the work above</span></span>
     </div>
 
     <div class="stack">
@@ -1180,7 +1186,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <article class="tl">
         <p class="mono tl__date"><span data-l="es">2026 — Actualidad</span><span data-l="en">2026 — Present</span></p>
         <h3><span data-l="es">Tecnicatura Universitaria en Programación</span><span data-l="en">University Technical Degree in Programming</span></h3>
-        <p class="tl__org">Universidad Tecnológica Nacional (UTN)</p>
+        <p class="tl__org"><span class="orglogo"><img src="org-utn.png" alt="" width="24" height="24" loading="lazy"></span>Universidad Tecnológica Nacional (UTN)</p>
         <p data-l="es">Fundamentos de ingeniería de software en curso, complementando el perfil de datos e IA.</p>
         <p data-l="en">Software engineering fundamentals in progress, complementing the data and AI profile.</p>
       </article>
@@ -1188,7 +1194,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <article class="tl tl--hi">
         <p class="mono tl__date"><span data-l="es">Oct — Dic 2025</span><span data-l="en">Oct — Dec 2025</span></p>
         <h3><span data-l="es">Prácticas profesionalizantes · AI Developer</span><span data-l="en">Professional placement · AI Developer</span></h3>
-        <p class="tl__org">El Dorado SRL</p>
+        <p class="tl__org"><span class="orglogo"><img src="org-eldorado.jpg" alt="" width="24" height="24" loading="lazy"></span>El Dorado SRL</p>
         <p data-l="es">Chatbot RAG con LLM local para consultas técnicas sobre hormigón, con panel de administración, speech-to-text y TTS.</p>
         <p data-l="en">RAG chatbot on a local LLM for technical concrete queries, with an admin panel, speech-to-text and TTS.</p>
       </article>
@@ -1204,7 +1210,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <article class="tl">
         <p class="mono tl__date"><span data-l="es">Ene 2024 — Nov 2025</span><span data-l="en">Jan 2024 — Nov 2025</span></p>
         <h3><span data-l="es">Técnico Superior en Ciencia de Datos e IA</span><span data-l="en">Higher Technician in Data Science and AI</span></h3>
-        <p class="tl__org">Centro Politécnico Superior Malvinas Argentinas</p>
+        <p class="tl__org"><span class="orglogo"><img src="org-politecnico.png" alt="" width="24" height="24" loading="lazy"></span>Centro Politécnico Superior Malvinas Argentinas</p>
         <p data-l="es">Carrera finalizada con promedio destacado y sin desaprobar finales.</p>
         <p data-l="en">Completed with distinction and without failing a single final.</p>
       </article>
@@ -1228,49 +1234,11 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
   </div>
 </section>
 
-<!-- ============ RECONOCIMIENTOS ============ -->
-<section class="section" id="reconocimientos">
-  <div class="wrap">
-    <div class="shead">
-      <span class="mono shead__idx">§05</span>
-      <h2><span data-l="es">Reconocimientos</span><span data-l="en">Recognition</span></h2>
-      <span class="mono shead__note"><span data-l="es">Validación externa</span><span data-l="en">External validation</span></span>
-    </div>
-
-    <div class="awards">
-      <article class="award">
-        <span class="mono award__y">2025 · <span data-l="es">Nacional</span><span data-l="en">National</span></span>
-        <h3><span data-l="es">1er puesto — Capstone Samsung Innovation Campus</span><span data-l="en">1st place — Samsung Innovation Campus Capstone</span></h3>
-        <p data-l="es">Con AIDA, entre +30 equipos y 600 postulantes. Jurado de Samsung, Randstad y Streambe.</p>
-        <p data-l="en">With AIDA, among 30+ teams and 600 applicants. Jury from Samsung, Randstad and Streambe.</p>
-      </article>
-      <article class="award">
-        <span class="mono award__y">2026</span>
-        <h3><span data-l="es">Beca Full Stack Developer ITBA</span><span data-l="en">ITBA Full Stack Developer Scholarship</span></h3>
-        <p data-l="es">Uno de 400 seleccionados por ITBA y Santander Open Academy para la cursada intensiva de MERN.</p>
-        <p data-l="en">One of 400 selected by ITBA and Santander Open Academy for the intensive MERN programme.</p>
-      </article>
-      <article class="award">
-        <span class="mono award__y">2026</span>
-        <h3><span data-l="es">IAthon Fueguina — 1ª edición</span><span data-l="en">Fuegian IAthon — 1st edition</span></h3>
-        <p data-l="es">MVP funcional de OptiVision en 8 horas, en el eje de desarrollo industrial y productivo.</p>
-        <p data-l="en">A working OptiVision MVP in 8 hours, on the industrial and productive development track.</p>
-      </article>
-      <article class="award">
-        <span class="mono award__y">2025</span>
-        <h3><span data-l="es">Certificaciones Junior Achievement</span><span data-l="en">Junior Achievement certifications</span></h3>
-        <p data-l="es">Economía Personal y Finanzas Personales. Gestión de recursos y lectura de negocio.</p>
-        <p data-l="en">Personal Economics and Personal Finance. Resource management and business literacy.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
 <!-- ============ SOBRE ============ -->
 <section class="section section--tint" id="sobre">
   <div class="wrap">
     <div class="shead">
-      <span class="mono shead__idx">§06</span>
+      <span class="mono shead__idx">§05</span>
       <h2><span data-l="es">Sobre mí</span><span data-l="en">About</span></h2>
       <span class="mono shead__note"><span data-l="es">Cómo trabajo</span><span data-l="en">How I work</span></span>
     </div>
@@ -1350,11 +1318,9 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
 
 <footer>
   <div class="wrap foot">
-    <svg class="foot__map" viewBox="0 0 60 82" role="img" aria-label="Isla Grande de Tierra del Fuego">
-      <path d="M8 4 L52 10 L50 26 L40 34 L44 48 L34 62 L22 72 L10 76 L4 64 L12 50 L6 36 L14 22 Z"/>
-    </svg>
+    <span class="foot__map" role="img" aria-label="Marca de Santiago Oroz"></span>
     <p class="mono">Santiago Oroz — <span data-l="es">Ingeniero de IA · Río Grande, Tierra del Fuego, Argentina</span><span data-l="en">AI Engineer · Río Grande, Tierra del Fuego, Argentina</span></p>
-    <p class="mono"><span data-l="es">Sitio propio · Sin dependencias</span><span data-l="en">Hand-built · No dependencies</span> · 53°47′S</p>
+    <p class="mono"><span data-l="es">Sitio propio · Sin dependencias</span><span data-l="en">Hand-built · No dependencies</span></p>
   </div>
 </footer>
 
