@@ -526,11 +526,14 @@ h1.name em { display: block; font-style: normal; color: var(--signal); }
 .tl__org { color: var(--signal); font-size: .875rem; font-weight: 500; margin-bottom: .35rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
 /* Placa clara: los logos institucionales son a color sobre blanco,
    así que necesitan su propio fondo para leerse en el tema oscuro. */
+/* Alto fijo y ancho automático: acepta tanto marcas cuadradas
+   como lockups horizontales sin achicar ninguna. */
 .orglogo {
-  width: 24px; height: 24px; flex: none; padding: 2px;
+  height: 26px; flex: none; padding: 3px 5px;
   background: #fff; border: 1px solid var(--line-soft);
+  display: inline-flex; align-items: center;
 }
-.orglogo img { width: 100%; height: 100%; object-fit: contain; }
+.orglogo img { height: 100%; width: auto; max-width: 120px; object-fit: contain; }
 .tl p { color: var(--ink-2); font-size: .9375rem; font-weight: 300; max-width: var(--measure); line-height: 1.55; }
 
 /* ---------- Sobre / Contacto ---------- */
@@ -1178,7 +1181,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <article class="tl tl--hi">
         <p class="mono tl__date">2026</p>
         <h3><span data-l="es">Beca Full Stack Developer ITBA</span><span data-l="en">ITBA Full Stack Developer Scholarship</span></h3>
-        <p class="tl__org">ITBA · Santander Open Academy</p>
+        <p class="tl__org"><span class="orglogo"><img src="org-itba.png" alt="ITBA Educación Ejecutiva" width="289" height="64" loading="lazy"></span>Santander Open Academy</p>
         <p data-l="es">Uno de 400 seleccionados. Diecisiete semanas intensivas de stack MERN, para escalar e integrar de forma más robusta los modelos y agentes que ya venía construyendo.</p>
         <p data-l="en">One of 400 selected. Seventeen intensive weeks on the MERN stack, to scale and integrate the models and agents I was already building.</p>
       </article>
