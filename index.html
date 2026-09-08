@@ -156,7 +156,9 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-img { max-width: 100%; display: block; }
+/* height:auto es imprescindible: sin él, el atributo height del HTML
+   le gana al aspect-ratio y la imagen se estira a su alto intrínseco. */
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 700; line-height: 1.03; margin: 0; text-wrap: balance; letter-spacing: -0.028em; }
 p { margin: 0; }
@@ -254,34 +256,47 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero__inner {
   position: relative;
   display: grid; grid-template-columns: 1fr;
-  gap: clamp(2.5rem, 5vw, 4rem);
-  padding-block: clamp(2.75rem, 6vw, 5rem) clamp(2.75rem, 5vw, 4rem);
+  gap: clamp(1.75rem, 3.5vw, 2.75rem);
+  padding-block: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 2.75vw, 2.25rem);
 }
-@media (min-width: 980px) { .hero__inner { grid-template-columns: minmax(0,1.6fr) minmax(0,.85fr); align-items: start; } }
+@media (min-width: 980px) { .hero__inner { grid-template-columns: minmax(0,1.8fr) minmax(0,.68fr); align-items: center; } }
 
-.coord { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.4rem; flex-wrap: wrap; }
+.coord { display: flex; align-items: center; gap: .75rem; margin-bottom: .9rem; flex-wrap: wrap; }
 .coord::before { content: ""; width: 26px; height: 1px; background: var(--signal); flex: none; }
 .coord .mono { color: var(--ink-2); }
 
+/* Credencial principal, visible en la primera pantalla */
+.proof {
+  display: inline-flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+  border: 1px solid var(--signal); padding: .4rem .68rem; margin-bottom: 1.15rem;
+  background: color-mix(in srgb, var(--signal) 13%, transparent);
+}
+.proof b, .proof span {
+  font-family: var(--f-mono); font-size: .6875rem;
+  letter-spacing: .1em; text-transform: uppercase; font-weight: 500;
+}
+.proof b { color: var(--signal); }
+.proof span { color: var(--ink-2); font-weight: 400; }
+
 h1.name {
-  font-size: clamp(3rem, 11vw, 7.2rem);
-  font-weight: 800; letter-spacing: -0.045em; line-height: .88;
-  margin-bottom: 1.35rem;
+  font-size: clamp(2.5rem, 7vw, 4.9rem);
+  font-weight: 800; letter-spacing: -0.045em; line-height: .9;
+  margin-bottom: .95rem;
 }
 h1.name em { display: block; font-style: normal; color: var(--signal); }
 .thesis {
   font-family: var(--f-display); font-weight: 500;
-  font-size: clamp(1.15rem, 2.4vw, 1.65rem); line-height: 1.28;
-  letter-spacing: -0.02em; max-width: 24ch; margin-bottom: 1.2rem;
+  font-size: clamp(1.05rem, 1.85vw, 1.3rem); line-height: 1.3;
+  letter-spacing: -0.02em; max-width: 30ch; margin-bottom: .9rem;
 }
 .thesis b { font-weight: 700; color: var(--signal); }
-.lede { color: var(--ink-2); max-width: 50ch; font-size: 1rem; font-weight: 300; line-height: 1.68; margin-bottom: 1.75rem; }
+.lede { color: var(--ink-2); max-width: 56ch; font-size: .9375rem; font-weight: 300; line-height: 1.62; margin-bottom: 1.35rem; }
 .lede strong { font-weight: 600; color: var(--ink); }
 .hero__cta { display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; }
 .availability {
   display: inline-flex; align-items: center; gap: .55rem;
   font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--ink-2); margin-top: 1.4rem;
+  text-transform: uppercase; color: var(--ink-2); margin-top: 1.1rem;
 }
 .pulse { width: 7px; height: 7px; background: var(--glacier); border-radius: 50%; flex: none; animation: pulse 2.6s ease-out infinite; }
 @keyframes pulse {
@@ -290,8 +305,8 @@ h1.name em { display: block; font-style: normal; color: var(--signal); }
   100% { box-shadow: 0 0 0 0 transparent; }
 }
 
-.portrait { position: relative; max-width: 330px; width: 100%; }
-@media (min-width: 980px) { .portrait { margin-left: auto; max-width: 100%; } }
+.portrait { position: relative; max-width: 290px; width: 100%; }
+@media (min-width: 980px) { .portrait { margin-left: auto; max-width: 285px; } }
 .portrait__frame { position: relative; border: 1px solid var(--line); padding: 10px; background: var(--surface); }
 .portrait__img { position: relative; overflow: hidden; background: var(--ground-deep); }
 .portrait__img img {
@@ -463,7 +478,7 @@ h1.name em { display: block; font-style: normal; color: var(--signal); }
 .outcome span { font-size: .875rem; color: var(--ink-2); font-weight: 300; line-height: 1.5; }
 .chips { display: flex; flex-wrap: wrap; gap: .32rem; margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid var(--line-soft); }
 .chip { font-family: var(--f-mono); font-size: .625rem; color: var(--muted); border: 1px solid var(--line-soft); padding: .2rem .42rem; white-space: nowrap; }
-.case__shot { margin-top: 1.1rem; border: 1px solid var(--line-soft); }
+.case__shot { margin-top: 1.1rem; border: 1px solid var(--line-soft); max-width: 440px; }
 .case__shot img { width: 100%; }
 .case__shot figcaption { padding: .5rem .65rem; border-top: 1px solid var(--line-soft); background: var(--surface-2); }
 
@@ -501,8 +516,8 @@ h1.name em { display: block; font-style: normal; color: var(--signal); }
 
 /* ---------- Reconocimientos ---------- */
 .awards { display: grid; gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); }
+/* dos columnas: los cuatro reconocimientos llenan la grilla exacta, sin huecos */
 @media (min-width: 720px) { .awards { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-@media (min-width: 1060px) { .awards { grid-template-columns: repeat(3, minmax(0,1fr)); } }
 .award { background: var(--ground); padding: 1.4rem; display: flex; flex-direction: column; gap: .45rem; }
 .section--tint .award { background: var(--surface); }
 .award__y { color: var(--signal); }
@@ -587,6 +602,11 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
   <div class="wrap hero__inner">
     <div class="rise">
       <div class="coord"><span class="mono">53°47′S&nbsp; 67°42′O — Río Grande, Tierra del Fuego</span></div>
+
+      <p class="proof">
+        <b>★ <span data-l="es">1er puesto nacional</span><span data-l="en">1st place, national</span></b>
+        <span>Samsung Innovation Campus 2025</span>
+      </p>
 
       <h1 class="name">Santiago<em>Oroz</em></h1>
 
@@ -726,14 +746,14 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
 
 <!-- ============ BANDA — CHARLA SIC 2026 ============ -->
 <section class="band" aria-label="Santiago Oroz presentando en el Samsung Innovation Campus">
-  <img src="santiago-oroz-charla.jpg" alt="Santiago Oroz hablando con micrófono ante el público en la inauguración del Samsung Innovation Campus 2026, con su nombre proyectado en pantalla" width="1600" height="1066" loading="lazy">
+  <img src="santiago-oroz-charla.jpg" alt="Santiago Oroz hablando con micrófono ante el público en un evento del Samsung Innovation Campus, con su nombre proyectado en pantalla" width="1600" height="1066" loading="lazy">
   <span class="band__marks" aria-hidden="true"><i></i><i></i><i></i></span>
   <div class="wrap band__inner">
-    <span class="mono band__eyebrow">Samsung Innovation Campus · <span data-l="es">Inauguración SIC 2026</span><span data-l="en">SIC 2026 opening</span></span>
-    <p class="band__quote" data-l="es">Volví como orador un año después de ganar.</p>
-    <p class="band__quote" data-l="en">I came back as a speaker a year after winning.</p>
-    <span class="mono band__sub" data-l="es">Presentando AIDA ante la camada entrante, junto a Milagros Argañin y Renata Berho</span>
-    <span class="mono band__sub" data-l="en">Presenting AIDA to the incoming cohort, with Milagros Argañin and Renata Berho</span>
+    <span class="mono band__eyebrow">Samsung Innovation Campus · Big Data &amp; AI</span>
+    <p class="band__quote" data-l="es">1er puesto nacional entre más de 30 equipos.</p>
+    <p class="band__quote" data-l="en">1st place nationally among more than 30 teams.</p>
+    <span class="mono band__sub" data-l="es">Con AIDA, ante un jurado de Samsung, Randstad y Streambe — 600 postulantes iniciales</span>
+    <span class="mono band__sub" data-l="en">With AIDA, before a jury from Samsung, Randstad and Streambe — 600 initial applicants</span>
   </div>
 </section>
 
@@ -782,8 +802,8 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
           <div class="outcome">
             <b data-l="es">Primer puesto entre más de 30 equipos</b>
             <b data-l="en">First place among 30+ teams</b>
-            <span data-l="es">Jurado de Samsung, Randstad y Streambe. Un año después fuimos invitados de vuelta como oradores en la inauguración del SIC 2026.</span>
-            <span data-l="en">Jury from Samsung, Randstad and Streambe. A year later we were invited back as speakers at the SIC 2026 opening.</span>
+            <span data-l="es">Jurado de Samsung, Randstad y Streambe, sobre 600 postulantes iniciales. El premio fue un Galaxy S24.</span>
+            <span data-l="en">Jury from Samsung, Randstad and Streambe, out of 600 initial applicants. The prize was a Galaxy S24.</span>
           </div>
           <div class="chips"><span class="chip">Python</span><span class="chip">Computer Vision</span><span class="chip">pysentimiento</span><span class="chip">Telegram API</span><span class="chip">VPS Linux</span><span class="chip">systemd</span><span class="chip">POO</span></div>
         </div>
@@ -793,7 +813,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <details class="case">
         <summary>
           <div class="case__meta">
-            <span class="tag tag--live"><span data-l="es">En producción</span><span data-l="en">In production</span></span>
+            <span class="tag"><span data-l="es">Entregado</span><span data-l="en">Delivered</span></span>
             <span class="tag">El Dorado SRL · 2025</span>
           </div>
           <h3><span data-l="es">Chatbot técnico con LLM local</span><span data-l="en">Technical chatbot on a local LLM</span></h3>
@@ -1177,8 +1197,8 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
         <p class="mono tl__date"><span data-l="es">Jun — Dic 2025</span><span data-l="en">Jun — Dec 2025</span></p>
         <h3>Samsung Innovation Campus — Big Data &amp; AI</h3>
         <p class="tl__org">Samsung Electronics Argentina</p>
-        <p data-l="es">140 horas de formación intensiva más Capstone Project. <strong>Primer puesto nacional</strong> con AIDA. Invitado como orador a la inauguración de la edición 2026.</p>
-        <p data-l="en">140 hours of intensive training plus the Capstone Project. <strong>First place nationally</strong> with AIDA. Invited back as a speaker at the 2026 opening.</p>
+        <p data-l="es">140 horas de formación intensiva más Capstone Project. <strong>Primer puesto nacional</strong> con AIDA, entre más de 30 equipos.</p>
+        <p data-l="en">140 hours of intensive training plus the Capstone Project. <strong>First place nationally</strong> with AIDA, among more than 30 teams.</p>
       </article>
 
       <article class="tl">
@@ -1232,12 +1252,6 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       </article>
       <article class="award">
         <span class="mono award__y">2026</span>
-        <h3><span data-l="es">Orador invitado — SIC 2026</span><span data-l="en">Invited speaker — SIC 2026</span></h3>
-        <p data-l="es">Convocado por Samsung para presentar AIDA en la inauguración de la nueva edición.</p>
-        <p data-l="en">Invited by Samsung to present AIDA at the opening of the new edition.</p>
-      </article>
-      <article class="award">
-        <span class="mono award__y">2026</span>
         <h3><span data-l="es">IAthon Fueguina — 1ª edición</span><span data-l="en">Fuegian IAthon — 1st edition</span></h3>
         <p data-l="es">MVP funcional de OptiVision en 8 horas, en el eje de desarrollo industrial y productivo.</p>
         <p data-l="en">A working OptiVision MVP in 8 hours, on the industrial and productive development track.</p>
@@ -1247,12 +1261,6 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
         <h3><span data-l="es">Certificaciones Junior Achievement</span><span data-l="en">Junior Achievement certifications</span></h3>
         <p data-l="es">Economía Personal y Finanzas Personales. Gestión de recursos y lectura de negocio.</p>
         <p data-l="en">Personal Economics and Personal Finance. Resource management and business literacy.</p>
-      </article>
-      <article class="award">
-        <span class="mono award__y"><span data-l="es">Secundaria</span><span data-l="en">Secondary</span></span>
-        <h3><span data-l="es">Mejor compañero</span><span data-l="en">Best classmate</span></h3>
-        <p data-l="es">Elegido por su curso. Lideró proyectos de aprendizaje en servicio dando apoyo escolar en barrios vulnerables.</p>
-        <p data-l="en">Chosen by his class. Led service-learning projects tutoring children in vulnerable neighbourhoods.</p>
       </article>
     </div>
   </div>
