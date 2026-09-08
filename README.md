@@ -20,11 +20,17 @@ salvo las tipografías de Google Fonts. Se publica solo con hacer push a `main`.
 | Archivo | Qué es |
 |---|---|
 | `index.html` | El sitio completo: estructura, estilos y scripts |
-| `favicon.svg` | Contorno de la Isla Grande de Tierra del Fuego |
+| `logo.png` | Marca personal (montañas y llama). Se pinta con máscara CSS, así toma el color de acento y sirve en ambos temas |
+| `favicon.png` | La misma marca, ya coloreada, para la pestaña |
+| `logomejore*.png` | Archivos fuente originales de la marca |
 | `santiago-oroz.jpg` | Retrato del hero (880×1100) |
-| `santiago-oroz-charla.jpg` | Banda a todo el ancho — charla en el SIC 2026 |
+| `santiago-oroz-charla.jpg` | Banda a todo el ancho — presentando en el Samsung Innovation Campus |
 | `powerbiinteractivo.png` | Tablero de Power BI entregado a Newsan |
+| `org-*.png` · `org-*.jpg` | Logos de UTN, Centro Politécnico y El Dorado SRL, en la trayectoria |
 | `CV-Santiago-Oroz-ES.pdf` · `CV-Santiago-Oroz-EN.pdf` | CV descargable, según el idioma activo |
+
+> Los nombres de archivo se mantienen en ASCII a propósito: un acento en el nombre
+> obliga a codificar la URL y se rompe fácil al servirlo.
 
 ### Detalles de implementación
 
