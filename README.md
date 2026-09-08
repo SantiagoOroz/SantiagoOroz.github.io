@@ -54,10 +54,26 @@ No necesita servidor: abrí `index.html` en el navegador. Para probarlo servido:
 python -m http.server 8000
 ```
 
-## Pendiente
+## El currículum
 
-Los dos PDFs del CV son de diciembre de 2025: no incluyen Tech del Fuego, la beca del
-ITBA ni la IAthon. Conviene regenerarlos.
+`cv-es.html` y `cv-en.html` son la **fuente** del CV. Los PDFs se generan desde ahí,
+así que para actualizarlo se edita el HTML y se vuelve a exportar:
+
+```bash
+chrome --headless=new --no-pdf-header-footer --virtual-time-budget=15000 --print-to-pdf="CV-Santiago-Oroz-ES.pdf" "cv-es.html"
+```
+
+(en Windows, `chrome` es `C:\Program Files\Google\Chrome\Application\chrome.exe`, y
+`--print-to-pdf` necesita una ruta absoluta de salida).
+
+Está pensado para pasar filtros automáticos de selección: una sola columna de
+contenido, encabezados estándar (Experiencia, Proyectos, Habilidades, Educación),
+texto real y seleccionable, y sin datos encerrados en imágenes.
+
+Dos detalles que rompen el parseo y acá están evitados a propósito: **el nombre no
+lleva `<br>`** — los extractores leerían "SantiagoOroz" y una búsqueda por el nombre
+no daría resultado — y **no usa `text-transform: uppercase`**, porque las mayúsculas
+por CSS quedan grabadas así en el texto del PDF.
 
 ## Licencia
 

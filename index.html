@@ -490,6 +490,21 @@ h1.name em { display: block; font-style: normal; color: var(--signal); }
 .outcome span { font-size: .875rem; color: var(--ink-2); font-weight: 300; line-height: 1.5; }
 .chips { display: flex; flex-wrap: wrap; gap: .32rem; margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid var(--line-soft); }
 .chip { font-family: var(--f-mono); font-size: .625rem; color: var(--muted); border: 1px solid var(--line-soft); padding: .2rem .42rem; white-space: nowrap; }
+/* Enlaces salientes de un caso */
+.case__links { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.1rem; }
+.caselink {
+  display: inline-flex; align-items: center; gap: .45rem;
+  font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .08em;
+  text-transform: uppercase; text-decoration: none;
+  border: 1px solid var(--line); color: var(--ink-2);
+  padding: .42rem .62rem; transition: border-color .2s, color .2s;
+}
+.caselink:hover { border-color: var(--signal); color: var(--signal); }
+.caselink svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 1.8; flex: none; }
+/* Enlace en el nombre de la organización, dentro de la trayectoria */
+.tl__org a { color: inherit; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--signal) 45%, transparent); transition: border-color .2s; }
+.tl__org a:hover { border-bottom-color: var(--signal); }
+
 .case__shot { margin-top: 1.1rem; border: 1px solid var(--line-soft); max-width: 440px; }
 .case__shot img { width: 100%; }
 .case__shot figcaption { padding: .5rem .65rem; border-top: 1px solid var(--line-soft); background: var(--surface-2); }
@@ -824,6 +839,16 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
             <span data-l="en">Jury from Samsung, Randstad and Streambe, out of 600 initial applicants. The prize was a Galaxy S24.</span>
           </div>
           <div class="chips"><span class="chip">Python</span><span class="chip">Computer Vision</span><span class="chip">pysentimiento</span><span class="chip">Telegram API</span><span class="chip">VPS Linux</span><span class="chip">systemd</span><span class="chip">POO</span></div>
+          <div class="case__links">
+            <a class="caselink" href="https://aida-chatbot.github.io/WebAIDA/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              <span data-l="es">Sitio de AIDA</span><span data-l="en">AIDA website</span>
+            </a>
+            <a class="caselink" href="https://youtu.be/Sl-CFzgz-u0" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              <span data-l="es">Video de presentación</span><span data-l="en">Demo video</span>
+            </a>
+          </div>
         </div>
       </details>
 
@@ -875,7 +900,10 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
             <span class="tag">IBM watsonx · 2026</span>
             <span class="tag">Agentic AI</span>
           </div>
-          <h3><span data-l="es">AXIS — agentes con evidencia obligatoria</span><span data-l="en">AXIS — agents with mandatory evidence</span></h3>
+          <div class="case__brand">
+            <span class="orglogo"><img src="org-ibm.svg" alt="IBM" width="1075" height="401" loading="lazy"></span>
+            <h3><span data-l="es">AXIS — agentes con evidencia obligatoria</span><span data-l="en">AXIS — agents with mandatory evidence</span></h3>
+          </div>
           <p class="case__hook" data-l="es">Micro-agentes que conectan contratos legales estáticos con la operación diaria, diseñados para que ninguna decisión pueda ser una alucinación.</p>
           <p class="case__hook" data-l="en">Micro-agents connecting static legal contracts to daily operations, designed so no decision can be a hallucination.</p>
           <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
@@ -1032,6 +1060,17 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
             <span data-l="en">Client discovery, development, deployment and ongoing support.</span>
           </div>
           <div class="chips"><span class="chip">LLMs privados</span><span class="chip">WhatsApp API</span><span class="chip">Make</span><span class="chip">Power BI</span><span class="chip">Linux VPS</span><span class="chip">OCR</span></div>
+          <div class="case__links">
+            <a class="caselink" href="https://techdelfuego.com" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>techdelfuego.com
+            </a>
+            <a class="caselink" href="https://finanzas.techdelfuego.com" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>CumbreBot
+            </a>
+            <a class="caselink" href="https://www.linkedin.com/company/techdelfuego" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>LinkedIn
+            </a>
+          </div>
         </div>
       </details>
 
@@ -1182,7 +1221,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <article class="tl tl--hi">
         <p class="mono tl__date"><span data-l="es">Abr 2026 — Actualidad</span><span data-l="en">Apr 2026 — Present</span></p>
         <h3><span data-l="es">Ingeniero de Inteligencia Artificial</span><span data-l="en">Artificial Intelligence Engineer</span></h3>
-        <p class="tl__org">Tech del Fuego · Río Grande</p>
+        <p class="tl__org"><a href="https://techdelfuego.com" target="_blank" rel="noopener">Tech del Fuego</a> · Río Grande</p>
         <p data-l="es">Equipo inicial de una firma de ciberseguridad, IA y datos. Automatización de procesos, LLMs privados integrados a CRM y auditoría de seguridad de modelos.</p>
         <p data-l="en">Founding team of a cybersecurity, AI and data firm. Process automation, private LLMs wired into CRMs, and model security auditing.</p>
       </article>
@@ -1190,7 +1229,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <article class="tl tl--hi">
         <p class="mono tl__date">2026</p>
         <h3><span data-l="es">Beca Full Stack Developer ITBA</span><span data-l="en">ITBA Full Stack Developer Scholarship</span></h3>
-        <p class="tl__org"><span class="orglogo"><img src="org-itba.png" alt="ITBA Educación Ejecutiva" width="289" height="64" loading="lazy"></span>Santander Open Academy</p>
+        <p class="tl__org"><span class="orglogo"><img src="org-itba.png" alt="ITBA Educación Ejecutiva" width="289" height="64" loading="lazy"></span><a href="https://www.linkedin.com/feed/update/urn:li:activity:7490723294686601216/" target="_blank" rel="noopener">Santander Open Academy</a></p>
         <p data-l="es">Uno de 400 seleccionados. Diecisiete semanas intensivas de stack MERN, para escalar e integrar de forma más robusta los modelos y agentes que ya venía construyendo.</p>
         <p data-l="en">One of 400 selected. Seventeen intensive weeks on the MERN stack, to scale and integrate the models and agents I was already building.</p>
       </article>
@@ -1214,7 +1253,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <article class="tl tl--hi">
         <p class="mono tl__date"><span data-l="es">Jun — Dic 2025</span><span data-l="en">Jun — Dec 2025</span></p>
         <h3>Samsung Innovation Campus — Big Data &amp; AI</h3>
-        <p class="tl__org">Samsung Electronics Argentina</p>
+        <p class="tl__org"><span class="orglogo"><img src="org-samsung.svg" alt="Samsung" width="705" height="108" loading="lazy"></span>Electronics Argentina</p>
         <p data-l="es">140 horas de formación intensiva más Capstone Project. <strong>Primer puesto nacional</strong> con AIDA, entre más de 30 equipos.</p>
         <p data-l="en">140 hours of intensive training plus the Capstone Project. <strong>First place nationally</strong> with AIDA, among more than 30 teams.</p>
       </article>
