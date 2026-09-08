@@ -1,853 +1,1581 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santiago Oroz - Portfolio</title>
-    <link rel="icon" href="portfolio_office_business_suitcase.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #2d3436;
-            --accent-color: #0984e3;
-            --text-color: #2d3436;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Santiago Oroz — Ingeniero de Inteligencia Artificial</title>
+<meta name="description" content="Ingeniero de IA en Río Grande, Tierra del Fuego. Asistentes con LLM privados, automatización de procesos, modelos predictivos y visión artificial que corren en producción. Ganador nacional del Capstone Samsung Innovation Campus 2025.">
+<meta name="author" content="Santiago Oroz">
+<link rel="canonical" href="https://santiagooroz.github.io/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-            word-wrap: break-word;
-        }
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Santiago Oroz — Ingeniero de Inteligencia Artificial">
+<meta property="og:description" content="LLMs privados, RAG, visión artificial y analítica predictiva que corren en producción. Ganador nacional del Capstone Samsung Innovation Campus 2025.">
+<meta property="og:url" content="https://santiagooroz.github.io/">
+<meta property="og:image" content="https://santiagooroz.github.io/santiago-oroz.jpg">
+<meta property="og:locale" content="es_AR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
 
-        body {
-            line-height: 1.6;
-            color: var(--text-color);
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Public+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        .nombre {
-            font-size: 5em;
-            position: relative;
-            transition: all 0.3s ease;
-            color:#0984e3;
-        }
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Santiago Oroz",
+  "jobTitle": "Ingeniero de Inteligencia Artificial",
+  "birthDate": "2005-10-15",
+  "url": "https://santiagooroz.github.io/",
+  "image": "https://santiagooroz.github.io/santiago-oroz.jpg",
+  "email": "mailto:Santiago.Oroz1510@gmail.com",
+  "telephone": "+5492964543015",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Río Grande",
+    "addressRegion": "Tierra del Fuego",
+    "addressCountry": "AR"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/santiago-oroz/",
+    "https://github.com/SantiagoOroz"
+  ],
+  "worksFor": { "@type": "Organization", "name": "Tech del Fuego", "url": "https://techdelfuego.com" },
+  "alumniOf": [
+    { "@type": "EducationalOrganization", "name": "Centro Politécnico Superior Malvinas Argentinas" },
+    { "@type": "EducationalOrganization", "name": "Samsung Innovation Campus" },
+    { "@type": "EducationalOrganization", "name": "Instituto Tecnológico de Buenos Aires (ITBA)" },
+    { "@type": "EducationalOrganization", "name": "Universidad Tecnológica Nacional" }
+  ],
+  "knowsAbout": ["Retrieval-Augmented Generation","Large Language Models","Computer Vision","Machine Learning","Python","Power BI","Automatización de procesos","MLOps"],
+  "knowsLanguage": ["es","en"]
+}
+</script>
 
-        .bajonombre { 
-            color: #0984e3; 
-            font-weight: bold; 
-            position: relative; 
-            display: inline-block; /* Asegura que el pseudo-elemento se ajuste solo al texto */
-            padding-left: 2%;
-            padding-right: 2%;
-            z-index: 1;
-        }
+<style>
+/* ============================================================
+   TOKENS — carta de relevamiento subantártica
+   ============================================================ */
+:root {
+  --ground:      #0A1317;
+  --ground-deep: #060D10;
+  --surface:     #0F1E23;
+  --surface-2:   #14272D;
+  --line:        #1C373F;
+  --line-soft:   #142A31;
+  --ink:         #E7EDEB;
+  --ink-2:       #B4C4C6;
+  --muted:       #7B9198;
+  --signal:      #E4623F;
+  --signal-dim:  #9E3D24;
+  --glacier:     #62B6BC;
+  --on-signal:   #0A1317;
 
-        .bajonombre::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0; /* Puedes ajustar según necesites */
-            width: 100%;
-            height: 100%; /* Grosor del subrayado */
-            background: rgba(255, 255, 255, 0.5); /* Blanco con transparencia */
-            border-radius: 5px;
-            z-index: -1; /* Coloca el subrayado detrás del texto */
-        }
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-body:    "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --f-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
+  --gutter: clamp(1.25rem, 4vw, 4.5rem);
+  --maxw: 1240px;
+  --measure: 62ch;
+}
 
-        .language-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            cursor: pointer;
-            padding: 8px 15px;
-            border: 2px solid var(--accent-color);
-            border-radius: 25px;
-            background-color: var(--accent-color);
-            color: white;
-            font-weight: bold;
-            transition: all 0.3s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            z-index: 1000;
-        }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --ground:      #E9ECEA;
+    --ground-deep: #DCE2DF;
+    --surface:     #F3F5F3;
+    --surface-2:   #FFFFFF;
+    --line:        #BFCAC7;
+    --line-soft:   #D5DEDA;
+    --ink:         #0B1A1F;
+    --ink-2:       #2A444C;
+    --muted:       #5B7078;
+    --signal:      #B8452A;
+    --signal-dim:  #D98166;
+    --glacier:     #1B6F76;
+    --on-signal:   #FFF6F3;
+  }
+}
+:root[data-theme="light"] {
+  --ground:      #E9ECEA;
+  --ground-deep: #DCE2DF;
+  --surface:     #F3F5F3;
+  --surface-2:   #FFFFFF;
+  --line:        #BFCAC7;
+  --line-soft:   #D5DEDA;
+  --ink:         #0B1A1F;
+  --ink-2:       #2A444C;
+  --muted:       #5B7078;
+  --signal:      #B8452A;
+  --signal-dim:  #D98166;
+  --glacier:     #1B6F76;
+  --on-signal:   #FFF6F3;
+}
+:root[data-theme="dark"] {
+  --ground:      #0A1317;
+  --ground-deep: #060D10;
+  --surface:     #0F1E23;
+  --surface-2:   #14272D;
+  --line:        #1C373F;
+  --line-soft:   #142A31;
+  --ink:         #E7EDEB;
+  --ink-2:       #B4C4C6;
+  --muted:       #7B9198;
+  --signal:      #E4623F;
+  --signal-dim:  #9E3D24;
+  --glacier:     #62B6BC;
+  --on-signal:   #0A1317;
+}
 
-        .language-toggle:hover {
-            background-color: white;
-            color: var(--accent-color);
-        }
+/* ============================================================
+   IDIOMA — se muestra un solo juego de textos
+   ============================================================ */
+html[lang="es"] [data-l="en"] { display: none; }
+html[lang="en"] [data-l="es"] { display: none; }
 
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(45deg, #f6f6f6, #ffffff);
-            background-image: url(Hero1sineditar.jpg);
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
+/* ============================================================
+   BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 700; line-height: 1.03; margin: 0; text-wrap: balance; letter-spacing: -0.028em; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
 
-        .section {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+.wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
 
-        .timeline-item {
-            display: flex;
-            margin: 30px 0;
-            padding: 20px;
-            border-left: 3px solid var(--accent-color);
-            transition: transform 0.3s;
-        }
+.mono {
+  font-family: var(--f-mono);
+  font-size: .6875rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
 
-        .timeline-item:hover {
-            transform: translateX(10px);
-        }
+/* ============================================================
+   BARRA SUPERIOR
+   ============================================================ */
+.topbar {
+  position: sticky; top: 0; z-index: 60;
+  background: color-mix(in srgb, var(--ground) 90%, transparent);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line-soft);
+}
+.topbar__inner {
+  position: relative;
+  display: flex; align-items: center; gap: 1.25rem;
+  height: 58px; width: 100%; max-width: var(--maxw);
+  margin-inline: auto; padding-inline: var(--gutter);
+}
+.brand {
+  display: flex; align-items: baseline; gap: .55rem;
+  text-decoration: none; font-family: var(--f-display);
+  font-weight: 800; letter-spacing: -0.03em; font-size: 1rem; white-space: nowrap;
+}
+.brand span { color: var(--signal); }
+.brand small { font-family: var(--f-mono); font-size: .625rem; letter-spacing: .12em; color: var(--muted); font-weight: 400; }
+.navlinks { display: none; gap: 1.3rem; margin-left: auto; }
+@media (min-width: 960px) { .navlinks { display: flex; } }
+.navlinks a {
+  font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted); text-decoration: none;
+  padding: .35rem 0; border-bottom: 1px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.navlinks a:hover, .navlinks a.is-active { color: var(--ink); border-bottom-color: var(--signal); }
+.topbar__actions { display: flex; align-items: center; gap: .45rem; margin-left: auto; }
+@media (min-width: 960px) { .topbar__actions { margin-left: 1.25rem; } }
 
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+.iconbtn {
+  height: 34px; min-width: 34px; padding: 0 .5rem;
+  display: grid; place-items: center;
+  background: transparent; border: 1px solid var(--line); color: var(--ink-2);
+  cursor: pointer; font-family: var(--f-mono); font-size: .6875rem;
+  letter-spacing: .1em; font-weight: 500;
+  transition: border-color .2s, color .2s;
+}
+.iconbtn:hover { border-color: var(--signal); color: var(--signal); }
+.iconbtn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.icon-sun { display: none; }
+:root[data-theme="dark"] .icon-sun { display: block; }
+:root[data-theme="dark"] .icon-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .icon-sun { display: block; }
+  :root:not([data-theme="light"]) .icon-moon { display: none; }
+}
 
-        .skill-tag {
-            background: #eee;
-            padding: 5px 15px;
-            border-radius: 20px;
-        }
+.btn {
+  display: inline-flex; align-items: center; gap: .55rem;
+  font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .12em;
+  text-transform: uppercase; font-weight: 500; text-decoration: none;
+  padding: .72rem 1.15rem; border: 1px solid var(--signal);
+  background: var(--signal); color: var(--on-signal);
+  transition: background .2s, color .2s;
+}
+.btn:hover { background: transparent; color: var(--signal); }
+.btn--ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn--ghost:hover { border-color: var(--ink); color: var(--ink); }
+.btn--sm { padding: .5rem .8rem; }
+.btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 1.8; flex: none; }
+.progress { position: absolute; left: 0; bottom: -1px; height: 1px; background: var(--signal); width: 0; }
 
-        .contact-info {
-            text-align: center;
-            padding: 40px 20px;
-            background: #f8f9fa;
-        }
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero { position: relative; border-bottom: 1px solid var(--line-soft); overflow: hidden; }
+#relieve {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; opacity: .5;
+  mask-image: radial-gradient(130% 100% at 15% 15%, #000 25%, transparent 80%);
+  -webkit-mask-image: radial-gradient(130% 100% at 15% 15%, #000 25%, transparent 80%);
+}
+.hero__inner {
+  position: relative;
+  display: grid; grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  padding-block: clamp(2.75rem, 6vw, 5rem) clamp(2.75rem, 5vw, 4rem);
+}
+@media (min-width: 980px) { .hero__inner { grid-template-columns: minmax(0,1.6fr) minmax(0,.85fr); align-items: start; } }
 
-        .company-name {
-            transition: color 0.3s;
-        }
+.coord { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.4rem; flex-wrap: wrap; }
+.coord::before { content: ""; width: 26px; height: 1px; background: var(--signal); flex: none; }
+.coord .mono { color: var(--ink-2); }
 
-        .company-name:hover {
-            color: #ed463a;
-        }
+h1.name {
+  font-size: clamp(3rem, 11vw, 7.2rem);
+  font-weight: 800; letter-spacing: -0.045em; line-height: .88;
+  margin-bottom: 1.35rem;
+}
+h1.name em { display: block; font-style: normal; color: var(--signal); }
+.thesis {
+  font-family: var(--f-display); font-weight: 500;
+  font-size: clamp(1.15rem, 2.4vw, 1.65rem); line-height: 1.28;
+  letter-spacing: -0.02em; max-width: 24ch; margin-bottom: 1.2rem;
+}
+.thesis b { font-weight: 700; color: var(--signal); }
+.lede { color: var(--ink-2); max-width: 50ch; font-size: 1rem; font-weight: 300; line-height: 1.68; margin-bottom: 1.75rem; }
+.lede strong { font-weight: 600; color: var(--ink); }
+.hero__cta { display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; }
+.availability {
+  display: inline-flex; align-items: center; gap: .55rem;
+  font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-2); margin-top: 1.4rem;
+}
+.pulse { width: 7px; height: 7px; background: var(--glacier); border-radius: 50%; flex: none; animation: pulse 2.6s ease-out infinite; }
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--glacier) 60%, transparent); }
+  70%  { box-shadow: 0 0 0 9px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
 
-        .poli-name {
-            transition: color 0.3s;
-        }
+.portrait { position: relative; max-width: 330px; width: 100%; }
+@media (min-width: 980px) { .portrait { margin-left: auto; max-width: 100%; } }
+.portrait__frame { position: relative; border: 1px solid var(--line); padding: 10px; background: var(--surface); }
+.portrait__img { position: relative; overflow: hidden; background: var(--ground-deep); }
+.portrait__img img {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover;
+  filter: grayscale(1) contrast(1.06) brightness(.96);
+  transition: filter .55s ease, transform .55s ease;
+}
+.portrait:hover .portrait__img img { filter: grayscale(.15) contrast(1.02) brightness(1); transform: scale(1.02); }
+.portrait__img::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(195deg, color-mix(in srgb, var(--glacier) 24%, transparent), transparent 48%, color-mix(in srgb, var(--signal) 30%, transparent));
+  mix-blend-mode: overlay; pointer-events: none;
+}
+.tick { position: absolute; width: 11px; height: 11px; border: 1px solid var(--signal); }
+.tick--tl { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+.tick--tr { top: -1px; right: -1px; border-left: 0; border-bottom: 0; }
+.tick--bl { bottom: -1px; left: -1px; border-right: 0; border-top: 0; }
+.tick--br { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+.portrait__cap { display: flex; justify-content: space-between; gap: 1rem; margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--line-soft); }
 
-        .poli-name:hover {
-            color: #3a64ed;
-        }
+/* ============================================================
+   MÉTRICAS
+   ============================================================ */
+.metrics { border-bottom: 1px solid var(--line-soft); background: var(--surface); }
+.metrics__grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); }
+@media (min-width: 900px) { .metrics__grid { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+.metric { padding: 1.6rem var(--gutter) 1.5rem; border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+@media (min-width: 900px) { .metric { border-bottom: 0; } }
+.metric:last-child { border-right: 0; }
+@media (max-width: 899px) { .metric:nth-child(2n) { border-right: 0; } }
+.metric__n {
+  font-family: var(--f-display); font-weight: 800;
+  font-size: clamp(2.1rem, 4.4vw, 3rem); letter-spacing: -0.045em; line-height: 1;
+  color: var(--signal); font-variant-numeric: tabular-nums; margin-bottom: .4rem;
+}
+.metric__n sup { font-size: .42em; vertical-align: super; letter-spacing: 0; }
+.metric__l { font-size: .875rem; color: var(--ink-2); line-height: 1.45; }
+.metric__s { display: block; color: var(--muted); font-size: .8125rem; margin-top: .12rem; }
 
-        .curso-name {
-            transition: color 0.3s;
-        }
+/* ============================================================
+   MARQUESINA DE STACK
+   ============================================================ */
+.ticker {
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--ground); overflow: hidden;
+  padding-block: .85rem; position: relative;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.ticker__track { display: flex; width: max-content; animation: slide 46s linear infinite; }
+.ticker:hover .ticker__track { animation-play-state: paused; }
+@keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.ticker__group { display: flex; align-items: center; gap: 2.25rem; padding-right: 2.25rem; flex: none; }
+.ticker__item { font-family: var(--f-mono); font-size: .75rem; color: var(--muted); white-space: nowrap; letter-spacing: .04em; }
+.ticker__item b { color: var(--ink-2); font-weight: 500; }
+.ticker__dot { width: 4px; height: 4px; background: var(--signal); flex: none; }
 
-        .curso-name:hover {
-            color: #73ed3a;
-        }
+/* ============================================================
+   SECCIONES
+   ============================================================ */
+.section { border-bottom: 1px solid var(--line-soft); padding-block: clamp(3.25rem, 7vw, 5.5rem); }
+.section--tint { background: var(--surface); }
+.shead {
+  display: flex; align-items: baseline; gap: 1rem;
+  padding-bottom: 1rem; margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem);
+  border-bottom: 1px solid var(--line);
+}
+.shead__idx { color: var(--signal); flex: none; }
+.shead h2 { font-size: clamp(1.55rem, 3.4vw, 2.2rem); letter-spacing: -0.035em; }
+.shead__note { margin-left: auto; text-align: right; display: none; }
+@media (min-width: 800px) { .shead__note { display: block; } }
+.intro { max-width: var(--measure); color: var(--ink-2); font-size: 1rem; font-weight: 300; margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem); }
+.intro strong { color: var(--ink); font-weight: 600; }
 
-        .contenedor-imagen {
-            position: relative;
-            display: inline-block;
-        }
+/* ---------- Capacidades ---------- */
+.caps { display: grid; gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); }
+@media (min-width: 760px) { .caps { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+.cap {
+  background: var(--ground); padding: clamp(1.4rem, 2.8vw, 1.9rem);
+  display: flex; flex-direction: column; gap: .8rem;
+  position: relative; transition: background .25s;
+}
+.section--tint .cap { background: var(--surface); }
+.cap:hover { background: var(--surface-2); }
+.cap__top { display: flex; align-items: center; gap: .8rem; }
+.cap__ico { width: 25px; height: 25px; flex: none; stroke: var(--signal); fill: none; stroke-width: 1.3; }
+.cap h3 { font-size: 1.0625rem; letter-spacing: -0.02em; }
+.cap p { color: var(--ink-2); font-size: .9375rem; font-weight: 300; line-height: 1.6; }
+.cap p strong { color: var(--ink); font-weight: 600; }
+.cap__ev { margin-top: auto; padding-top: .85rem; border-top: 1px solid var(--line-soft); display: flex; gap: .5rem; align-items: baseline; flex-wrap: wrap; }
+.cap__ev b { font-family: var(--f-mono); font-size: .6875rem; font-weight: 500; color: var(--glacier); letter-spacing: .04em; }
 
-        .imagen-oculta {
-            opacity: 0;
-            position: absolute;
-            top: 0;
-            left: 100%;
-            z-index: 1;
-            margin-left: 4em;
-            width: 35em;
-            transition: opacity 0.5s ease-in-out;
-            pointer-events: none;
-        }
+/* ---------- Banda a todo el ancho ----------
+   El texto va sobre una foto oscurecida, así que usa blancos fijos
+   en lugar de tokens: la foto es la misma en ambos temas. */
+.band { position: relative; border-bottom: 1px solid var(--line-soft); background: #060D10; overflow: hidden; }
+.band img {
+  width: 100%; height: clamp(280px, 44vw, 540px);
+  object-fit: cover; object-position: 58% 38%;
+  filter: grayscale(.7) contrast(1.06) brightness(.66);
+}
+.band::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(6,13,16,.94) 0%, rgba(6,13,16,.66) 46%, rgba(6,13,16,.15) 100%),
+    linear-gradient(0deg, rgba(228,98,63,.20), transparent 55%);
+}
+.band__inner {
+  position: absolute; inset: 0; z-index: 1;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding-block: clamp(1.5rem, 3.5vw, 2.75rem);
+}
+.band__eyebrow { color: #E4623F; margin-bottom: .7rem; }
+.band__quote {
+  font-family: var(--f-display); font-weight: 700;
+  font-size: clamp(1.3rem, 3.6vw, 2.5rem); line-height: 1.08;
+  letter-spacing: -0.035em; color: #F2F5F3; max-width: 19ch;
+  margin-bottom: .6rem; text-wrap: balance;
+}
+.band__sub { color: #9FB2B5; max-width: 42ch; }
+.band__marks { position: absolute; top: clamp(1rem,3vw,2rem); right: clamp(1.25rem,4vw,4.5rem); display: flex; gap: .4rem; z-index: 1; }
+.band__marks i { width: 9px; height: 9px; border: 1px solid rgba(228,98,63,.85); display: block; }
 
-        .contenedor-imagen:hover .imagen-oculta {
-            opacity: 1;
-        }
+/* ---------- Casos ---------- */
+.cases { display: grid; gap: .9rem; }
+@media (min-width: 1020px) { .cases { grid-template-columns: repeat(2, minmax(0,1fr)); align-items: start; } }
+.case { border: 1px solid var(--line-soft); background: var(--ground); transition: border-color .25s; }
+.section--tint .case { background: var(--surface); }
+.case:hover { border-color: var(--line); }
+.case[open] { border-color: var(--signal-dim); }
+.case > summary { list-style: none; cursor: pointer; padding: clamp(1.3rem, 2.5vw, 1.75rem); display: block; }
+.case > summary::-webkit-details-marker { display: none; }
+.case__meta { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin-bottom: .8rem; }
+.tag {
+  font-family: var(--f-mono); font-size: .625rem; letter-spacing: .1em;
+  text-transform: uppercase; padding: .26rem .48rem;
+  border: 1px solid var(--line); color: var(--muted); white-space: nowrap;
+}
+.tag--win { border-color: var(--signal); color: var(--signal); }
+.tag--live { border-color: var(--glacier); color: var(--glacier); }
+.case h3 { font-size: clamp(1.15rem, 2.2vw, 1.35rem); margin-bottom: .5rem; }
+.case__hook { color: var(--ink-2); font-size: .9375rem; font-weight: 300; line-height: 1.58; max-width: 44ch; }
+.case__more {
+  display: flex; align-items: center; gap: .5rem; margin-top: 1rem;
+  font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--signal);
+}
+.case__more svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform .25s; }
+.case[open] .case__more svg { transform: rotate(180deg); }
+.case[open] .case__more .lbl-open { display: none; }
+.case__more .lbl-close { display: none; }
+.case[open] .case__more .lbl-close { display: inline; }
+.case__body { padding: 1.2rem clamp(1.3rem, 2.5vw, 1.75rem) clamp(1.3rem, 2.5vw, 1.75rem); border-top: 1px solid var(--line-soft); }
+.spec { display: grid; gap: .95rem; }
+.spec > div { display: grid; gap: .28rem; }
+.spec dt { font-family: var(--f-mono); font-size: .625rem; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }
+.spec dd { margin: 0; font-size: .9375rem; color: var(--ink-2); font-weight: 300; line-height: 1.58; }
+.spec dd strong { color: var(--ink); font-weight: 600; }
+.spec ul { display: grid; gap: .35rem; }
+.spec li { padding-left: 1rem; position: relative; }
+.spec li::before { content: ""; position: absolute; left: 0; top: .6em; width: 5px; height: 1px; background: var(--signal); }
+/* resultado destacado */
+.outcome {
+  margin-top: 1.1rem; padding: .85rem 1rem;
+  border-left: 2px solid var(--signal); background: var(--surface-2);
+  display: grid; gap: .25rem;
+}
+.outcome b { font-family: var(--f-display); font-size: .9375rem; font-weight: 700; color: var(--ink); letter-spacing: -0.015em; }
+.outcome span { font-size: .875rem; color: var(--ink-2); font-weight: 300; line-height: 1.5; }
+.chips { display: flex; flex-wrap: wrap; gap: .32rem; margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid var(--line-soft); }
+.chip { font-family: var(--f-mono); font-size: .625rem; color: var(--muted); border: 1px solid var(--line-soft); padding: .2rem .42rem; white-space: nowrap; }
+.case__shot { margin-top: 1.1rem; border: 1px solid var(--line-soft); }
+.case__shot img { width: 100%; }
+.case__shot figcaption { padding: .5rem .65rem; border-top: 1px solid var(--line-soft); background: var(--surface-2); }
 
-        @media (max-width: 768px) {
-            .timeline-item {
-                flex-direction: column;
-            }
-            .imagen-oculta {
-                position: static;
-                width: 100%;
-                margin-left: 0;
-                margin-top: 1em;
-            }
-            .contenedor-imagen:hover .imagen-oculta {
-                opacity: 1;
-                position: relative;
-            }
-        }
-    </style>
+/* ---------- Stack ---------- */
+.stack { border-top: 1px solid var(--line-soft); }
+.srow { display: grid; grid-template-columns: 1fr; gap: .65rem 2rem; padding-block: 1.2rem; border-bottom: 1px solid var(--line-soft); align-items: start; }
+@media (min-width: 820px) { .srow { grid-template-columns: 205px minmax(0,1fr); } }
+.srow__h { display: flex; flex-direction: column; gap: .18rem; }
+.srow__h b { font-family: var(--f-display); font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; }
+.srow__items { display: flex; flex-wrap: wrap; gap: .35rem; }
+.tech {
+  font-family: var(--f-mono); font-size: .75rem; border: 1px solid var(--line-soft);
+  padding: .28rem .55rem; color: var(--ink-2); background: var(--ground);
+  transition: border-color .2s, color .2s;
+}
+.section--tint .tech { background: var(--surface); }
+.tech:hover { border-color: var(--signal); color: var(--ink); }
+.tech.is-core { border-color: var(--line); color: var(--ink); }
+
+/* ---------- Trayectoria ---------- */
+.timeline { border-left: 1px solid var(--line); margin-left: .3rem; }
+.tl { position: relative; padding: 0 0 1.9rem 1.7rem; }
+.tl:last-child { padding-bottom: 0; }
+.tl::before {
+  content: ""; position: absolute; left: -4.5px; top: .5rem;
+  width: 8px; height: 8px; background: var(--ground);
+  border: 1px solid var(--muted); border-radius: 50%;
+}
+.section--tint .tl::before { background: var(--surface); }
+.tl--hi::before { background: var(--signal); border-color: var(--signal); }
+.tl__date { margin-bottom: .25rem; }
+.tl h3 { font-size: 1.0625rem; margin-bottom: .15rem; }
+.tl__org { color: var(--signal); font-size: .875rem; font-weight: 500; margin-bottom: .35rem; }
+.tl p { color: var(--ink-2); font-size: .9375rem; font-weight: 300; max-width: var(--measure); line-height: 1.55; }
+
+/* ---------- Reconocimientos ---------- */
+.awards { display: grid; gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); }
+@media (min-width: 720px) { .awards { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (min-width: 1060px) { .awards { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+.award { background: var(--ground); padding: 1.4rem; display: flex; flex-direction: column; gap: .45rem; }
+.section--tint .award { background: var(--surface); }
+.award__y { color: var(--signal); }
+.award h3 { font-size: 1rem; }
+.award p { color: var(--ink-2); font-size: .875rem; font-weight: 300; line-height: 1.5; }
+
+/* ---------- Sobre / Contacto ---------- */
+.about { display: grid; gap: clamp(2rem, 4vw, 3.5rem); }
+@media (min-width: 920px) { .about { grid-template-columns: minmax(0,1.2fr) minmax(0,1fr); } }
+.about p { color: var(--ink-2); font-weight: 300; font-size: 1rem; line-height: 1.7; max-width: var(--measure); }
+.about p + p { margin-top: 1rem; }
+.about strong { color: var(--ink); font-weight: 600; }
+.factbox { border: 1px solid var(--line-soft); background: var(--surface-2); }
+.fact { display: flex; justify-content: space-between; gap: 1.5rem; padding: .8rem 1.05rem; border-bottom: 1px solid var(--line-soft); align-items: baseline; }
+.fact:last-child { border-bottom: 0; }
+.fact b { font-size: .875rem; font-weight: 500; text-align: right; color: var(--ink); }
+
+.contact { background: var(--ground-deep); border-bottom: 0; }
+.contact__grid { display: grid; gap: clamp(2rem, 4vw, 3rem); align-items: start; }
+@media (min-width: 920px) { .contact__grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } }
+.contact h2 { font-size: clamp(1.9rem, 5vw, 3.2rem); letter-spacing: -0.04em; font-weight: 800; margin-bottom: 1rem; }
+.contact h2 em { font-style: normal; color: var(--signal); }
+.contact p { color: var(--ink-2); max-width: 44ch; font-weight: 300; font-size: 1rem; margin-bottom: 1.6rem; }
+.contact__btns { display: flex; flex-wrap: wrap; gap: .6rem; }
+.clist { border-top: 1px solid var(--line); }
+.clink {
+  display: flex; align-items: center; gap: 1rem; padding: .95rem .25rem;
+  border-bottom: 1px solid var(--line-soft); text-decoration: none; color: var(--ink);
+  transition: padding-left .25s, border-color .25s;
+}
+.clink:hover { padding-left: .75rem; border-color: var(--signal); }
+.clink__k { flex: none; width: 86px; }
+.clink__v { font-size: .9375rem; word-break: break-all; }
+.clink__ar { margin-left: auto; flex: none; color: var(--muted); transition: color .2s, transform .2s; }
+.clink:hover .clink__ar { color: var(--signal); transform: translateX(3px); }
+.clink__ar svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.6; display: block; }
+
+footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep); padding-block: 1.6rem; }
+.foot { display: flex; flex-wrap: wrap; gap: 1rem 1.75rem; align-items: center; justify-content: space-between; }
+.foot__map { width: 32px; height: 44px; flex: none; opacity: .55; }
+.foot__map path { fill: none; stroke: var(--signal); stroke-width: 3; stroke-linejoin: round; }
+
+/* Entrada al cargar — parte de un estado visible tras la animación */
+@media (prefers-reduced-motion: no-preference) {
+  .rise { animation: rise .7s cubic-bezier(.2,.7,.3,1) backwards; }
+  .rise--b { animation-delay: .1s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+}
+</style>
 </head>
 <body>
-    <div class="language-toggle" id="languageToggle">EN/ES</div>
 
-    <section class="hero">
-        <h1 class="nombre">Santiago Oroz</h1>
-        <p class="bajonombre" data-key="titles">Programador | Científico de Datos | Creativo</p>
-    </section>
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="brand" href="#top">Santiago<span>.</span>Oroz <small>IA / DATOS</small></a>
+    <nav class="navlinks" aria-label="Secciones">
+      <a href="#capacidades"><span data-l="es">Capacidades</span><span data-l="en">Capabilities</span></a>
+      <a href="#casos"><span data-l="es">Casos</span><span data-l="en">Work</span></a>
+      <a href="#stack">Stack</a>
+      <a href="#trayectoria"><span data-l="es">Trayectoria</span><span data-l="en">Path</span></a>
+      <a href="#contacto"><span data-l="es">Contacto</span><span data-l="en">Contact</span></a>
+    </nav>
+    <div class="topbar__actions">
+      <button class="iconbtn" id="lang" type="button" aria-label="Switch to English / Cambiar a español">
+        <span data-l="es">EN</span><span data-l="en">ES</span>
+      </button>
+      <button class="iconbtn" id="theme" type="button" aria-label="Cambiar entre tema claro y oscuro">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.5 1.5M17.6 17.6l1.5 1.5M19.1 4.9l-1.5 1.5M6.4 17.6l-1.5 1.5"/></svg>
+      </button>
+      <a class="btn btn--sm" href="#contacto"><span data-l="es">Escribime</span><span data-l="en">Get in touch</span></a>
+    </div>
+    <div class="progress" id="progress"></div>
+  </div>
+</header>
 
-    <section class="section">
-        <h2 data-key="about">Sobre mí</h2>
-        <p data-key="aboutText">Apasionado por la ciencia de datos. Me encanta transformar datos en información útil para la toma de decisiones estratégicas. Mi área de interés principal es la Inteligencia Artificial. Siempre buscando nuevos desafíos y aprendiendo cosas nuevas.</p>
-    </section>
+<main id="top">
 
-    <section class="section">
-        <h2 data-key="education">Educación</h2>
-        <div class="timeline-item">
-            <div class="contenedor-imagen">
-                <a href="https://politecnico.ar/">
-                    <h3 class="poli-name">Politécnico Malvinas Argentinas</h3>
-                </a>
-                <p><span data-key="techTitle">Técnico en Ciencia de Datos e IA</span> (<span data-key="current">2024 - Actualidad</span>)</p>
-                <img src="banner_flat1.jpg" alt="Politécnico" class="imagen-oculta">
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="contenedor-imagen">
-                <h3 class="curso-name" data-key="aiCourse">Inteligencia Artificial para Negocios</h3>
-                <p>Digital House · 2024 - 2025</p>
-                <img src="DigitalHouseDiploma.png" alt="Certificado Digital House" class="imagen-oculta">
-            </div>
-        </div>
-    </section>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <canvas id="relieve" aria-hidden="true"></canvas>
+  <div class="wrap hero__inner">
+    <div class="rise">
+      <div class="coord"><span class="mono">53°47′S&nbsp; 67°42′O — Río Grande, Tierra del Fuego</span></div>
 
-    <section class="section">
-        <h2 data-key="experience">Experiencia</h2>
-        <div class="timeline-item">
-            <div class="contenedor-imagen">
-                <a href="https://www.newsan.com.ar/es/home">
-                    <h3 class="company-name">Newsan - <span data-key="internship">Pasante Profesional</span></h3>
-                </a>
-                <p data-key="newsanDates">2024 - 2025</p>
-                <p data-key="newsan1">Reportes de análisis ergonómico en PowerBI</p>
-                <p data-key="newsan2">Trabajo en equipo de 5 personas</p>
-                <img src="powerbiinteractivo.png" alt="Newsan" class="imagen-oculta">
-            </div>
-        </div>
-    </section>
+      <h1 class="name">Santiago<em>Oroz</em></h1>
 
-    <section class="section">
-        <h2 data-key="skills">Habilidades</h2>
-        <div class="skills-container">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">Power BI</span>
-            <span class="skill-tag" data-key="stadistic">Estadística</span>
-            <span class="skill-tag" data-key="sciedata">Ciencia de datos</span>
-            <span class="skill-tag" data-key="languajes">Español e Inglés</span>
-            <span class="skill-tag">Machine learning</span>
-        </div>
-    </section>
+      <p class="thesis" data-l="es">Construyo sistemas de inteligencia artificial que corren en producción — y varios <b>sin que un solo dato salga de la empresa.</b></p>
+      <p class="thesis" data-l="en">I build artificial intelligence systems that run in production — several of them <b>without a single byte leaving the company.</b></p>
 
-    <section class="contact-info">
-        <h2 data-key="contact">Contacto</h2>
-        <p><i class="fas fa-envelope"></i> Santiago.Oroz1510@gmail.com</p>
-        <p><i class="fas fa-phone"></i> +54 2964 543015</p>
-        <p><a href="https://www.linkedin.com/in/santiago-oroz/"><i class="fab fa-linkedin"></i> Santiago Oroz</p></a>
-        <p><a href="https://github.com/SantiagoOroz"><i class="fab fa-github"></i> SantiagoOroz</p></a>
-    </section>
+      <p class="lede" data-l="es">Ingeniero de IA en <strong>Tech del Fuego</strong> y Técnico Superior en Ciencia de Datos e IA. LLMs privados, RAG, visión artificial y modelos predictivos. <strong>Ganador nacional</strong> del Capstone de Samsung Innovation Campus 2025.</p>
+      <p class="lede" data-l="en">AI Engineer at <strong>Tech del Fuego</strong> and Higher Technician in Data Science and AI. Private LLMs, RAG, computer vision and predictive models. <strong>National winner</strong> of the Samsung Innovation Campus 2025 Capstone.</p>
 
-    <script>
-        const translations = {
-            es: {
-                titles: "Programador | Científico de Datos | Creativo",
-                about: "Sobre mí",
-                aboutText: "Apasionado por la ciencia de datos. Me encanta transformar datos en información útil para la toma de decisiones estratégicas. Mi área de interés principal es la Inteligencia Artificial. Siempre buscando nuevos desafíos y aprendiendo cosas nuevas.",
-                education: "Educación",
-                experience: "Experiencia",
-                skills: "Habilidades",
-                contact: "Contacto",
-                stadistic: "Estadística",
-                sciedata: "Ciencia de datos",
-                languajes: "Español e Ingles",
-                newsanDates: "2024 - 2025",
-                newsan1: "Reportes de análisis ergonómico en PowerBI",
-                newsan2: "Trabajo en equipo de 5 personas",
-                techTitle: "Técnico en Ciencia de Datos e IA",
-                current: "2024 - Actualidad",
-                internship: "Pasante Profesional",
-                aiCourse: "Inteligencia Artificial para Negocios"
-            },
-            en: {
-                titles: "Programer | Data Scientist | Creative",
-                about: "About Me",
-                aboutText: "Passionate about data science. I love transforming data into actionable insights to support strategic decision-making. My main area of interest is Artificial Inteligence. Always seeking new challenges and learning opportunities.",
-                education: "Education",
-                experience: "Experience",
-                skills: "Skills",
-                contact: "Contact",
-                stadistic: "Statistic",
-                sciedata: "Data science",
-                languajes: "English and Spanish",
-                newsanDates: "2024 - 2025",
-                newsan1: "Ergonomics analysis reports using PowerBI",
-                newsan2: "Collaborated with 5-person team",
-                techTitle: "Data Science and AI Technician",
-                current: "2024 - Present",
-                internship: "Professional Intern",
-                aiCourse: "AI for Business"
-            }
-        };
+      <div class="hero__cta">
+        <a class="btn" href="#casos"><span data-l="es">Ver casos reales</span><span data-l="en">See real work</span></a>
+        <a class="btn btn--ghost" id="cv-hero" href="CV-Santiago-Oroz-ES.pdf" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-4.5-4.5M12 15l4.5-4.5M4 19h16"/></svg>
+          <span data-l="es">Descargar CV</span><span data-l="en">Download CV</span>
+        </a>
+      </div>
 
-        let currentLang = 'es';
-        const toggle = document.getElementById('languageToggle');
-        
-        toggle.addEventListener('click', () => {
-            currentLang = currentLang === 'es' ? 'en' : 'es';
-            document.documentElement.lang = currentLang;
-            
-            document.querySelectorAll('[data-key]').forEach(element => {
-                const key = element.dataset.key;
-                element.textContent = translations[currentLang][key];
-            });
-        });
-    </script>
-    <script>
-        window.addEventListener('load', function() {
-            const contenedores = document.querySelectorAll('.contenedor-imagen');
-
-            contenedores.forEach(contenedor => {
-                const imagen = contenedor.querySelector('.imagen-oculta');
-                const h3 = contenedor.querySelector('h3');
-
-                contenedor.addEventListener('mouseenter', function() {
-                    const espacioDisponible = window.innerWidth - (contenedor.offsetLeft + contenedor.offsetWidth);
-
-                    if (espacioDisponible < imagen.offsetWidth) {
-                        imagen.style.left = '0';
-                        imagen.style.top = '100%';
-                    } else {
-                        imagen.style.left = '100%';
-                        imagen.style.top = '0';
-                    }
-                });
-
-                contenedor.addEventListener('mouseleave', function() {
-                    imagen.style.left = '100%';
-                    imagen.style.top = '0';
-                });
-            });
-        });
-    </script>
-    <!-- === Chat Widget Custom — Techi AI (Tech del Fuego) === -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@500;600;700&display=swap');
-
-        /* === Paleta Tech del Fuego ===
-           --tdf-azul:    #1B3A6B  (Azul Magallánico — dominante)
-           --tdf-blanco:  #FFFFFF  (Blanco Antártico)
-           --tdf-gris:    #4A4A4A  (Gris Glaciar — cuerpo de texto)
-           --tdf-celeste: #7EAECE  (Celeste Glaciar — soporte)
-           --tdf-rojo:    #C41E3A  (Rojo Fueguino — CTAs / alertas)
-           --tdf-hielo:   #B8D4E3  (Hielo Patagónico — detalles)
-        */
-
-        #techi-chat-bubble {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: #1B3A6B;
-            color: #FFFFFF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 6px 18px rgba(27, 58, 107, 0.28);
-            z-index: 9999;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border: none;
-        }
-        #techi-chat-bubble:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 24px rgba(27, 58, 107, 0.35);
-        }
-        #techi-chat-bubble:focus-visible {
-            outline: 2px solid #B8D4E3;
-            outline-offset: 3px;
-        }
-
-        #techi-chat-window {
-            position: fixed;
-            bottom: 100px;
-            right: 24px;
-            width: 370px;
-            height: 540px;
-            max-height: 82vh;
-            background: #FFFFFF;
-            border-radius: 12px;
-            box-shadow: 0 18px 48px rgba(27, 58, 107, 0.22);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            z-index: 9999;
-            font-family: 'Inter', system-ui, sans-serif;
-            color: #4A4A4A;
-            border: 1px solid #B8D4E3;
-        }
-        #techi-chat-window.open { display: flex; }
-
-        .techi-chat-header {
-            background: #1B3A6B;
-            color: #FFFFFF;
-            padding: 16px 18px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .techi-chat-avatar {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: #FFFFFF;
-            color: #1B3A6B;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-        .techi-chat-title { flex: 1; line-height: 1.15; }
-        .techi-chat-title strong {
-            display: block;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 16px;
-            letter-spacing: -0.01em;
-        }
-        .techi-chat-title span {
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            opacity: 0.85;
-            font-weight: 400;
-        }
-        #techi-chat-close {
-            background: transparent;
-            border: none;
-            color: #FFFFFF;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 0 4px;
-            line-height: 1;
-            opacity: 0.9;
-        }
-        #techi-chat-close:hover { opacity: 1; }
-
-        .techi-chat-messages {
-            flex: 1;
-            overflow-y: auto;
-            padding: 18px 16px;
-            background: #FFFFFF;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .techi-chat-messages::-webkit-scrollbar { width: 6px; }
-        .techi-chat-messages::-webkit-scrollbar-thumb {
-            background: #B8D4E3;
-            border-radius: 3px;
-        }
-
-        .techi-msg {
-            max-width: 82%;
-            padding: 10px 14px;
-            font-family: 'Inter', sans-serif;
-            font-size: 14.5px;
-            line-height: 1.5;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-        .techi-msg.bot {
-            background: #FFFFFF;
-            color: #4A4A4A;
-            align-self: flex-start;
-            border: 1px solid #B8D4E3;
-            border-left: 3px solid #1B3A6B;
-            border-radius: 10px;
-            border-top-left-radius: 3px;
-        }
-        .techi-msg.user {
-            background: #1B3A6B;
-            color: #FFFFFF;
-            align-self: flex-end;
-            border-radius: 10px;
-            border-top-right-radius: 3px;
-        }
-        .techi-msg.error {
-            background: #FFFFFF;
-            color: #C41E3A;
-            border: 1px solid #C41E3A;
-            border-left: 3px solid #C41E3A;
-            align-self: flex-start;
-            border-radius: 10px;
-            border-top-left-radius: 3px;
-        }
-
-        .techi-typing {
-            align-self: flex-start;
-            background: #FFFFFF;
-            padding: 12px 14px;
-            border: 1px solid #B8D4E3;
-            border-left: 3px solid #1B3A6B;
-            border-radius: 10px;
-            border-top-left-radius: 3px;
-            display: flex;
-            gap: 5px;
-            align-items: center;
-        }
-        .techi-typing span {
-            width: 6px;
-            height: 6px;
-            background: #7EAECE;
-            border-radius: 50%;
-            animation: techi-bounce 1.2s infinite;
-        }
-        .techi-typing span:nth-child(2) { animation-delay: 0.15s; }
-        .techi-typing span:nth-child(3) { animation-delay: 0.3s; }
-        @keyframes techi-bounce {
-            0%, 60%, 100% { transform: translateY(0); opacity: 0.45; }
-            30% { transform: translateY(-4px); opacity: 1; }
-        }
-
-        .techi-chat-input {
-            display: flex;
-            align-items: center;
-            border-top: 1px solid #B8D4E3;
-            padding: 10px 12px;
-            gap: 8px;
-            background: #FFFFFF;
-        }
-        .techi-chat-input input {
-            flex: 1;
-            border: 1px solid #B8D4E3;
-            border-radius: 22px;
-            padding: 9px 14px;
-            font-size: 14px;
-            font-family: 'Inter', sans-serif;
-            color: #4A4A4A;
-            outline: none;
-            background: #FFFFFF;
-            transition: border-color 0.15s ease;
-        }
-        .techi-chat-input input::placeholder { color: #9aa5ae; }
-        .techi-chat-input input:focus { border-color: #1B3A6B; }
-        .techi-chat-input button {
-            background: #1B3A6B;
-            color: #FFFFFF;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            transition: background 0.15s ease;
-        }
-        .techi-chat-input button:hover { background: #142d56; }
-        .techi-chat-input button:disabled { opacity: 0.4; cursor: not-allowed; }
-
-        .techi-chat-footer {
-            padding: 6px 12px 10px;
-            text-align: center;
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            color: #7EAECE;
-            background: #FFFFFF;
-            letter-spacing: 0.02em;
-        }
-
-        @media (max-width: 480px) {
-            #techi-chat-window {
-                width: 100vw;
-                height: 100vh;
-                bottom: 0;
-                right: 0;
-                max-height: 100vh;
-                border-radius: 0;
-                border: none;
-            }
-        }
-    </style>
-
-    <button id="techi-chat-bubble" aria-label="Abrir chat con Techi AI">
-        <i class="fas fa-snowflake"></i>
-    </button>
-
-    <div id="techi-chat-window" aria-hidden="true" role="dialog" aria-label="Chat con Techi AI">
-        <div class="techi-chat-header">
-            <div class="techi-chat-avatar"><i class="fas fa-snowflake"></i></div>
-            <div class="techi-chat-title">
-                <strong>Techi AI</strong>
-                <span>Tech del Fuego — Del glaciar a la nube</span>
-            </div>
-            <button id="techi-chat-close" aria-label="Cerrar chat">&times;</button>
-        </div>
-        <div class="techi-chat-messages" id="techi-chat-messages"></div>
-        <form class="techi-chat-input" id="techi-chat-form">
-            <input type="text" id="techi-chat-text" placeholder="Escribí tu consulta..." autocomplete="off" required>
-            <button type="submit" aria-label="Enviar mensaje"><i class="fas fa-paper-plane"></i></button>
-        </form>
-        <div class="techi-chat-footer">Respondemos en segundos</div>
+      <p class="availability">
+        <span class="pulse" aria-hidden="true"></span>
+        <span data-l="es">Disponible para proyectos · Remoto o reubicación</span>
+        <span data-l="en">Available for projects · Remote or relocation</span>
+      </p>
     </div>
 
-    <script>
-        (function () {
-            const INBOX_IDENTIFIER = '2kaHx8qSNd9p9qoUmvAoP26E';
-            const BASE_URL = 'https://app.chatwoot.com';
-            const POLL_INTERVAL_MS = 3000;
-            const STORAGE_KEY = 'techi_chat_session_v1';
+    <figure class="portrait rise rise--b">
+      <div class="portrait__frame">
+        <span class="tick tick--tl" aria-hidden="true"></span>
+        <span class="tick tick--tr" aria-hidden="true"></span>
+        <span class="tick tick--bl" aria-hidden="true"></span>
+        <span class="tick tick--br" aria-hidden="true"></span>
+        <div class="portrait__img">
+          <img src="santiago-oroz.jpg" alt="Retrato de Santiago Oroz" width="880" height="1100">
+        </div>
+        <figcaption class="portrait__cap">
+          <span class="mono">Santiago Oroz</span>
+          <span class="mono"><span data-age>20</span> <span data-l="es">años</span><span data-l="en">years old</span></span>
+        </figcaption>
+      </div>
+    </figure>
+  </div>
+</section>
 
-            const bubble = document.getElementById('techi-chat-bubble');
-            const windowEl = document.getElementById('techi-chat-window');
-            const closeBtn = document.getElementById('techi-chat-close');
-            const form = document.getElementById('techi-chat-form');
-            const input = document.getElementById('techi-chat-text');
-            const messagesEl = document.getElementById('techi-chat-messages');
+<!-- ============ MÉTRICAS ============ -->
+<section class="metrics" aria-label="Datos destacados">
+  <div class="metrics__grid">
+    <div class="metric">
+      <div class="metric__n"><span data-count="1">1</span><sup>º</sup></div>
+      <p class="metric__l">
+        <span data-l="es">Puesto nacional — Capstone Samsung Innovation Campus 2025<span class="metric__s">Entre +30 equipos y 600 postulantes</span></span>
+        <span data-l="en">National place — Samsung Innovation Campus 2025 Capstone<span class="metric__s">Among 30+ teams and 600 initial applicants</span></span>
+      </p>
+    </div>
+    <div class="metric">
+      <div class="metric__n"><span data-count="8">8</span></div>
+      <p class="metric__l">
+        <span data-l="es">Proyectos con un cliente, un jurado o una planta del otro lado<span class="metric__s">Ninguno es un tutorial</span></span>
+        <span data-l="en">Projects with a real client, jury or factory on the other side<span class="metric__s">None of them a tutorial</span></span>
+      </p>
+    </div>
+    <div class="metric">
+      <div class="metric__n"><span data-count="400">400</span></div>
+      <p class="metric__l">
+        <span data-l="es">Aspirantes, un lugar — Beca Full Stack ITBA 2026<span class="metric__s">Santander Open Academy · Stack MERN</span></span>
+        <span data-l="en">Applicants, one seat — ITBA Full Stack Scholarship 2026<span class="metric__s">Santander Open Academy · MERN stack</span></span>
+      </p>
+    </div>
+    <div class="metric">
+      <div class="metric__n"><span data-count="0">0</span></div>
+      <p class="metric__l">
+        <span data-l="es">Datos que salen de la red del cliente en despliegues on-premise<span class="metric__s">LLM local, inferencia en sitio</span></span>
+        <span data-l="en">Data leaving the client network in on-premise deployments<span class="metric__s">Local LLM, on-site inference</span></span>
+      </p>
+    </div>
+  </div>
+</section>
 
-            const GREETING = 'Hola, soy el asistente de Tech del Fuego. ¿Qué te trae por acá?\n' +
-                '- Quiero resolver un problema específico en mi empresa\n' +
-                '- Estoy explorando servicios\n' +
-                '- Ya soy cliente y necesito soporte\n' +
-                '- Otro motivo (prensa, alianzas, trabajo)';
+<!-- ============ MARQUESINA ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track" id="ticker"></div>
+</div>
 
-            let session = null;
-            try { session = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch (e) { session = null; }
-            let lastMessageId = 0;
-            let pollTimer = null;
-            let typingEl = null;
-            let initializing = null;
-            let historyLoaded = false;
-            let greetingShown = false;
-            // Defensa contra duplicados del polling: IDs ya pintados en pantalla.
-            const renderedIds = new Set();
+<!-- ============ CAPACIDADES ============ -->
+<section class="section" id="capacidades">
+  <div class="wrap">
+    <div class="shead">
+      <span class="mono shead__idx">§01</span>
+      <h2><span data-l="es">Qué resuelvo</span><span data-l="en">What I solve</span></h2>
+      <span class="mono shead__note"><span data-l="es">Cuatro frentes · Evidencia en cada uno</span><span data-l="en">Four fronts · Evidence on each</span></span>
+    </div>
 
-            function saveSession() {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+    <p class="intro" data-l="es">No programo por programar. Cada capacidad ya está probada en un cliente, una planta o una competencia con jurado. Lo que sigue está en <strong>horas y en plata</strong>, no en siglas.</p>
+    <p class="intro" data-l="en">I don't code for the sake of it. Every capability below is already proven with a client, a factory or a judged competition. Stated in <strong>hours and money</strong>, not acronyms.</p>
+
+    <div class="caps">
+      <article class="cap">
+        <div class="cap__top">
+          <svg class="cap__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4z"/><path d="M8 20h8M12 16v4M7.5 9.5h5M7.5 12.5h9"/></svg>
+          <h3><span data-l="es">Asistentes con IA privada</span><span data-l="en">Private AI assistants</span></h3>
+        </div>
+        <p data-l="es">Tu documentación, tus normas y tus contratos respondiendo preguntas en lenguaje natural, con la fuente citada. El modelo corre <strong>dentro de tu red</strong>: la respuesta llega sin que la información se vaya.</p>
+        <p data-l="en">Your documentation, standards and contracts answering questions in plain language, with the source cited. The model runs <strong>inside your network</strong>: the answer arrives without the information leaving.</p>
+        <div class="cap__ev"><span class="mono"><span data-l="es">Probado en</span><span data-l="en">Proven in</span></span><b>El Dorado SRL · AIDA · AXIS</b></div>
+      </article>
+
+      <article class="cap">
+        <div class="cap__top">
+          <svg class="cap__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.8 2.8M15.2 15.2 18 18M18 6l-2.8 2.8M8.8 15.2 6 18"/><circle cx="12" cy="12" r="3.2"/></svg>
+          <h3><span data-l="es">Automatización de procesos</span><span data-l="en">Process automation</span></h3>
+        </div>
+        <p data-l="es">Facturación, carga de comprobantes, limpieza de reportes, consultas repetidas en WhatsApp. El objetivo no son 20 minutos por semana: son <strong>horas recuperadas</strong> y errores de tipeo que dejan de existir.</p>
+        <p data-l="en">Invoicing, receipt entry, report cleanup, repeated WhatsApp queries. The goal isn't 20 minutes a week: it's <strong>hours recovered</strong> and typing errors that stop existing.</p>
+        <div class="cap__ev"><span class="mono"><span data-l="es">Probado en</span><span data-l="en">Proven in</span></span><b>Newsan · Tech del Fuego</b></div>
+      </article>
+
+      <article class="cap">
+        <div class="cap__top">
+          <svg class="cap__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M7.5 15.5 11 11l3 3 4.5-6.5"/></svg>
+          <h3><span data-l="es">Analítica y predicción</span><span data-l="en">Analytics and prediction</span></h3>
+        </div>
+        <p data-l="es">Modelos sobre los datos que <strong>ya tenés y no estás cruzando</strong>: demanda por temporada, quiebres de stock, puestos críticos, clientes que están por irse.</p>
+        <p data-l="en">Models on the data you <strong>already have and aren't cross-referencing</strong>: seasonal demand, stock-outs, critical workstations, customers about to churn.</p>
+        <div class="cap__ev"><span class="mono"><span data-l="es">Probado en</span><span data-l="en">Proven in</span></span><b>Newsan · Predicción hotelera</b></div>
+      </article>
+
+      <article class="cap">
+        <div class="cap__top">
+          <svg class="cap__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          <h3><span data-l="es">Visión artificial</span><span data-l="en">Computer vision</span></h3>
+        </div>
+        <p data-l="es">Leer una factura de papel sin tipear. Marcar el defecto de una pieza. Detectar la postura de riesgo de un operario antes de que sea una lesión. Todo <strong>desde una cámara común</strong>.</p>
+        <p data-l="en">Read a paper invoice without typing. Flag a defective part. Catch an operator's risky posture before it becomes an injury. All <strong>from an ordinary camera</strong>.</p>
+        <div class="cap__ev"><span class="mono"><span data-l="es">Probado en</span><span data-l="en">Proven in</span></span><b>OptiVision · AIDA</b></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BANDA — CHARLA SIC 2026 ============ -->
+<section class="band" aria-label="Santiago Oroz presentando en el Samsung Innovation Campus">
+  <img src="santiago-oroz-charla.jpg" alt="Santiago Oroz hablando con micrófono ante el público en la inauguración del Samsung Innovation Campus 2026, con su nombre proyectado en pantalla" width="1600" height="1066" loading="lazy">
+  <span class="band__marks" aria-hidden="true"><i></i><i></i><i></i></span>
+  <div class="wrap band__inner">
+    <span class="mono band__eyebrow">Samsung Innovation Campus · <span data-l="es">Inauguración SIC 2026</span><span data-l="en">SIC 2026 opening</span></span>
+    <p class="band__quote" data-l="es">Volví como orador un año después de ganar.</p>
+    <p class="band__quote" data-l="en">I came back as a speaker a year after winning.</p>
+    <span class="mono band__sub" data-l="es">Presentando AIDA ante la camada entrante, junto a Milagros Argañin y Renata Berho</span>
+    <span class="mono band__sub" data-l="en">Presenting AIDA to the incoming cohort, with Milagros Argañin and Renata Berho</span>
+  </div>
+</section>
+
+<!-- ============ CASOS ============ -->
+<section class="section section--tint" id="casos">
+  <div class="wrap">
+    <div class="shead">
+      <span class="mono shead__idx">§02</span>
+      <h2><span data-l="es">Casos</span><span data-l="en">Selected work</span></h2>
+      <span class="mono shead__note"><span data-l="es">Abrí cualquiera para el detalle técnico</span><span data-l="en">Open any one for technical detail</span></span>
+    </div>
+
+    <div class="cases">
+
+      <!-- AIDA -->
+      <details class="case" open>
+        <summary>
+          <div class="case__meta">
+            <span class="tag tag--win">★ <span data-l="es">1er puesto nacional</span><span data-l="en">1st place, national</span></span>
+            <span class="tag">Samsung · 2025</span>
+          </div>
+          <h3><span data-l="es">AIDA — asistente para adultos mayores</span><span data-l="en">AIDA — assistant for older adults</span></h3>
+          <p class="case__hook" data-l="es">Asistente multimodal en Telegram que lee facturas, detecta estafas y adapta su tono al estado emocional del usuario.</p>
+          <p class="case__hook" data-l="en">Multimodal Telegram assistant that reads invoices, detects scams and adapts its tone to the user's emotional state.</p>
+          <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="case__body">
+          <dl class="spec">
+            <div>
+              <dt><span data-l="es">Desafío</span><span data-l="en">Challenge</span></dt>
+              <dd data-l="es">Los adultos mayores son el blanco preferido de las estafas y quedan afuera de la digitalización. Había que integrar visión, voz y texto con latencia mínima, y que alguien que nunca usó una app pudiera manejarlo sin instrucciones. Rol: <strong>co-líder técnico</strong> en un equipo de tres.</dd>
+              <dd data-l="en">Older adults are the favourite target of scams and are left out of digitalisation. Vision, voice and text had to be integrated with minimal latency, usable by someone who has never touched an app. Role: <strong>technical co-lead</strong> in a team of three.</dd>
+            </div>
+            <div>
+              <dt><span data-l="es">Solución</span><span data-l="en">Solution</span></dt>
+              <dd>
+                <ul>
+                  <li><span data-l="es">Arquitectura modular en Python, orientada a objetos.</span><span data-l="en">Modular, object-oriented Python architecture.</span></li>
+                  <li><span data-l="es">Visión artificial para leer facturas físicas y detectar patrones de estafa.</span><span data-l="en">Computer vision to read paper invoices and detect scam patterns.</span></li>
+                  <li><span data-l="es">«Empatía artificial»: análisis de sentimiento en tiempo real que adapta el tono y emite alertas de riesgo.</span><span data-l="en">"Artificial empathy": real-time sentiment analysis that adapts tone and raises risk alerts.</span></li>
+                  <li><span data-l="es">Despliegue en VPS Linux configurado para operar 24/7 sin caídas.</span><span data-l="en">Linux VPS deployment configured to run 24/7 without downtime.</span></li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+          <div class="outcome">
+            <b data-l="es">Primer puesto entre más de 30 equipos</b>
+            <b data-l="en">First place among 30+ teams</b>
+            <span data-l="es">Jurado de Samsung, Randstad y Streambe. Un año después fuimos invitados de vuelta como oradores en la inauguración del SIC 2026.</span>
+            <span data-l="en">Jury from Samsung, Randstad and Streambe. A year later we were invited back as speakers at the SIC 2026 opening.</span>
+          </div>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Computer Vision</span><span class="chip">pysentimiento</span><span class="chip">Telegram API</span><span class="chip">VPS Linux</span><span class="chip">systemd</span><span class="chip">POO</span></div>
+        </div>
+      </details>
+
+      <!-- EL DORADO -->
+      <details class="case">
+        <summary>
+          <div class="case__meta">
+            <span class="tag tag--live"><span data-l="es">En producción</span><span data-l="en">In production</span></span>
+            <span class="tag">El Dorado SRL · 2025</span>
+          </div>
+          <h3><span data-l="es">Chatbot técnico con LLM local</span><span data-l="en">Technical chatbot on a local LLM</span></h3>
+          <p class="case__hook" data-l="es">RAG sobre normas ISO y documentación de hormigón, con la restricción de que ningún dato podía salir de la red interna.</p>
+          <p class="case__hook" data-l="en">RAG over ISO standards and concrete documentation, under the constraint that no data could leave the internal network.</p>
+          <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="case__body">
+          <dl class="spec">
+            <div>
+              <dt><span data-l="es">Desafío</span><span data-l="en">Challenge</span></dt>
+              <dd data-l="es">El equipo técnico perdía horas buscando especificaciones en PDFs dispersos y una MediaWiki interna. <strong>Privacidad estricta:</strong> la documentación no podía subirse a ninguna API externa, lo que descartaba de entrada cualquier solución en la nube.</dd>
+              <dd data-l="en">The technical team lost hours hunting specs across scattered PDFs and an internal MediaWiki. <strong>Strict privacy:</strong> the documentation could not be uploaded to any external API, ruling out every cloud solution from the start.</dd>
+            </div>
+            <div>
+              <dt><span data-l="es">Solución</span><span data-l="en">Solution</span></dt>
+              <dd>
+                <ul>
+                  <li><span data-l="es"><strong>Llama 3 corriendo localmente:</strong> inferencia dentro de la red del cliente.</span><span data-l="en"><strong>Llama 3 running locally:</strong> inference inside the client's network.</span></li>
+                  <li><span data-l="es">Base vectorial híbrida en ChromaDB, indexando PDFs técnicos y la MediaWiki.</span><span data-l="en">Hybrid vector store in ChromaDB, indexing technical PDFs and the MediaWiki.</span></li>
+                  <li><span data-l="es">API en Flask y frontend en React, con panel de administración de archivos.</span><span data-l="en">Flask API and React frontend, with a file administration panel.</span></li>
+                  <li><span data-l="es">Consulta hablando (speech-to-text) y respuesta con voz argentina sintetizada.</span><span data-l="en">Spoken queries (speech-to-text) and answers in a synthesised Argentine voice.</span></li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+          <div class="outcome">
+            <b data-l="es">Cero exposición de datos hacia afuera</b>
+            <b data-l="en">Zero outward data exposure</b>
+            <span data-l="es">Menor tiempo de respuesta a clientes, con cada respuesta mostrando las fuentes que la respaldan.</span>
+            <span data-l="en">Faster client response times, with every answer showing the sources backing it.</span>
+          </div>
+          <div class="chips"><span class="chip">Llama 3</span><span class="chip">RAG</span><span class="chip">ChromaDB</span><span class="chip">Flask</span><span class="chip">React</span><span class="chip">Whisper</span><span class="chip">Edge-TTS</span></div>
+        </div>
+      </details>
+
+      <!-- AXIS -->
+      <details class="case">
+        <summary>
+          <div class="case__meta">
+            <span class="tag">IBM watsonx · 2026</span>
+            <span class="tag">Agentic AI</span>
+          </div>
+          <h3><span data-l="es">AXIS — agentes con evidencia obligatoria</span><span data-l="en">AXIS — agents with mandatory evidence</span></h3>
+          <p class="case__hook" data-l="es">Micro-agentes que conectan contratos legales estáticos con la operación diaria, diseñados para que ninguna decisión pueda ser una alucinación.</p>
+          <p class="case__hook" data-l="en">Micro-agents connecting static legal contracts to daily operations, designed so no decision can be a hallucination.</p>
+          <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="case__body">
+          <dl class="spec">
+            <div>
+              <dt><span data-l="es">Desafío</span><span data-l="en">Challenge</span></dt>
+              <dd data-l="es">Hackathon de IBM 2026. Los contratos definen obligaciones y penalidades, pero viven en PDFs que nadie relee hasta que algo se incumple. Automatizar decisiones financieras con LLMs <strong>sin alucinaciones</strong>: un agente que inventa una cláusula es peor que no tener agente.</dd>
+              <dd data-l="en">IBM Hackathon 2026. Contracts define obligations and penalties, but live in PDFs nobody re-reads until something is breached. Automating financial decisions with LLMs <strong>without hallucinations</strong>: an agent that invents a clause is worse than no agent.</dd>
+            </div>
+            <div>
+              <dt><span data-l="es">Solución</span><span data-l="en">Solution</span></dt>
+              <dd>
+                <ul>
+                  <li><span data-l="es">Micro-agentes especializados: Lector, Juez, Analista, Coordinador y Ejecutor.</span><span data-l="en">Specialised micro-agents: Reader, Judge, Analyst, Coordinator and Executor.</span></li>
+                  <li><span data-l="es">Lógica ReAct (Reason · Act · Observe) para que cada paso sea inspeccionable.</span><span data-l="en">ReAct logic (Reason · Act · Observe) so every step is inspectable.</span></li>
+                  <li><span data-l="es">Protocolo de <strong>evidencia obligatoria</strong>: ninguna decisión se emite sin citar el documento legal que la respalda.</span><span data-l="en">A <strong>mandatory evidence</strong> protocol: no decision is issued without citing the legal document behind it.</span></li>
+                  <li><span data-l="es">Orquestación en watsonx, integrando Jira, Slack, Trello y Microsoft Calendar.</span><span data-l="en">watsonx orchestration, integrating Jira, Slack, Trello and Microsoft Calendar.</span></li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+          <div class="outcome">
+            <b data-l="es">Un patrón reutilizable de automatización auditable</b>
+            <b data-l="en">A reusable pattern for auditable automation</b>
+            <span data-l="es">Para cualquier empresa que quiera automatizar con IA sin renunciar a la trazabilidad de cada decisión.</span>
+            <span data-l="en">For any company automating with AI without giving up traceability of every decision.</span>
+          </div>
+          <div class="chips"><span class="chip">IBM watsonx</span><span class="chip">Orchestrate</span><span class="chip">ReAct</span><span class="chip">Llama 3.2 90B</span><span class="chip">Multi-agente</span></div>
+        </div>
+      </details>
+
+      <!-- OPTIVISION -->
+      <details class="case">
+        <summary>
+          <div class="case__meta">
+            <span class="tag">IAthon Fueguina · 2026</span>
+            <span class="tag"><span data-l="es">MVP en 8 horas</span><span data-l="en">MVP in 8 hours</span></span>
+          </div>
+          <h3><span data-l="es">OptiVision — ergonomía y calidad por cámara</span><span data-l="en">OptiVision — ergonomics and quality by camera</span></h3>
+          <p class="case__hook" data-l="es">Visión artificial que vigila la postura de los operarios y agiliza el control de calidad en planta, sin frenar la producción.</p>
+          <p class="case__hook" data-l="en">Computer vision that watches operator posture and speeds up quality control on the floor, without stopping production.</p>
+          <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="case__body">
+          <dl class="spec">
+            <div>
+              <dt><span data-l="es">Desafío</span><span data-l="en">Challenge</span></dt>
+              <dd data-l="es">Primera IAthon Fueguina, organizada por la Agencia de Innovación Fueguina. Eje de la sede Río Grande: desarrollo industrial y productivo. Ocho horas para un MVP funcional, con el hardware que la planta ya tiene y un operario que tiene las manos ocupadas.</dd>
+              <dd data-l="en">First Fuegian IAthon, run by the Fuegian Innovation Agency. Río Grande track: industrial and productive development. Eight hours for a working MVP, on the hardware the plant already owns, for an operator whose hands are busy.</dd>
+            </div>
+            <div>
+              <dt><span data-l="es">Solución</span><span data-l="en">Solution</span></dt>
+              <dd>
+                <ul>
+                  <li><span data-l="es"><strong>Salud:</strong> pose estimation por webcam que detecta inclinación de cuello y encorvamiento prolongado.</span><span data-l="en"><strong>Health:</strong> webcam pose estimation detecting neck tilt and prolonged hunching.</span></li>
+                  <li><span data-l="es"><strong>Control:</strong> detección de gestos de la mano, para operar 100% sin contacto.</span><span data-l="en"><strong>Control:</strong> hand gesture detection for fully contactless operation.</span></li>
+                  <li><span data-l="es"><strong>Calidad:</strong> se muestra la pieza, un gesto congela el frame y el modelo evalúa defectos.</span><span data-l="en"><strong>Quality:</strong> show the part, a gesture freezes the frame and the model assesses defects.</span></li>
+                  <li><span data-l="es"><strong>Supervisión:</strong> tablero en vivo más un chatbot sobre sus propios datos.</span><span data-l="en"><strong>Supervision:</strong> a live dashboard plus a chatbot over its own data.</span></li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+          <div class="outcome">
+            <b data-l="es">MVP funcional dentro de las 8 horas</b>
+            <b data-l="en">Working MVP inside the 8 hours</b>
+            <span data-l="es">Equipo con Santiago Picardi, Mara Campos y Jesica Zurita.</span>
+            <span data-l="en">Team with Santiago Picardi, Mara Campos and Jesica Zurita.</span>
+          </div>
+          <div class="chips"><span class="chip">Pose Estimation</span><span class="chip">Computer Vision</span><span class="chip">Gestos</span><span class="chip">Python</span><span class="chip">Dashboard</span></div>
+        </div>
+      </details>
+
+      <!-- NEWSAN -->
+      <details class="case">
+        <summary>
+          <div class="case__meta">
+            <span class="tag">Newsan · 2024</span>
+            <span class="tag">Business Intelligence</span>
+          </div>
+          <h3><span data-l="es">Newsan — BI de ergonomía en planta</span><span data-l="en">Newsan — plant ergonomics BI</span></h3>
+          <p class="case__hook" data-l="es">Herramienta que permite a Seguridad e Higiene identificar puestos críticos y simular rotaciones de personal para minimizar la fatiga física.</p>
+          <p class="case__hook" data-l="en">A tool letting Health &amp; Safety spot critical workstations and simulate staff rotation schemes to minimise physical fatigue.</p>
+          <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="case__body">
+          <dl class="spec">
+            <div>
+              <dt><span data-l="es">Desafío</span><span data-l="en">Challenge</span></dt>
+              <dd data-l="es">Pasantía en las áreas de Ergonomía e Ingeniería de la planta. Los reportes de producción se limpiaban a mano y el riesgo ergonómico se evaluaba caso por caso. Había que convertir planillas dispersas en algo con lo que la gerencia <strong>pudiera decidir rotaciones</strong>, no solo mirar números.</dd>
+              <dd data-l="en">Internship in the plant's Ergonomics and Engineering areas. Production reports were cleaned by hand and ergonomic risk assessed case by case. Scattered spreadsheets had to become something management could <strong>actually decide rotations with</strong>, not just look at.</dd>
+            </div>
+            <div>
+              <dt><span data-l="es">Solución</span><span data-l="en">Solution</span></dt>
+              <dd>
+                <ul>
+                  <li><span data-l="es">Scripts en VBA / macros de Excel para extraer y limpiar los reportes de producción.</span><span data-l="en">VBA / Excel macro scripts to extract and clean production reports.</span></li>
+                  <li><span data-l="es">Dashboards en Power BI con mapas de calor de riesgo e índices de criticidad.</span><span data-l="en">Power BI dashboards with risk heat maps and criticality indices.</span></li>
+                  <li><span data-l="es">Modelo de recomendación de rotaciones para distribuir la carga física.</span><span data-l="en">A rotation recommendation model to spread physical load.</span></li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+          <div class="outcome">
+            <b data-l="es">Horas de trabajo manual eliminadas por semana</b>
+            <b data-l="en">Hours of manual work eliminated every week</b>
+            <span data-l="es">Herramienta presentada a la gerencia y usada para rotar personal y prevenir lesiones.</span>
+            <span data-l="en">Presented to management and used to rotate staff and prevent injuries.</span>
+          </div>
+          <figure class="case__shot">
+            <img src="powerbiinteractivo.png" alt="Portada del tablero interactivo de Power BI de ergonomía entregado a Newsan" width="1023" height="576" loading="lazy">
+            <figcaption class="mono"><span data-l="es">Tablero entregado — análisis de ergonomía, Newsan</span><span data-l="en">Delivered dashboard — ergonomics analysis, Newsan</span></figcaption>
+          </figure>
+          <div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">VBA</span><span class="chip">Pandas</span><span class="chip">ETL</span></div>
+        </div>
+      </details>
+
+      <!-- TECH DEL FUEGO -->
+      <details class="case">
+        <summary>
+          <div class="case__meta">
+            <span class="tag tag--live"><span data-l="es">Actualidad</span><span data-l="en">Current</span></span>
+            <span class="tag">Tech del Fuego</span>
+          </div>
+          <h3><span data-l="es">Producción real para PyMEs</span><span data-l="en">Real production for small business</span></h3>
+          <p class="case__hook" data-l="es">Como ingeniero de IA del equipo inicial: automatizaciones, LLMs privados integrados a CRM y tableros de rentabilidad para empresas de la región.</p>
+          <p class="case__hook" data-l="en">As AI engineer on the founding team: automations, private LLMs wired into CRMs, and profitability dashboards for regional companies.</p>
+          <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="case__body">
+          <dl class="spec">
+            <div>
+              <dt><span data-l="es">Desafío</span><span data-l="en">Challenge</span></dt>
+              <dd data-l="es">El cliente típico no quiere «usar IA»: quiere dejar de perder horas en facturación, stock y consultas repetidas. Hay que <strong>traducir el problema de negocio</strong> antes de escribir una línea de código.</dd>
+              <dd data-l="en">The typical client doesn't want to "use AI": they want to stop losing hours on invoicing, stock and repeated queries. You have to <strong>translate the business problem</strong> before writing a line of code.</dd>
+            </div>
+            <div>
+              <dt><span data-l="es">Solución</span><span data-l="en">Solution</span></dt>
+              <dd>
+                <ul>
+                  <li><span data-l="es">LLMs privados y asistentes de voz y texto en WhatsApp, integrados a CRM.</span><span data-l="en">Private LLMs and voice/text WhatsApp assistants wired into CRMs.</span></li>
+                  <li><span data-l="es"><strong>CumbreBot:</strong> registro de gastos por WhatsApp, eliminando la fricción que hace fracasar a las planillas.</span><span data-l="en"><strong>CumbreBot:</strong> expense tracking over WhatsApp, removing the friction that kills spreadsheets.</span></li>
+                  <li><span data-l="es">Facturación y control de stock andando desde el día uno en un almacén de Río Grande.</span><span data-l="en">Invoicing and stock control live from day one in a Río Grande store.</span></li>
+                  <li><span data-l="es">Auditoría de sesgos y revisión frente a inyección de prompts y fuga de información.</span><span data-l="en">Bias auditing and review against prompt injection and data leakage.</span></li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+          <div class="outcome">
+            <b data-l="es">Ciclo completo a cargo</b>
+            <b data-l="en">Full cycle owned end to end</b>
+            <span data-l="es">Relevamiento con el cliente, desarrollo, despliegue y acompañamiento posterior.</span>
+            <span data-l="en">Client discovery, development, deployment and ongoing support.</span>
+          </div>
+          <div class="chips"><span class="chip">LLMs privados</span><span class="chip">WhatsApp API</span><span class="chip">Make</span><span class="chip">Power BI</span><span class="chip">Linux VPS</span><span class="chip">OCR</span></div>
+        </div>
+      </details>
+
+      <!-- PRINT INTELLIGENCE -->
+      <details class="case">
+        <summary>
+          <div class="case__meta">
+            <span class="tag"><span data-l="es">Sistema experto</span><span data-l="en">Expert system</span></span>
+            <span class="tag">Python</span>
+          </div>
+          <h3><span data-l="es">Print Intelligence — diagnóstico explicable</span><span data-l="en">Print Intelligence — explainable diagnosis</span></h3>
+          <p class="case__hook" data-l="es">Motor de inferencia escrito desde cero, deliberadamente sin redes neuronales: cada conclusión tiene que poder explicarse.</p>
+          <p class="case__hook" data-l="en">An inference engine written from scratch, deliberately without neural networks: every conclusion has to be explainable.</p>
+          <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="case__body">
+          <dl class="spec">
+            <div>
+              <dt><span data-l="es">Desafío</span><span data-l="en">Challenge</span></dt>
+              <dd data-l="es">Sistema web para diagnosticar fallas de hardware guiando al usuario con preguntas. El requisito era <strong>trazabilidad total, sin cajas negras</strong>: el usuario debía ver por qué se llegó a ese diagnóstico y no a otro.</dd>
+              <dd data-l="en">A web system diagnosing hardware faults by guiding the user through questions. The requirement was <strong>full traceability, no black boxes</strong>: the user had to see why that diagnosis was reached and not another.</dd>
+            </div>
+            <div>
+              <dt><span data-l="es">Solución</span><span data-l="en">Solution</span></dt>
+              <dd>
+                <ul>
+                  <li><span data-l="es">Motor de inferencia por encadenamiento hacia adelante, programado desde cero.</span><span data-l="en">A forward-chaining inference engine, written from scratch.</span></li>
+                  <li><span data-l="es">Base de conocimiento en JSON: se agregan reglas sin tocar el código.</span><span data-l="en">A JSON knowledge base: rules are added without touching the code.</span></li>
+                  <li><span data-l="es">Lógica de explicación que detalla el razonamiento paso a paso.</span><span data-l="en">Explanation logic laying out the reasoning step by step.</span></li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+          <div class="outcome">
+            <b data-l="es">Mantenible por alguien que no programa</b>
+            <b data-l="en">Maintainable by a non-programmer</b>
+            <span data-l="es">El mismo criterio que después apliqué al protocolo de evidencia de AXIS.</span>
+            <span data-l="en">The same principle I later applied to the AXIS evidence protocol.</span>
+          </div>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Forward chaining</span><span class="chip">JSON</span><span class="chip">Explainability</span></div>
+        </div>
+      </details>
+
+      <!-- HOTELERA -->
+      <details class="case">
+        <summary>
+          <div class="case__meta">
+            <span class="tag">Machine Learning</span>
+            <span class="tag">2025</span>
+          </div>
+          <h3><span data-l="es">Predicción de demanda hotelera</span><span data-l="en">Hotel demand forecasting</span></h3>
+          <p class="case__hook" data-l="es">Modelo XGBoost para anticipar la ocupación hotelera en Tierra del Fuego y sostener decisiones de precios y personal.</p>
+          <p class="case__hook" data-l="en">An XGBoost model forecasting hotel occupancy in Tierra del Fuego to support pricing and staffing decisions.</p>
+          <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="case__body">
+          <dl class="spec">
+            <div>
+              <dt><span data-l="es">Desafío</span><span data-l="en">Challenge</span></dt>
+              <dd data-l="es">El turismo fueguino es fuertemente estacional y la ocupación condiciona precios, compras y personal. Datos incompletos y ruidosos, con eventos puntuales que rompen la serie.</dd>
+              <dd data-l="en">Fuegian tourism is strongly seasonal and occupancy drives pricing, purchasing and staffing. Incomplete, noisy data with one-off events breaking the series.</dd>
+            </div>
+            <div>
+              <dt><span data-l="es">Solución</span><span data-l="en">Solution</span></dt>
+              <dd>
+                <ul>
+                  <li><span data-l="es">Análisis exploratorio, limpieza e imputación avanzada de faltantes.</span><span data-l="en">Exploratory analysis, cleaning and advanced imputation of missing values.</span></li>
+                  <li><span data-l="es">Feature engineering sobre estacionalidad y variables de calendario.</span><span data-l="en">Feature engineering on seasonality and calendar variables.</span></li>
+                  <li><span data-l="es">XGBoost de regresión, comparado contra Random Forest como línea de base.</span><span data-l="en">XGBoost regression, benchmarked against Random Forest as a baseline.</span></li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+          <div class="outcome">
+            <b data-l="es">Predictor de ocupación utilizable para planificar temporada</b>
+            <b data-l="en">An occupancy predictor usable for season planning</b>
+            <span data-l="es">El mismo enfoque que aplico hoy a demanda y stock en clientes reales.</span>
+            <span data-l="en">The same approach I now apply to demand and stock for real clients.</span>
+          </div>
+          <div class="chips"><span class="chip">XGBoost</span><span class="chip">Random Forest</span><span class="chip">Scikit-learn</span><span class="chip">Pandas</span></div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ STACK ============ -->
+<section class="section" id="stack">
+  <div class="wrap">
+    <div class="shead">
+      <span class="mono shead__idx">§03</span>
+      <h2><span data-l="es">Stack técnico</span><span data-l="en">Technical stack</span></h2>
+      <span class="mono shead__note"><span data-l="es">Resaltado = uso diario</span><span data-l="en">Highlighted = daily use</span></span>
+    </div>
+
+    <div class="stack">
+      <div class="srow">
+        <div class="srow__h"><b><span data-l="es">IA generativa y LLMs</span><span data-l="en">Generative AI and LLMs</span></b><span class="mono"><span data-l="es">Núcleo</span><span data-l="en">Core</span></span></div>
+        <div class="srow__items">
+          <span class="tech is-core">RAG</span><span class="tech is-core">LangChain</span><span class="tech is-core">ChromaDB</span><span class="tech is-core">Llama 3</span><span class="tech">Llama 4 Scout</span><span class="tech">LM Studio</span><span class="tech">Groq API</span><span class="tech">IBM watsonx</span><span class="tech">Multi-agente</span><span class="tech">ReAct</span>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="srow__h"><b><span data-l="es">Voz, visión y NLP</span><span data-l="en">Voice, vision and NLP</span></b><span class="mono">Multimodal</span></div>
+        <div class="srow__items">
+          <span class="tech is-core">Whisper</span><span class="tech is-core">Edge-TTS</span><span class="tech">OCR</span><span class="tech">Pose estimation</span><span class="tech is-core">pysentimiento</span><span class="tech">Embeddings</span>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="srow__h"><b><span data-l="es">Datos y machine learning</span><span data-l="en">Data and machine learning</span></b><span class="mono"><span data-l="es">Base</span><span data-l="en">Foundation</span></span></div>
+        <div class="srow__items">
+          <span class="tech is-core">Python</span><span class="tech is-core">Pandas</span><span class="tech is-core">NumPy</span><span class="tech is-core">Scikit-learn</span><span class="tech is-core">XGBoost</span><span class="tech">Random Forest</span><span class="tech is-core">SQL</span><span class="tech is-core">Power BI</span><span class="tech">DAX</span><span class="tech">Matplotlib</span><span class="tech">ETL</span>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="srow__h"><b><span data-l="es">Desarrollo de software</span><span data-l="en">Software development</span></b><span class="mono">Backend / Frontend</span></div>
+        <div class="srow__items">
+          <span class="tech is-core">Flask</span><span class="tech is-core">POO</span><span class="tech">React</span><span class="tech">JavaScript ES6</span><span class="tech">Node.js</span><span class="tech">Express</span><span class="tech">MongoDB</span><span class="tech">Jinja2</span><span class="tech">MVC</span><span class="tech">Firestore</span><span class="tech">VBA</span>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="srow__h"><b><span data-l="es">Infraestructura</span><span data-l="en">Infrastructure</span></b><span class="mono"><span data-l="es">Producción</span><span data-l="en">Production</span></span></div>
+        <div class="srow__items">
+          <span class="tech is-core">Linux</span><span class="tech is-core">VPS</span><span class="tech is-core">systemd</span><span class="tech is-core">Git / GitHub</span><span class="tech">Bash</span><span class="tech">Docker</span><span class="tech is-core">Webhooks</span><span class="tech">On-premise</span>
+        </div>
+      </div>
+      <div class="srow">
+        <div class="srow__h"><b><span data-l="es">Seguridad y cumplimiento</span><span data-l="en">Security and compliance</span></b><span class="mono"><span data-l="es">Aplicado</span><span data-l="en">Applied</span></span></div>
+        <div class="srow__items">
+          <span class="tech">NIST CSF 2.0</span><span class="tech">ISO/IEC 27001</span><span class="tech">MITRE ATT&amp;CK</span><span class="tech"><span data-l="es">Auditoría de sesgos</span><span data-l="en">Bias auditing</span></span><span class="tech">Prompt injection</span><span class="tech"><span data-l="es">Fuga de datos</span><span data-l="en">Data leakage</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRAYECTORIA ============ -->
+<section class="section section--tint" id="trayectoria">
+  <div class="wrap">
+    <div class="shead">
+      <span class="mono shead__idx">§04</span>
+      <h2><span data-l="es">Trayectoria</span><span data-l="en">Path</span></h2>
+      <span class="mono shead__note">2018 → <span data-l="es">hoy</span><span data-l="en">today</span></span>
+    </div>
+
+    <div class="timeline">
+      <article class="tl tl--hi">
+        <p class="mono tl__date"><span data-l="es">Abr 2026 — Actualidad</span><span data-l="en">Apr 2026 — Present</span></p>
+        <h3><span data-l="es">Ingeniero de Inteligencia Artificial</span><span data-l="en">Artificial Intelligence Engineer</span></h3>
+        <p class="tl__org">Tech del Fuego · Río Grande</p>
+        <p data-l="es">Equipo inicial de una firma de ciberseguridad, IA y datos. Automatización de procesos, LLMs privados integrados a CRM y auditoría de seguridad de modelos.</p>
+        <p data-l="en">Founding team of a cybersecurity, AI and data firm. Process automation, private LLMs wired into CRMs, and model security auditing.</p>
+      </article>
+
+      <article class="tl tl--hi">
+        <p class="mono tl__date">2026</p>
+        <h3><span data-l="es">Beca Full Stack Developer ITBA</span><span data-l="en">ITBA Full Stack Developer Scholarship</span></h3>
+        <p class="tl__org">ITBA · Santander Open Academy</p>
+        <p data-l="es">Uno de 400 seleccionados. Diecisiete semanas intensivas de stack MERN, para escalar e integrar de forma más robusta los modelos y agentes que ya venía construyendo.</p>
+        <p data-l="en">One of 400 selected. Seventeen intensive weeks on the MERN stack, to scale and integrate the models and agents I was already building.</p>
+      </article>
+
+      <article class="tl">
+        <p class="mono tl__date"><span data-l="es">2026 — Actualidad</span><span data-l="en">2026 — Present</span></p>
+        <h3><span data-l="es">Tecnicatura Universitaria en Programación</span><span data-l="en">University Technical Degree in Programming</span></h3>
+        <p class="tl__org">Universidad Tecnológica Nacional (UTN)</p>
+        <p data-l="es">Fundamentos de ingeniería de software en curso, complementando el perfil de datos e IA.</p>
+        <p data-l="en">Software engineering fundamentals in progress, complementing the data and AI profile.</p>
+      </article>
+
+      <article class="tl tl--hi">
+        <p class="mono tl__date"><span data-l="es">Oct — Dic 2025</span><span data-l="en">Oct — Dec 2025</span></p>
+        <h3><span data-l="es">Prácticas profesionalizantes · AI Developer</span><span data-l="en">Professional placement · AI Developer</span></h3>
+        <p class="tl__org">El Dorado SRL</p>
+        <p data-l="es">Chatbot RAG con LLM local para consultas técnicas sobre hormigón, con panel de administración, speech-to-text y TTS.</p>
+        <p data-l="en">RAG chatbot on a local LLM for technical concrete queries, with an admin panel, speech-to-text and TTS.</p>
+      </article>
+
+      <article class="tl tl--hi">
+        <p class="mono tl__date"><span data-l="es">Jun — Dic 2025</span><span data-l="en">Jun — Dec 2025</span></p>
+        <h3>Samsung Innovation Campus — Big Data &amp; AI</h3>
+        <p class="tl__org">Samsung Electronics Argentina</p>
+        <p data-l="es">140 horas de formación intensiva más Capstone Project. <strong>Primer puesto nacional</strong> con AIDA. Invitado como orador a la inauguración de la edición 2026.</p>
+        <p data-l="en">140 hours of intensive training plus the Capstone Project. <strong>First place nationally</strong> with AIDA. Invited back as a speaker at the 2026 opening.</p>
+      </article>
+
+      <article class="tl">
+        <p class="mono tl__date"><span data-l="es">Ene 2024 — Nov 2025</span><span data-l="en">Jan 2024 — Nov 2025</span></p>
+        <h3><span data-l="es">Técnico Superior en Ciencia de Datos e IA</span><span data-l="en">Higher Technician in Data Science and AI</span></h3>
+        <p class="tl__org">Centro Politécnico Superior Malvinas Argentinas</p>
+        <p data-l="es">Carrera finalizada con promedio destacado y sin desaprobar finales.</p>
+        <p data-l="en">Completed with distinction and without failing a single final.</p>
+      </article>
+
+      <article class="tl">
+        <p class="mono tl__date"><span data-l="es">Oct — Dic 2024</span><span data-l="en">Oct — Dec 2024</span></p>
+        <h3><span data-l="es">Pasante de análisis de datos</span><span data-l="en">Data analysis intern</span></h3>
+        <p class="tl__org">Newsan · <span data-l="es">Planta Motorola, Río Grande</span><span data-l="en">Motorola plant, Río Grande</span></p>
+        <p data-l="es">Automatización de reportes y la herramienta de BI de ergonomía usada por Seguridad e Higiene.</p>
+        <p data-l="en">Report automation and the ergonomics BI tool used by Health &amp; Safety.</p>
+      </article>
+
+      <article class="tl">
+        <p class="mono tl__date">2018 — 2023</p>
+        <h3><span data-l="es">Bachiller en Economía y Administración</span><span data-l="en">Secondary degree in Economics and Administration</span></h3>
+        <p class="tl__org">Instituto Salesiano Don Bosco · <span data-l="es">Promedio</span><span data-l="en">GPA</span> 8,55</p>
+        <p data-l="es">Menciones de honor en Derecho Económico y Sistemas de Información Contable. La base de por qué miro primero el problema de negocio.</p>
+        <p data-l="en">Honours in Economic Law and Accounting Information Systems. The reason I look at the business problem first.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECONOCIMIENTOS ============ -->
+<section class="section" id="reconocimientos">
+  <div class="wrap">
+    <div class="shead">
+      <span class="mono shead__idx">§05</span>
+      <h2><span data-l="es">Reconocimientos</span><span data-l="en">Recognition</span></h2>
+      <span class="mono shead__note"><span data-l="es">Validación externa</span><span data-l="en">External validation</span></span>
+    </div>
+
+    <div class="awards">
+      <article class="award">
+        <span class="mono award__y">2025 · <span data-l="es">Nacional</span><span data-l="en">National</span></span>
+        <h3><span data-l="es">1er puesto — Capstone Samsung Innovation Campus</span><span data-l="en">1st place — Samsung Innovation Campus Capstone</span></h3>
+        <p data-l="es">Con AIDA, entre +30 equipos y 600 postulantes. Jurado de Samsung, Randstad y Streambe.</p>
+        <p data-l="en">With AIDA, among 30+ teams and 600 applicants. Jury from Samsung, Randstad and Streambe.</p>
+      </article>
+      <article class="award">
+        <span class="mono award__y">2026</span>
+        <h3><span data-l="es">Beca Full Stack Developer ITBA</span><span data-l="en">ITBA Full Stack Developer Scholarship</span></h3>
+        <p data-l="es">Uno de 400 seleccionados por ITBA y Santander Open Academy para la cursada intensiva de MERN.</p>
+        <p data-l="en">One of 400 selected by ITBA and Santander Open Academy for the intensive MERN programme.</p>
+      </article>
+      <article class="award">
+        <span class="mono award__y">2026</span>
+        <h3><span data-l="es">Orador invitado — SIC 2026</span><span data-l="en">Invited speaker — SIC 2026</span></h3>
+        <p data-l="es">Convocado por Samsung para presentar AIDA en la inauguración de la nueva edición.</p>
+        <p data-l="en">Invited by Samsung to present AIDA at the opening of the new edition.</p>
+      </article>
+      <article class="award">
+        <span class="mono award__y">2026</span>
+        <h3><span data-l="es">IAthon Fueguina — 1ª edición</span><span data-l="en">Fuegian IAthon — 1st edition</span></h3>
+        <p data-l="es">MVP funcional de OptiVision en 8 horas, en el eje de desarrollo industrial y productivo.</p>
+        <p data-l="en">A working OptiVision MVP in 8 hours, on the industrial and productive development track.</p>
+      </article>
+      <article class="award">
+        <span class="mono award__y">2025</span>
+        <h3><span data-l="es">Certificaciones Junior Achievement</span><span data-l="en">Junior Achievement certifications</span></h3>
+        <p data-l="es">Economía Personal y Finanzas Personales. Gestión de recursos y lectura de negocio.</p>
+        <p data-l="en">Personal Economics and Personal Finance. Resource management and business literacy.</p>
+      </article>
+      <article class="award">
+        <span class="mono award__y"><span data-l="es">Secundaria</span><span data-l="en">Secondary</span></span>
+        <h3><span data-l="es">Mejor compañero</span><span data-l="en">Best classmate</span></h3>
+        <p data-l="es">Elegido por su curso. Lideró proyectos de aprendizaje en servicio dando apoyo escolar en barrios vulnerables.</p>
+        <p data-l="en">Chosen by his class. Led service-learning projects tutoring children in vulnerable neighbourhoods.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOBRE ============ -->
+<section class="section section--tint" id="sobre">
+  <div class="wrap">
+    <div class="shead">
+      <span class="mono shead__idx">§06</span>
+      <h2><span data-l="es">Sobre mí</span><span data-l="en">About</span></h2>
+      <span class="mono shead__note"><span data-l="es">Cómo trabajo</span><span data-l="en">How I work</span></span>
+    </div>
+
+    <div class="about">
+      <div>
+        <p data-l="es">Tengo <span data-age>20</span> años y me formé en el <strong>lugar más austral donde se fabrica tecnología en Argentina</strong>. Eso marcó cómo trabajo: acá los recursos son escasos, el soporte está lejos y las cosas tienen que funcionar solas. Aprendí Linux, VPS y Docker por mi cuenta, porque los proyectos lo pedían y no había a quién delegárselo.</p>
+        <p data-l="es">Mi perfil es híbrido a propósito: vengo de datos e IA, estudio ingeniería de software y tengo base en economía. Por eso la primera pregunta nunca es <em>qué modelo usamos</em>, sino <strong>qué proceso te está costando horas y plata</strong>. Después vemos si hace falta un LLM, un XGBoost o una macro bien hecha.</p>
+        <p data-l="es">Me interesa lo que otros esquivan: privacidad estricta, trazabilidad de decisiones automatizadas y despliegues que se sostienen 24/7 sin nadie mirándolos. Busco equipos que me exijan y proyectos donde profundizar en <strong>MLOps, arquitectura segura y cloud</strong>.</p>
+
+        <p data-l="en">I'm <span data-age>20</span> and I trained in the <strong>southernmost place in Argentina where technology is manufactured</strong>. That shaped how I work: resources are scarce here, support is far away, and things have to run on their own. I learned Linux, VPS deployment and Docker by myself, because the projects demanded it and there was nobody to delegate to.</p>
+        <p data-l="en">My profile is hybrid on purpose: I come from data and AI, I'm studying software engineering, and I have a background in economics. So the first question is never <em>which model do we use</em>, but <strong>which process is costing you hours and money</strong>. Then we see whether it needs an LLM, an XGBoost, or a well-written macro.</p>
+        <p data-l="en">I'm drawn to what others avoid: strict privacy, traceability of automated decisions, and deployments that hold up 24/7 with nobody watching. I'm looking for teams that stretch me and projects where I can go deeper into <strong>MLOps, secure architecture and cloud</strong>.</p>
+      </div>
+
+      <div class="factbox">
+        <div class="fact"><span class="mono"><span data-l="es">Base</span><span data-l="en">Based in</span></span><b>Río Grande, Tierra del Fuego</b></div>
+        <div class="fact"><span class="mono"><span data-l="es">Modalidad</span><span data-l="en">Mode</span></span><b><span data-l="es">Remoto · Híbrido · Reubicación</span><span data-l="en">Remote · Hybrid · Relocation</span></b></div>
+        <div class="fact"><span class="mono"><span data-l="es">Rol actual</span><span data-l="en">Current role</span></span><b><span data-l="es">Ingeniero de IA, Tech del Fuego</span><span data-l="en">AI Engineer, Tech del Fuego</span></b></div>
+        <div class="fact"><span class="mono"><span data-l="es">Español</span><span data-l="en">Spanish</span></span><b><span data-l="es">Nativo</span><span data-l="en">Native</span></b></div>
+        <div class="fact"><span class="mono"><span data-l="es">Inglés</span><span data-l="en">English</span></span><b>B1 — <span data-l="es">Instituto Infy</span><span data-l="en">Infy Institute</span></b></div>
+        <div class="fact"><span class="mono"><span data-l="es">Foco</span><span data-l="en">Focus</span></span><b><span data-l="es">MLOps · IA privada · Seguridad</span><span data-l="en">MLOps · Private AI · Security</span></b></div>
+        <div class="fact"><span class="mono"><span data-l="es">Edad</span><span data-l="en">Age</span></span><b><span data-age>20</span> <span data-l="es">años</span><span data-l="en">years</span></b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section class="section contact" id="contacto">
+  <div class="wrap contact__grid">
+    <div>
+      <h2 data-l="es">¿Tenés un proceso que <em>te está costando horas?</em></h2>
+      <h2 data-l="en">Got a process that's <em>costing you hours?</em></h2>
+      <p data-l="es">Contame qué hace tu empresa y en qué se va el tiempo. Si la IA no es la respuesta, te lo digo — y si lo es, te muestro cómo se vería antes de que inviertas.</p>
+      <p data-l="en">Tell me what your company does and where the time goes. If AI isn't the answer, I'll say so — and if it is, I'll show you what it would look like before you invest.</p>
+      <div class="contact__btns">
+        <a class="btn" href="mailto:Santiago.Oroz1510@gmail.com?subject=Consulta%20desde%20tu%20portfolio"><span data-l="es">Escribime un mail</span><span data-l="en">Send me an email</span></a>
+        <a class="btn btn--ghost" id="cv-foot" href="CV-Santiago-Oroz-ES.pdf" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-4.5-4.5M12 15l4.5-4.5M4 19h16"/></svg>
+          <span data-l="es">Descargar CV</span><span data-l="en">Download CV</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="clist">
+      <a class="clink" href="mailto:Santiago.Oroz1510@gmail.com">
+        <span class="mono clink__k">Email</span>
+        <span class="clink__v">Santiago.Oroz1510@gmail.com</span>
+        <span class="clink__ar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a class="clink" href="tel:+5492964543015">
+        <span class="mono clink__k"><span data-l="es">Teléfono</span><span data-l="en">Phone</span></span>
+        <span class="clink__v">+54 9 2964 54-3015</span>
+        <span class="clink__ar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a class="clink" href="https://www.linkedin.com/in/santiago-oroz/" target="_blank" rel="noopener">
+        <span class="mono clink__k">LinkedIn</span>
+        <span class="clink__v">in/santiago-oroz</span>
+        <span class="clink__ar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a class="clink" href="https://github.com/SantiagoOroz" target="_blank" rel="noopener">
+        <span class="mono clink__k">GitHub</span>
+        <span class="clink__v">github.com/SantiagoOroz</span>
+        <span class="clink__ar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a class="clink" href="https://techdelfuego.com" target="_blank" rel="noopener">
+        <span class="mono clink__k"><span data-l="es">Empresa</span><span data-l="en">Company</span></span>
+        <span class="clink__v">techdelfuego.com</span>
+        <span class="clink__ar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <svg class="foot__map" viewBox="0 0 60 82" role="img" aria-label="Isla Grande de Tierra del Fuego">
+      <path d="M8 4 L52 10 L50 26 L40 34 L44 48 L34 62 L22 72 L10 76 L4 64 L12 50 L6 36 L14 22 Z"/>
+    </svg>
+    <p class="mono">Santiago Oroz — <span data-l="es">Ingeniero de IA · Río Grande, Tierra del Fuego, Argentina</span><span data-l="en">AI Engineer · Río Grande, Tierra del Fuego, Argentina</span></p>
+    <p class="mono"><span data-l="es">Sitio propio · Sin dependencias</span><span data-l="en">Hand-built · No dependencies</span> · 53°47′S</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var root = document.documentElement;
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Edad, calculada desde la fecha de nacimiento ---------- */
+  (function () {
+    var born = new Date(2005, 9, 15); // 15 de octubre de 2005
+    var now = new Date();
+    var age = now.getFullYear() - born.getFullYear();
+    var m = now.getMonth() - born.getMonth();
+    if (m < 0 || (m === 0 && now.getDate() < born.getDate())) age--;
+    Array.prototype.forEach.call(document.querySelectorAll("[data-age]"), function (el) {
+      el.textContent = String(age);
+    });
+  })();
+
+  /* ---------- Idioma ---------- */
+  var CV = { es: "CV-Santiago-Oroz-ES.pdf", en: "CV-Santiago-Oroz-EN.pdf" };
+  var cvLinks = [document.getElementById("cv-hero"), document.getElementById("cv-foot")];
+
+  function setLang(l) {
+    root.setAttribute("lang", l);
+    cvLinks.forEach(function (a) { if (a) a.setAttribute("href", CV[l]); });
+    try { localStorage.setItem("so-lang", l); } catch (e) { /* sin persistencia */ }
+  }
+  try {
+    var savedLang = localStorage.getItem("so-lang");
+    if (savedLang === "es" || savedLang === "en") setLang(savedLang);
+    else if ((navigator.language || "es").slice(0, 2) !== "es") setLang("en");
+  } catch (e) { /* se queda en español */ }
+
+  document.getElementById("lang").addEventListener("click", function () {
+    setLang(root.getAttribute("lang") === "es" ? "en" : "es");
+  });
+
+  /* ---------- Tema ---------- */
+  try {
+    var savedTheme = localStorage.getItem("so-theme");
+    if (savedTheme === "light" || savedTheme === "dark") root.setAttribute("data-theme", savedTheme);
+  } catch (e) { /* se usa el del sistema */ }
+
+  document.getElementById("theme").addEventListener("click", function () {
+    var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var current = root.getAttribute("data-theme") || (systemDark ? "dark" : "light");
+    root.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+    try { localStorage.setItem("so-theme", root.getAttribute("data-theme")); } catch (e) {}
+  });
+
+  /* ---------- Marquesina ---------- */
+  (function () {
+    var items = ["Python","RAG","Llama 3","ChromaDB","LangChain","Whisper","Power BI","XGBoost",
+                 "Flask","React","Linux","systemd","Docker","watsonx","Pandas","Scikit-learn",
+                 "Computer Vision","Edge-TTS","SQL","MERN","On-premise","Git"];
+    var track = document.getElementById("ticker");
+    function group() {
+      var g = document.createElement("div");
+      g.className = "ticker__group";
+      items.forEach(function (t) {
+        var s = document.createElement("span");
+        s.className = "ticker__item";
+        s.innerHTML = "<b>" + t + "</b>";
+        g.appendChild(s);
+        var d = document.createElement("span");
+        d.className = "ticker__dot";
+        g.appendChild(d);
+      });
+      return g;
+    }
+    track.appendChild(group());
+    track.appendChild(group()); // duplicado: el bucle a -50% queda continuo
+  })();
+
+  /* ---------- Contadores ---------- */
+  (function () {
+    var nums = Array.prototype.slice.call(document.querySelectorAll("[data-count]"));
+    if (reduced) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        io.unobserve(en.target);
+        var el = en.target;
+        var target = parseInt(el.getAttribute("data-count"), 10);
+        if (!target) return; // el 0 ya está bien tal como está
+        var start = performance.now(), dur = 1100;
+        (function step(now) {
+          var p = Math.min((now - start) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = String(Math.round(target * eased));
+          if (p < 1) requestAnimationFrame(step);
+        })(start);
+      });
+    }, { threshold: .6 });
+    nums.forEach(function (n) { io.observe(n); });
+  })();
+
+  /* ---------- Progreso + sección activa ---------- */
+  var bar = document.getElementById("progress");
+  var links = Array.prototype.slice.call(document.querySelectorAll(".navlinks a"));
+  var targets = links.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+  var ticking = false;
+
+  function update() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+    var active = -1;
+    for (var i = 0; i < targets.length; i++) {
+      if (targets[i] && targets[i].getBoundingClientRect().top <= 140) active = i;
+    }
+    links.forEach(function (a, i) { a.classList.toggle("is-active", i === active); });
+    ticking = false;
+  }
+  window.addEventListener("scroll", function () {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener("resize", update, { passive: true });
+  update();
+
+  /* ---------- Un caso abierto por vez ---------- */
+  var cases = Array.prototype.slice.call(document.querySelectorAll(".case"));
+  cases.forEach(function (d) {
+    d.addEventListener("toggle", function () {
+      if (!d.open) return;
+      cases.forEach(function (o) { if (o !== d) o.open = false; });
+    });
+  });
+
+  /* ---------- Relieve: isolíneas a la deriva, como una carta batimétrica ---------- */
+  (function () {
+    var cv = document.getElementById("relieve");
+    if (!cv || !cv.getContext) return;
+    var ctx = cv.getContext("2d");
+    var W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var COLS = 44, ROWS = 28;
+    var LEVELS = [-2.4, -1.6, -0.8, 0, 0.8, 1.6, 2.4];
+
+    function resize() {
+      var r = cv.getBoundingClientRect();
+      W = Math.max(r.width, 1); H = Math.max(r.height, 1);
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function draw(t) {
+      ctx.clearRect(0, 0, W, H);
+      var cw = W / COLS, ch = H / ROWS;
+      var v = [], j, i;
+      for (j = 0; j <= ROWS; j++) {
+        v[j] = [];
+        for (i = 0; i <= COLS; i++) {
+          v[j][i] = Math.sin(i * 0.30 + t) +
+                    Math.sin(j * 0.26 + t * 0.7) +
+                    Math.sin((i + j) * 0.17 - t * 0.5) +
+                    Math.sin(Math.sqrt((i - COLS / 2) * (i - COLS / 2) + (j - ROWS / 2) * (j - ROWS / 2)) * 0.30 - t * 0.85);
+        }
+      }
+      var css = getComputedStyle(root);
+      var stroke = css.getPropertyValue("--line").trim() || "#1C373F";
+      var accent = css.getPropertyValue("--signal").trim() || "#E4623F";
+      ctx.lineWidth = 1;
+
+      for (var k = 0; k < LEVELS.length; k++) {
+        var lv = LEVELS[k];
+        ctx.strokeStyle = (k === 3) ? accent : stroke;
+        ctx.globalAlpha = (k === 3) ? .5 : .9;
+        ctx.beginPath();
+        for (j = 0; j < ROWS; j++) {
+          for (i = 0; i < COLS; i++) {
+            var a = v[j][i], b = v[j][i + 1], c = v[j + 1][i + 1], d = v[j + 1][i];
+            var idx = (a > lv ? 8 : 0) | (b > lv ? 4 : 0) | (c > lv ? 2 : 0) | (d > lv ? 1 : 0);
+            if (idx === 0 || idx === 15) continue;
+            var x0 = i * cw, y0 = j * ch, x1 = x0 + cw, y1 = y0 + ch;
+            var Tx = x0 + cw * ((lv - a) / (b - a)), Ty = y0;
+            var Rx = x1,                              Ry = y0 + ch * ((lv - b) / (c - b));
+            var Bx = x0 + cw * ((lv - d) / (c - d)), By = y1;
+            var Lx = x0,                              Ly = y0 + ch * ((lv - a) / (d - a));
+            switch (idx) {
+              case 1: case 14: ctx.moveTo(Lx, Ly); ctx.lineTo(Bx, By); break;
+              case 2: case 13: ctx.moveTo(Bx, By); ctx.lineTo(Rx, Ry); break;
+              case 3: case 12: ctx.moveTo(Lx, Ly); ctx.lineTo(Rx, Ry); break;
+              case 4: case 11: ctx.moveTo(Tx, Ty); ctx.lineTo(Rx, Ry); break;
+              case 6: case 9:  ctx.moveTo(Tx, Ty); ctx.lineTo(Bx, By); break;
+              case 7: case 8:  ctx.moveTo(Lx, Ly); ctx.lineTo(Tx, Ty); break;
+              case 5:  ctx.moveTo(Lx, Ly); ctx.lineTo(Tx, Ty); ctx.moveTo(Bx, By); ctx.lineTo(Rx, Ry); break;
+              case 10: ctx.moveTo(Tx, Ty); ctx.lineTo(Rx, Ry); ctx.moveTo(Lx, Ly); ctx.lineTo(Bx, By); break;
             }
+          }
+        }
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+    }
 
-            function appendMessage(content, role) {
-                const div = document.createElement('div');
-                const cls = role === 'user' ? 'user' : (role === 'error' ? 'error' : 'bot');
-                div.className = 'techi-msg ' + cls;
-                div.textContent = content;
-                messagesEl.appendChild(div);
-                messagesEl.scrollTop = messagesEl.scrollHeight;
-            }
+    resize();
+    if (reduced) { draw(0); return; }
 
-            function showTyping() {
-                if (typingEl) return;
-                typingEl = document.createElement('div');
-                typingEl.className = 'techi-typing';
-                typingEl.innerHTML = '<span></span><span></span><span></span>';
-                messagesEl.appendChild(typingEl);
-                messagesEl.scrollTop = messagesEl.scrollHeight;
-            }
-            function hideTyping() {
-                if (typingEl) { typingEl.remove(); typingEl = null; }
-            }
+    var t0 = performance.now(), last = 0, running = true;
+    function loop(now) {
+      if (running) {
+        if (now - last > 33) { // ~30 fps, suficiente para una deriva lenta
+          last = now;
+          draw((now - t0) / 6000);
+        }
+        requestAnimationFrame(loop);
+      }
+    }
+    requestAnimationFrame(loop);
 
-            async function apiCreateContact() {
-                const res = await fetch(
-                    BASE_URL + '/public/api/v1/inboxes/' + INBOX_IDENTIFIER + '/contacts',
-                    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' }
-                );
-                if (!res.ok) throw new Error('createContact ' + res.status);
-                return res.json();
-            }
+    // se detiene cuando el hero sale de pantalla, para no gastar batería
+    var hero = cv.parentElement;
+    if (window.IntersectionObserver) {
+      new IntersectionObserver(function (e) {
+        var visible = e[0].isIntersecting;
+        if (visible && !running) { running = true; requestAnimationFrame(loop); }
+        running = visible;
+      }, { threshold: 0 }).observe(hero);
+    }
+    var rt;
+    window.addEventListener("resize", function () {
+      clearTimeout(rt);
+      rt = setTimeout(function () { resize(); }, 150);
+    }, { passive: true });
+  })();
+})();
+</script>
 
-            async function apiCreateConversation(sourceId) {
-                const res = await fetch(
-                    BASE_URL + '/public/api/v1/inboxes/' + INBOX_IDENTIFIER + '/contacts/' + sourceId + '/conversations',
-                    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' }
-                );
-                if (!res.ok) throw new Error('createConversation ' + res.status);
-                return res.json();
-            }
-
-            async function apiSendMessage(text) {
-                const res = await fetch(
-                    BASE_URL + '/public/api/v1/inboxes/' + INBOX_IDENTIFIER +
-                    '/contacts/' + session.sourceId +
-                    '/conversations/' + session.conversationId + '/messages',
-                    {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ content: text, echo_id: String(Date.now()) })
-                    }
-                );
-                if (!res.ok) throw new Error('sendMessage ' + res.status);
-                return res.json();
-            }
-
-            async function apiFetchMessages() {
-                const res = await fetch(
-                    BASE_URL + '/public/api/v1/inboxes/' + INBOX_IDENTIFIER +
-                    '/contacts/' + session.sourceId +
-                    '/conversations/' + session.conversationId + '/messages',
-                    { method: 'GET' }
-                );
-                if (!res.ok) throw new Error('fetchMessages ' + res.status);
-                const data = await res.json();
-                if (Array.isArray(data)) return data;
-                return data.payload || data.data || [];
-            }
-
-            function ensureSession() {
-                if (session && session.sourceId && session.conversationId) return Promise.resolve();
-                if (initializing) return initializing;
-                initializing = (async () => {
-                    const contact = await apiCreateContact();
-                    const src = contact.source_id;
-                    const conv = await apiCreateConversation(src);
-                    session = {
-                        sourceId: src,
-                        conversationId: conv.id,
-                        pubsubToken: contact.pubsub_token || null
-                    };
-                    saveSession();
-                })().finally(() => { initializing = null; });
-                return initializing;
-            }
-
-            async function loadHistory() {
-                if (historyLoaded) return;
-                try {
-                    const msgs = await apiFetchMessages();
-                    msgs.sort((a, b) => a.id - b.id);
-                    for (const m of msgs) {
-                        lastMessageId = Math.max(lastMessageId, m.id);
-                        if (renderedIds.has(m.id)) continue;
-                        if (!m.content) continue;
-                        if (m.message_type === 2 || m.message_type === 'activity') continue;
-                        const role = (m.message_type === 0 || m.message_type === 'incoming') ? 'user' : 'bot';
-                        renderedIds.add(m.id);
-                        appendMessage(m.content, role);
-                    }
-                    historyLoaded = true;
-                } catch (e) {
-                    // si falla, seguimos sin historial
-                }
-            }
-
-            async function pollNewMessages() {
-                if (!session) return;
-                try {
-                    const msgs = await apiFetchMessages();
-                    msgs.sort((a, b) => a.id - b.id);
-                    for (const m of msgs) {
-                        if (m.id <= lastMessageId && renderedIds.has(m.id)) continue;
-                        lastMessageId = Math.max(lastMessageId, m.id);
-                        if (renderedIds.has(m.id)) continue;
-                        if (!m.content) continue;
-                        if (m.message_type === 2 || m.message_type === 'activity') continue;
-                        // Solo renderizamos outgoing (bot); los del usuario ya están en pantalla.
-                        if (m.message_type === 1 || m.message_type === 'outgoing') {
-                            renderedIds.add(m.id);
-                            hideTyping();
-                            appendMessage(m.content, 'bot');
-                        } else {
-                            // Marcar como visto para no reprocesarlo.
-                            renderedIds.add(m.id);
-                        }
-                    }
-                } catch (e) { /* reintento silencioso */ }
-            }
-
-            function startPolling() {
-                if (pollTimer) return;
-                pollTimer = setInterval(pollNewMessages, POLL_INTERVAL_MS);
-            }
-
-            function showGreetingIfNeeded() {
-                // El saludo es puramente local: no se guarda en Chatwoot, así que
-                // lo mostramos siempre que la ventana esté vacía al abrir.
-                if (greetingShown) return;
-                if (messagesEl.children.length > 0) return;
-                appendMessage(GREETING, 'bot');
-                greetingShown = true;
-            }
-
-            async function openChat() {
-                windowEl.classList.add('open');
-                windowEl.setAttribute('aria-hidden', 'false');
-                setTimeout(() => input.focus(), 50);
-
-                // 1. UI lista inmediatamente: saludo local sin esperar a Chatwoot.
-                showGreetingIfNeeded();
-
-                // 2. En background, preparar la sesión y (si corresponde) historial.
-                //    Un fallo acá NO muestra error: el error solo aparece al intentar enviar.
-                const fresh = !session;
-                ensureSession()
-                    .then(() => {
-                        if (!fresh) return loadHistory();
-                    })
-                    .then(() => {
-                        startPolling();
-                    })
-                    .catch((err) => {
-                        console.error('openChat background init failed:', err);
-                    });
-            }
-
-            function closeChat() {
-                windowEl.classList.remove('open');
-                windowEl.setAttribute('aria-hidden', 'true');
-            }
-
-            bubble.addEventListener('click', () => {
-                if (windowEl.classList.contains('open')) {
-                    closeChat();
-                } else {
-                    openChat();
-                }
-            });
-            closeBtn.addEventListener('click', closeChat);
-
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const text = input.value.trim();
-                if (!text) return;
-                input.value = '';
-                appendMessage(text, 'user');
-                showTyping();
-                try {
-                    await ensureSession();
-                    const msg = await apiSendMessage(text);
-                    if (msg && msg.id) {
-                        lastMessageId = Math.max(lastMessageId, msg.id);
-                        // Marcamos el mensaje del usuario como ya renderizado para
-                        // que el polling nunca lo vuelva a pintar.
-                        renderedIds.add(msg.id);
-                    }
-                    // Si el polling no arrancó (porque ensureSession falló al abrir),
-                    // arrancalo ahora.
-                    startPolling();
-                } catch (err) {
-                    hideTyping();
-                    appendMessage('No pude enviar tu mensaje. Intentá de nuevo.', 'error');
-                }
-            });
-        })();
-    </script>
 </body>
 </html>
-
