@@ -10,16 +10,15 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
 <style>
 /* ============================================================
-   Resume — single content column, real text and standard headings
-   so an ATS or a model parses it without losing anything.
+   Resume — one page, single column, real text and standard
+   headings so an ATS or a model parses it without losing anything.
    ============================================================ */
-@page { size: A4; margin: 11mm 13mm; }
+@page { size: A4; margin: 12mm 14mm; }
 
 :root {
   --ink: #000;
   --ink-2: #2b2b2b;
-  --muted: #555;
-  --rule: #000;
+  --muted: #4a4a4a;
   --f: "Archivo", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
@@ -29,56 +28,48 @@ body {
   font-family: var(--f);
   color: var(--ink-2);
   background: #fff;
-  font-size: 9.4pt;
-  line-height: 1.36;
+  font-size: 8.4pt;
+  line-height: 1.28;
   -webkit-font-smoothing: antialiased;
 }
 a { color: inherit; text-decoration: none; }
+.page { width: 100%; }
 
-.page { max-width: 190mm; margin: 0 auto; padding: 0; }
-
-.head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10mm; }
-/* Name on a single line, real space, no text-transform: a <br> makes
-   extractors read "SANTIAGOOROZ", and CSS uppercase is baked into the PDF
-   text — either way an ATS searching "Santiago Oroz" misses the person. */
+/* ---------- Header ----------
+   Running text instead of a block floated to the right: it cannot
+   overflow the margin, and an ATS reads it in natural order. */
 h1 {
-  font-size: 27pt; font-weight: 800; line-height: 1;
-  letter-spacing: -0.025em; margin: 0 0 1.5mm; color: var(--ink);
-  white-space: nowrap;
+  font-size: 23pt; font-weight: 800; line-height: 1;
+  letter-spacing: -0.025em; margin: 0 0 1mm; color: var(--ink);
 }
 .role {
-  font-size: 12pt; font-weight: 700; letter-spacing: .04em;
-  text-transform: uppercase; color: var(--ink); margin: 0;
+  font-size: 10.2pt; font-weight: 700; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--ink); margin: 0 0 1.6mm;
 }
-.contact { font-size: 8.4pt; line-height: 1.55; text-align: right; white-space: nowrap; }
-.contact div { color: var(--ink-2); }
-.contact b { font-weight: 600; }
+.contact { font-size: 8.6pt; line-height: 1.5; color: var(--muted); }
+.contact span { white-space: nowrap; }
+.contact .dot { margin: 0 1.4mm; color: #999; }
 
-.profile { margin-top: 3.5mm; font-size: 9.2pt; line-height: 1.42; text-align: justify; }
+.profile { margin-top: 2.2mm; line-height: 1.34; }
 .profile strong { font-weight: 700; color: var(--ink); }
 
 h2 {
-  font-size: 13pt; font-weight: 800; text-transform: uppercase;
-  letter-spacing: .01em; color: var(--ink);
-  margin: 4.5mm 0 1.8mm; padding-bottom: .8mm;
-  border-bottom: 1.6pt solid var(--rule);
+  font-size: 11.5pt; font-weight: 800; text-transform: uppercase;
+  color: var(--ink); margin: 2.6mm 0 1.1mm; padding-bottom: .5mm;
+  border-bottom: 1.4pt solid var(--ink);
 }
-h3 { font-size: 9.8pt; font-weight: 700; color: var(--ink); margin: 2.6mm 0 .6mm; }
-h3:first-of-type { margin-top: .5mm; }
-h3 .sep, h3 .when { font-weight: 500; }
+h3 { font-size: 8.9pt; font-weight: 700; color: var(--ink); margin: 1.7mm 0 .4mm; }
+h3:first-of-type { margin-top: .3mm; }
+h3 .when { font-weight: 500; color: var(--muted); }
 
-ul { margin: 0; padding-left: 4.2mm; }
-li { margin-bottom: .5mm; }
-li::marker { color: var(--ink); }
+ul { margin: 0; padding-left: 3.6mm; }
+li { margin-bottom: .35mm; }
 li strong { font-weight: 700; color: var(--ink); }
 
-.skills { list-style: none; padding-left: 0; }
-.skills li { margin-bottom: 1mm; }
-.skills b { font-weight: 700; color: var(--ink); }
-
-.edu { list-style: none; padding-left: 0; }
-.edu li { margin-bottom: 1.4mm; }
-.edu b { font-weight: 700; color: var(--ink); }
+.skills, .edu { list-style: none; padding-left: 0; }
+.skills li { margin-bottom: .55mm; }
+.skills b, .edu b { font-weight: 700; color: var(--ink); }
+.edu li { margin-bottom: .55mm; }
 .edu .when { color: var(--muted); }
 
 .item { break-inside: avoid; page-break-inside: avoid; }
@@ -86,7 +77,11 @@ h2 { break-after: avoid; page-break-after: avoid; }
 
 @media screen {
   body { background: #e9ecea; padding: 18px 12px; }
-  .page { background: #fff; padding: 11mm 13mm; box-shadow: 0 8px 30px rgba(0,0,0,.18); min-height: 297mm; }
+  .page {
+    background: #fff; width: 210mm; max-width: 100%;
+    min-height: 297mm; margin: 0 auto; padding: 12mm 14mm;
+    box-shadow: 0 8px 30px rgba(0,0,0,.18);
+  }
   a { text-decoration: underline; text-underline-offset: 2px; }
 }
 </style>
@@ -94,127 +89,102 @@ h2 { break-after: avoid; page-break-after: avoid; }
 <body>
 <div class="page">
 
-  <header class="head">
-    <div>
-      <h1>Santiago Oroz</h1>
-      <p class="role">Artificial Intelligence Engineer</p>
-    </div>
-    <div class="contact">
-      <div>Río Grande, Tierra del Fuego, Argentina</div>
-      <div>Open to remote work and relocation</div>
-      <div><b>+54 9 2964 54-3015</b></div>
-      <div><a href="mailto:Santiago.Oroz1510@gmail.com">Santiago.Oroz1510@gmail.com</a></div>
-      <div><a href="https://www.linkedin.com/in/santiago-oroz/">linkedin.com/in/santiago-oroz</a></div>
-      <div><a href="https://santiagooroz.github.io/">santiagooroz.github.io</a></div>
-      <div><a href="https://github.com/SantiagoOroz">github.com/SantiagoOroz</a></div>
-    </div>
+  <header>
+    <h1>Santiago Oroz</h1>
+    <p class="role">Artificial Intelligence Engineer</p>
+    <p class="contact">
+      <span>Río Grande, Tierra del Fuego, Argentina</span><span class="dot">·</span><span>Remote or relocation</span><span class="dot">·</span><span>+54 9 2964 54-3015</span><span class="dot">·</span><span><a href="mailto:Santiago.Oroz1510@gmail.com">Santiago.Oroz1510@gmail.com</a></span><br>
+      <span><a href="https://www.linkedin.com/in/santiago-oroz/">linkedin.com/in/santiago-oroz</a></span><span class="dot">·</span><span><a href="https://santiagooroz.github.io/">santiagooroz.github.io</a></span><span class="dot">·</span><span><a href="https://github.com/SantiagoOroz">github.com/SantiagoOroz</a></span>
+    </p>
   </header>
 
   <p class="profile">
-    AI Engineer and Higher Technician in Data Science and Artificial Intelligence. I build assistants
-    on <strong>private LLMs (RAG)</strong>, process automation, predictive models and computer vision
-    that <strong>run in production</strong>. Specialised in on-premise deployments where data cannot
-    leave the client's network. <strong>National first place</strong> in the Samsung Innovation Campus
-    2025 Capstone Project, among more than 30 teams. I own the full cycle: client discovery,
-    development, Linux deployment and ongoing support.
+    AI Engineer and Higher Technician in Data Science. I build assistants on
+    <strong>private LLMs (RAG)</strong>, process automation, predictive models and computer vision
+    that <strong>run in production</strong>, focused on on-premise deployments where data cannot leave
+    the client's network. <strong>National first place</strong> in the Samsung Innovation Campus 2025
+    Capstone.
   </p>
 
   <h2>Experience</h2>
 
   <div class="item">
-    <h3>Artificial Intelligence Engineer <span class="sep">|</span> Tech del Fuego <span class="sep">|</span> <span class="when">Apr 2026 – Present</span> <span class="sep">|</span> <span class="when">Río Grande, hybrid</span></h3>
+    <h3>Artificial Intelligence Engineer — Tech del Fuego <span class="when">| Apr 2026 – Present | Río Grande, hybrid</span></h3>
     <ul>
-      <li>Member of the <strong>founding team</strong> of a cybersecurity, AI and data science firm serving companies across the region.</li>
-      <li>Automation of invoicing, document management and reporting processes, removing hours of manual data entry per week.</li>
-      <li>Deployment of <strong>private LLMs</strong> and voice and text WhatsApp assistants wired into CRMs, keeping client data private.</li>
-      <li><strong>Power BI</strong> dashboards unifying scattered databases for predictive analysis and profitability control.</li>
-      <li>Data bias auditing and model security review against prompt injection and information leakage.</li>
+      <li>Member of the <strong>founding team</strong> of a cybersecurity, AI and data science firm. Automation of invoicing, document management and reporting, removing hours of manual data entry per week.</li>
+      <li>Deployment of <strong>private LLMs</strong> and voice and text WhatsApp assistants wired into CRMs, keeping client data inside the company.</li>
+      <li><strong>Power BI</strong> dashboards for predictive analysis and profitability control; bias auditing and model security review.</li>
     </ul>
   </div>
 
   <div class="item">
-    <h3>AI Developer, professional placement <span class="sep">|</span> El Dorado SRL <span class="sep">|</span> <span class="when">Oct – Dec 2025</span> <span class="sep">|</span> <span class="when">Remote</span></h3>
+    <h3>AI Developer, professional placement — El Dorado SRL <span class="when">| Oct – Dec 2025 | Remote</span></h3>
     <ul>
-      <li>Designed and built an <strong>on-premise RAG chatbot</strong> for technical queries on concrete and ISO standards, cutting client response times.</li>
-      <li><strong>Llama 3 running locally</strong> with a <strong>ChromaDB</strong> vector store indexing technical PDFs and an internal MediaWiki: zero data leaving the company network.</li>
-      <li><strong>Flask</strong> API and <strong>React</strong> frontend, with a document administration panel and sources cited in every answer.</li>
-      <li>Voice pipeline: speech-to-text with Whisper and text-to-speech with a synthesised Argentine voice.</li>
+      <li><strong>On-premise RAG chatbot</strong> for technical queries on concrete and ISO standards, with a <strong>Llama</strong> model running inside the client's network: zero data leaving it.</li>
+      <li><strong>ChromaDB</strong> vector store over technical PDFs and an internal wiki; every answer cites the sources backing it.</li>
+      <li><strong>Flask</strong> API, <strong>React</strong> frontend and a voice pipeline with speech-to-text and text-to-speech.</li>
     </ul>
   </div>
 
   <div class="item">
-    <h3>Data Analysis Intern <span class="sep">|</span> Newsan, Motorola plant <span class="sep">|</span> <span class="when">Oct – Dec 2024</span> <span class="sep">|</span> <span class="when">Río Grande</span></h3>
+    <h3>Data Analysis Intern — Newsan, Motorola plant <span class="when">| Oct – Dec 2024 | Río Grande</span></h3>
     <ul>
-      <li><strong>Business Intelligence</strong> tool letting Health &amp; Safety identify critical workstations and simulate staff rotation schemes to minimise physical fatigue.</li>
-      <li>Automation scripts in <strong>VBA and Excel macros</strong> to extract and clean production reports, saving hours of manual work each week.</li>
-      <li><strong>Power BI</strong> dashboards with ergonomic risk heat maps and criticality indices, presented to management and used to rotate staff and prevent injuries.</li>
-      <li>Involved across the full data lifecycle: cleaning, normalisation, modelling and visualisation.</li>
+      <li><strong>Business Intelligence</strong> tool letting Health &amp; Safety identify critical workstations and simulate staff rotation schemes to reduce physical fatigue.</li>
+      <li><strong>VBA</strong> automation of production report cleanup, saving hours of manual work every week.</li>
+      <li><strong>Power BI</strong> dashboards with ergonomic risk heat maps, presented to management and used to rotate staff and prevent injuries.</li>
     </ul>
   </div>
 
   <h2>Projects</h2>
 
   <div class="item">
-    <h3>AIDA <span class="sep">|</span> Winner, 1st place — Samsung Innovation Campus Capstone <span class="sep">|</span> <span class="when">2025</span></h3>
+    <h3>AIDA — Winner, 1st place, Samsung Innovation Campus Capstone <span class="when">| 2025</span></h3>
     <ul>
-      <li><strong>Multimodal</strong> virtual assistant on Telegram for the digital inclusion of older adults. Role: technical co-lead and full stack AI developer, in a team of three.</li>
-      <li><strong>Computer vision</strong> to read paper invoices and detect scam patterns; real-time sentiment analysis that adapts tone and raises risk alerts.</li>
-      <li>Modular object-oriented Python architecture, deployed on a <strong>Linux VPS with systemd</strong> to run 24/7 without downtime.</li>
-      <li>First place among more than 30 teams and 600 applicants, before a jury from Samsung, Randstad and Streambe. Site: aida-chatbot.github.io/WebAIDA</li>
+      <li><strong>Multimodal</strong> Telegram assistant for the digital inclusion of older adults. Role: technical co-lead in a team of three.</li>
+      <li><strong>Computer vision</strong> to read invoices and detect scams, plus sentiment analysis that adapts tone and raises risk alerts. Deployed on a <strong>Linux VPS</strong> to run 24/7.</li>
+      <li>First place among more than 30 teams and 600 applicants, before a jury from Samsung, Randstad and Streambe.</li>
     </ul>
   </div>
 
   <div class="item">
-    <h3>AXIS, autonomous agents <span class="sep">|</span> IBM Hackathon, watsonx <span class="sep">|</span> <span class="when">2026</span></h3>
+    <h3>AXIS — Autonomous agents, IBM Hackathon <span class="when">| 2026</span></h3>
     <ul>
-      <li>Ecosystem of <strong>specialised micro-agents</strong> (Reader, Judge, Analyst, Coordinator and Executor) on Llama-3.2-90b-vision-instruct, connecting legal contracts to daily operations.</li>
-      <li><strong>ReAct</strong> logic and a <strong>mandatory evidence</strong> protocol: no decision is issued without citing the legal document backing it, preventing hallucinations in financial decisions.</li>
-      <li>watsonx Orchestrate workflows integrating Jira, Slack, Trello and Microsoft Calendar.</li>
+      <li>System of <strong>specialised agents</strong> on Llama models, connecting legal contracts to a company's daily operations.</li>
+      <li><strong>Mandatory evidence</strong> protocol: no decision is issued without citing the document backing it. Orchestrated on watsonx, integrating Jira, Slack and Trello.</li>
     </ul>
   </div>
 
   <div class="item">
-    <h3>OptiVision <span class="sep">|</span> Fuegian IAthon, Fuegian Innovation Agency <span class="sep">|</span> <span class="when">2026</span></h3>
+    <h3>OptiVision — Fuegian IAthon <span class="when">| 2026</span></h3>
     <ul>
-      <li><strong>Computer vision</strong> platform for industrial ergonomics and quality control on the factory floor, without stopping production. <strong>Working MVP in 8 hours.</strong></li>
-      <li>Webcam pose estimation to detect risky postures, hand gesture detection for contactless operation, a live supervision dashboard and a chatbot over its own data.</li>
+      <li><strong>Computer vision</strong> for industrial ergonomics and quality control on the factory floor, without stopping production. <strong>Working MVP in 8 hours.</strong></li>
+      <li>Webcam detection of risky postures, contactless gesture operation and a live supervision dashboard.</li>
     </ul>
   </div>
 
   <div class="item">
-    <h3>Hotel demand forecasting <span class="sep">|</span> Machine Learning <span class="sep">|</span> <span class="when">2025</span></h3>
+    <h3>Hotel demand forecasting — Machine Learning <span class="when">| 2025</span></h3>
     <ul>
-      <li><strong>XGBoost</strong> regression model forecasting hotel occupancy in Tierra del Fuego, benchmarked against Random Forest as a baseline.</li>
-      <li>Exploratory analysis, advanced imputation of missing values and feature engineering on seasonality and calendar variables.</li>
-    </ul>
-  </div>
-
-  <div class="item">
-    <h3>Print Intelligence, expert system <span class="sep">|</span> Python <span class="sep">|</span> <span class="when">2025</span></h3>
-    <ul>
-      <li><strong>Forward-chaining inference engine</strong> written from scratch, with a JSON knowledge base and step-by-step explanation logic: full traceability, no black boxes.</li>
+      <li><strong>XGBoost</strong> regression model forecasting hotel occupancy in Tierra del Fuego, with missing-value imputation and feature engineering on seasonality.</li>
     </ul>
   </div>
 
   <h2>Technical skills</h2>
   <ul class="skills">
-    <li><b>Generative AI and LLMs:</b> RAG (Retrieval-Augmented Generation), LangChain, ChromaDB, Llama 3, Llama 4 Scout, LM Studio, Groq API, IBM watsonx, multi-agent architectures, ReAct, prompt engineering, on-premise deployment.</li>
-    <li><b>Voice, vision and NLP:</b> Whisper (speech-to-text), Edge-TTS, OCR, pose estimation, gesture detection, pysentimiento, embeddings, vector databases.</li>
-    <li><b>Data and machine learning:</b> Python, Pandas, NumPy, Scikit-learn, XGBoost, Random Forest, SQL, Power BI, DAX, Matplotlib, Seaborn, ETL, feature engineering.</li>
-    <li><b>Software development:</b> Flask, React, Node.js, Express, MongoDB, JavaScript ES6, Jinja2, object-oriented programming, MVC, Firestore, VBA.</li>
-    <li><b>Infrastructure and DevOps:</b> Linux, Bash, VPS management, systemd services, Docker, Git, GitHub, Make and webhook integration.</li>
-    <li><b>Security and compliance:</b> NIST CSF 2.0, ISO/IEC 27001, MITRE ATT&amp;CK, algorithmic bias auditing, prompt injection and data leakage prevention.</li>
-    <li><b>Languages:</b> Spanish native. English intermediate B1, Infy Institute, one full year of in-person study.</li>
+    <li><b>AI and LLMs:</b> RAG (Retrieval-Augmented Generation), LangChain, ChromaDB, local Llama models, multi-agent architectures, IBM watsonx, prompt engineering, on-premise deployment.</li>
+    <li><b>Data and machine learning:</b> Python, Pandas, NumPy, Scikit-learn, XGBoost, SQL, Power BI, ETL, computer vision, speech-to-text and text-to-speech.</li>
+    <li><b>Development and infrastructure:</b> Flask, React, Node.js, JavaScript, object-oriented programming, Linux, VPS management, systemd, Docker, Git and GitHub.</li>
+    <li><b>Security and compliance:</b> NIST CSF 2.0, ISO/IEC 27001, MITRE ATT&amp;CK, bias auditing, prompt injection and data leakage prevention.</li>
+    <li><b>Languages:</b> Spanish native · English intermediate B1.</li>
   </ul>
 
   <h2>Education</h2>
   <ul class="edu">
-    <li><b>Full Stack Developer Scholarship, MERN stack</b> — ITBA Executive Education and Santander Open Academy <span class="when">| 2026 | One of 400 selected, 17 intensive weeks</span></li>
+    <li><b>Full Stack Developer Scholarship, MERN stack</b> — ITBA Executive Education and Santander Open Academy <span class="when">| 2026 | One of 400 selected</span></li>
     <li><b>University Technical Degree in Programming</b> — Universidad Tecnológica Nacional (UTN) <span class="when">| 2026 – In progress</span></li>
-    <li><b>Higher Technician in Data Science and Artificial Intelligence</b> — Centro Politécnico Superior Malvinas Argentinas <span class="when">| 2024 – 2025 | Distinguished average, no failed finals</span></li>
+    <li><b>Higher Technician in Data Science and Artificial Intelligence</b> — Centro Politécnico Superior Malvinas Argentinas <span class="when">| 2024 – 2025</span></li>
     <li><b>Samsung Innovation Campus, Big Data &amp; AI</b> — Samsung Electronics Argentina <span class="when">| 2025 | 140 hours plus Capstone Project</span></li>
     <li><b>Artificial Intelligence for Business</b> — Digital House <span class="when">| 2024 – 2025</span></li>
-    <li><b>Secondary degree in Economics and Administration</b> — Instituto Salesiano Don Bosco <span class="when">| 2018 – 2023 | GPA 8.55 / 10</span></li>
   </ul>
 
 </div>
