@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Santiago Oroz — Ingeniero de Inteligencia Artificial</title>
-<meta name="description" content="Ingeniero de IA en Río Grande, Tierra del Fuego. Asistentes con LLM privados, automatización de procesos, modelos predictivos y visión artificial que corren en producción. Ganador nacional del Capstone Samsung Innovation Campus 2025.">
+<meta name="description" content="Ingeniero de IA en Río Grande, Tierra del Fuego. Asistentes con LLM privados, automatización de procesos, modelos predictivos y visión artificial que corren en producción. Cofundador de AIDA, 3er puesto en el Santander X Argentina Award 2026.">
 <meta name="author" content="Santiago Oroz">
 <link rel="canonical" href="https://santiagooroz.github.io/">
 <link rel="icon" href="favicon.png" type="image/png">
 
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Santiago Oroz — Ingeniero de Inteligencia Artificial">
-<meta property="og:description" content="LLMs privados, RAG, visión artificial y analítica predictiva que corren en producción. Ganador nacional del Capstone Samsung Innovation Campus 2025.">
+<meta property="og:description" content="LLMs privados, RAG, visión artificial y analítica predictiva que corren en producción. Cofundador de AIDA, 3er puesto en el Santander X Argentina Award 2026.">
 <meta property="og:url" content="https://santiagooroz.github.io/">
 <meta property="og:image" content="https://santiagooroz.github.io/santiago-oroz.jpg">
 <meta property="og:locale" content="es_AR">
@@ -51,6 +51,10 @@
     { "@type": "EducationalOrganization", "name": "Universidad Tecnológica Nacional" }
   ],
   "knowsAbout": ["Retrieval-Augmented Generation","Large Language Models","Computer Vision","Machine Learning","Python","Power BI","Automatización de procesos","MLOps"],
+  "award": [
+    "1er puesto nacional, Capstone Samsung Innovation Campus 2025 (AIDA)",
+    "3er puesto, Santander X Argentina Award 2026 (AIDA)"
+  ],
   "knowsLanguage": ["es","en"]
 }
 </script>
@@ -492,6 +496,20 @@ h1.name em { display: block; font-style: normal; color: var(--signal); }
 .chip { font-family: var(--f-mono); font-size: .625rem; color: var(--muted); border: 1px solid var(--line-soft); padding: .2rem .42rem; white-space: nowrap; }
 /* Enlaces salientes de un caso */
 .case__links { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.1rem; }
+/* Hitos de un caso: una viñeta por logro */
+.hitos { display: grid; gap: .55rem; margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid var(--line-soft); }
+.hitos li { position: relative; padding-left: 1rem; font-size: .9375rem; color: var(--ink-2); font-weight: 300; line-height: 1.55; }
+.hitos li::before { content: ""; position: absolute; left: 0; top: .66em; width: 6px; height: 1px; background: var(--signal); }
+.hitos b { font-weight: 600; color: var(--ink); }
+/* Proyectos de GitHub */
+.gh-grid { display: grid; gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); }
+@media (min-width: 720px) { .gh-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+.gh { background: var(--ground); padding: 1.3rem; display: flex; flex-direction: column; gap: .4rem; text-decoration: none; color: var(--ink-2); transition: background .25s; }
+.section--tint .gh { background: var(--surface); }
+.gh:hover { background: var(--surface-2); }
+.gh b { font-family: var(--f-mono); font-size: .9375rem; font-weight: 500; color: var(--ink); }
+.gh p { font-size: .9rem; font-weight: 300; line-height: 1.5; }
+.gh span.mono { color: var(--glacier); }
 .caselink {
   display: inline-flex; align-items: center; gap: .45rem;
   font-family: var(--f-mono); font-size: .6875rem; letter-spacing: .08em;
@@ -504,6 +522,17 @@ h1.name em { display: block; font-style: normal; color: var(--signal); }
 /* Enlace en el nombre de la organización, dentro de la trayectoria */
 .tl__org a { color: inherit; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--signal) 45%, transparent); transition: border-color .2s; }
 .tl__org a:hover { border-bottom-color: var(--signal); }
+
+/* Proyectos menores, en una sola tarjeta sin desplegable */
+.more { padding: clamp(1.3rem, 2.5vw, 1.75rem); }
+.more__h { font-size: .625rem; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin-bottom: .9rem; }
+.more__list { display: grid; gap: 1rem; }
+.more__list li { display: grid; gap: .35rem; justify-items: start; padding-top: 1rem; border-top: 1px solid var(--line-soft); }
+.more__list li:first-child { padding-top: 0; border-top: 0; }
+.more__list b { font-family: var(--f-display); font-size: 1rem; font-weight: 700; color: var(--ink); letter-spacing: -0.015em; }
+.more__list a { color: inherit; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--signal) 45%, transparent); }
+.more__list a:hover { border-bottom-color: var(--signal); }
+.more__list p { color: var(--ink-2); font-size: .875rem; font-weight: 300; line-height: 1.5; }
 
 .case__shot { margin-top: 1.1rem; border: 1px solid var(--line-soft); max-width: 440px; }
 .case__shot img { width: 100%; }
@@ -650,8 +679,8 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <p class="thesis" data-l="es">Construyo sistemas de inteligencia artificial que corren en producción — y varios <b>sin que un solo dato salga de la empresa.</b></p>
       <p class="thesis" data-l="en">I build artificial intelligence systems that run in production — several of them <b>without a single byte leaving the company.</b></p>
 
-      <p class="lede" data-l="es">Ingeniero de IA en <strong>Tech del Fuego</strong> y Técnico Superior en Ciencia de Datos e IA. LLMs privados, RAG, visión artificial y modelos predictivos. <strong>Ganador nacional</strong> del Capstone de Samsung Innovation Campus 2025.</p>
-      <p class="lede" data-l="en">AI Engineer at <strong>Tech del Fuego</strong> and Higher Technician in Data Science and AI. Private LLMs, RAG, computer vision and predictive models. <strong>National winner</strong> of the Samsung Innovation Campus 2025 Capstone.</p>
+      <p class="lede" data-l="es">Ingeniero de IA en <strong>Tech del Fuego</strong> y Técnico Superior en Ciencia de Datos e IA. LLMs privados, RAG, visión artificial y modelos predictivos. Cofundador de <strong>AIDA</strong>, startup con financiación de Santander X.</p>
+      <p class="lede" data-l="en">AI Engineer at <strong>Tech del Fuego</strong> and Higher Technician in Data Science and AI. Private LLMs, RAG, computer vision and predictive models. Co-founder of <strong>AIDA</strong>, a startup funded by Santander X.</p>
 
       <div class="hero__cta">
         <a class="btn" href="#casos"><span data-l="es">Ver casos reales</span><span data-l="en">See real work</span></a>
@@ -697,10 +726,10 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       </p>
     </div>
     <div class="metric">
-      <div class="metric__n"><span data-count="8">8</span></div>
+      <div class="metric__n"><span data-count="3">3</span><sup>º</sup></div>
       <p class="metric__l">
-        <span data-l="es">Proyectos con un cliente, un jurado o una planta del otro lado<span class="metric__s">Ninguno es un tutorial</span></span>
-        <span data-l="en">Projects with a real client, jury or factory on the other side<span class="metric__s">None of them a tutorial</span></span>
+        <span data-l="es">Puesto — Santander X Argentina Award 2026<span class="metric__s">Con AIDA · $3.000.000 de financiación</span></span>
+        <span data-l="en">Place — Santander X Argentina Award 2026<span class="metric__s">With AIDA · ARS 3,000,000 in funding</span></span>
       </p>
     </div>
     <div class="metric">
@@ -738,7 +767,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
         </div>
         <p data-l="es">Tu documentación, tus normas y tus contratos respondiendo preguntas en lenguaje natural, con la fuente citada. El modelo corre <strong>dentro de tu red</strong>: la respuesta llega sin que la información se vaya.</p>
         <p data-l="en">Your documentation, standards and contracts answering questions in plain language, with the source cited. The model runs <strong>inside your network</strong>: the answer arrives without the information leaving.</p>
-        <div class="cap__ev"><span class="mono"><span data-l="es">Probado en</span><span data-l="en">Proven in</span></span><b>El Dorado SRL · AIDA · AXIS</b></div>
+        <div class="cap__ev"><span class="mono"><span data-l="es">Probado en</span><span data-l="en">Proven in</span></span><b>El Dorado SRL · AXIS · Cotorra</b></div>
       </article>
 
       <article class="cap">
@@ -802,51 +831,112 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <details class="case" open>
         <summary>
           <div class="case__meta">
-            <span class="tag tag--win">★ <span data-l="es">1er puesto nacional</span><span data-l="en">1st place, national</span></span>
-            <span class="tag">Samsung · 2025</span>
+            <span class="tag tag--win">★ <span data-l="es">3er puesto · Santander X 2026</span><span data-l="en">3rd place · Santander X 2026</span></span>
+            <span class="tag tag--win">★ <span data-l="es">1er puesto · Samsung 2025</span><span data-l="en">1st place · Samsung 2025</span></span>
+            <span class="tag tag--live"><span data-l="es">Startup · Cofundador</span><span data-l="en">Startup · Co-founder</span></span>
           </div>
           <div class="case__brand">
             <span class="orglogo"><img src="aida.jpg" alt="" width="129" height="128" loading="lazy"></span>
-            <h3><span data-l="es">AIDA — asistente para adultos mayores</span><span data-l="en">AIDA — assistant for older adults</span></h3>
+            <h3><span data-l="es">AIDA — el celular, explicado en voz alta</span><span data-l="en">AIDA — the phone, explained out loud</span></h3>
           </div>
-          <p class="case__hook" data-l="es">Asistente multimodal en Telegram que lee facturas, detecta estafas y adapta su tono al estado emocional del usuario.</p>
-          <p class="case__hook" data-l="en">Multimodal Telegram assistant that reads invoices, detects scams and adapts its tone to the user's emotional state.</p>
+          <p class="case__hook" data-l="es">App con IA que mira la pantalla de una persona mayor y le dice qué tocar o si ese mensaje es una estafa. Nació como proyecto de curso; hoy es una startup con financiación y está por salir en Google Play.</p>
+          <p class="case__hook" data-l="en">An AI app that looks at an older person's screen and tells them what to tap, or whether that message is a scam. It started as a course project; today it's a funded startup about to launch on Google Play.</p>
           <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
         </summary>
         <div class="case__body">
           <dl class="spec">
             <div>
               <dt><span data-l="es">Desafío</span><span data-l="en">Challenge</span></dt>
-              <dd data-l="es">Los adultos mayores son el blanco preferido de las estafas y quedan afuera de la digitalización. Había que integrar visión, voz y texto con latencia mínima, y que alguien que nunca usó una app pudiera manejarlo sin instrucciones. Rol: <strong>co-líder técnico</strong> en un equipo de tres.</dd>
-              <dd data-l="en">Older adults are the favourite target of scams and are left out of digitalisation. Vision, voice and text had to be integrated with minimal latency, usable by someone who has never touched an app. Role: <strong>technical co-lead</strong> in a team of three.</dd>
+              <dd data-l="es">Nueve de cada diez argentinos mayores de 60 recibieron un intento de estafa digital en el último año, y la única ayuda real es un hijo atendiendo el teléfono a cualquier hora. Había que ayudar <strong>dentro de las apps que ya usan</strong>, sin menús ni tutorial, para alguien que nunca aprendió una. Rol: <strong>cofundador y co-líder técnico</strong>, en un equipo de tres.</dd>
+              <dd data-l="en">Nine in ten Argentinians over 60 got a digital scam attempt in the last year, and the only real help is a son or daughter answering the phone at any hour. Help had to happen <strong>inside the apps they already use</strong>, with no menus or tutorial, for someone who never learned one. Role: <strong>co-founder and technical co-lead</strong>, in a team of three.</dd>
             </div>
             <div>
               <dt><span data-l="es">Solución</span><span data-l="en">Solution</span></dt>
               <dd>
                 <ul>
-                  <li><span data-l="es">Arquitectura modular en Python, orientada a objetos.</span><span data-l="en">Modular, object-oriented Python architecture.</span></li>
-                  <li><span data-l="es">Visión artificial para leer facturas físicas y detectar patrones de estafa.</span><span data-l="en">Computer vision to read paper invoices and detect scam patterns.</span></li>
-                  <li><span data-l="es">«Empatía artificial»: análisis de sentimiento en tiempo real que adapta el tono y emite alertas de riesgo.</span><span data-l="en">"Artificial empathy": real-time sentiment analysis that adapts tone and raises risk alerts.</span></li>
-                  <li><span data-l="es">Despliegue en VPS Linux configurado para operar 24/7 sin caídas.</span><span data-l="en">Linux VPS deployment configured to run 24/7 without downtime.</span></li>
+                  <li><span data-l="es">App Android nativa en <strong>Kotlin</strong>, casi sin dependencias: una burbuja queda sobre WhatsApp o cualquier app y, con un toque, la persona pregunta hablando.</span><span data-l="en">Native Android app in <strong>Kotlin</strong>, with almost no dependencies: a bubble floats over WhatsApp or any app and, with one tap, the person asks out loud.</span></li>
+                  <li><span data-l="es">Un LLM multimodal lee la captura de pantalla y responde en voz alta qué botón tocar o si el mensaje es una estafa.</span><span data-l="en">A multimodal LLM reads the screenshot and answers out loud which button to tap or whether the message is a scam.</span></li>
+                  <li><span data-l="es">Privacidad por diseño: en las apps de banco y billeteras no ve nada, a propósito.</span><span data-l="en">Privacy by design: in banking and wallet apps it sees nothing, on purpose.</span></li>
+                  <li><span data-l="es">Servidor propio en Node.js sobre AWS, para que ninguna clave quede en el teléfono.</span><span data-l="en">Our own Node.js server on AWS, so no key ever lives on the phone.</span></li>
+                  <li><span data-l="es">Detección de estafas: revisa mensajes y capturas y avisa cuando un pedido de dinero o de datos es sospechoso.</span><span data-l="en">Scam detection: reviews messages and screenshots and warns when a request for money or data looks suspicious.</span></li>
+                  <li><span data-l="es">Voz en los dos sentidos: escucha con reconocimiento de voz (Vosk) y responde en voz alta.</span><span data-l="en">Voice both ways: listens with speech recognition (Vosk) and answers out loud.</span></li>
+                  <li><span data-l="es">Alertas a contactos de confianza cuando detecta un riesgo, y perfiles personalizados para cada persona.</span><span data-l="en">Alerts to trusted contacts when it detects a risk, and personalised profiles for each person.</span></li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+          <ul class="hitos">
+            <li><span data-l="es"><b>1er puesto nacional</b>, Capstone Samsung Innovation Campus 2025, entre más de 30 equipos.</span><span data-l="en"><b>1st place nationally</b>, Samsung Innovation Campus 2025 Capstone, among 30+ teams.</span></li>
+            <li><span data-l="es"><b>3er puesto, Santander X Award 2026</b>, con $3.000.000 de financiación.</span><span data-l="en"><b>3rd place, Santander X Award 2026</b>, with ARS 3,000,000 in funding.</span></li>
+            <li><span data-l="es"><b>Ganadora, Coopathon Universitario 2026</b> (Grupo Sancor Seguros): 1 de 3 ganadores, uno por desafío. Premio en equipamiento informático para el equipo y la universidad.</span><span data-l="en"><b>Winner, Coopathon Universitario 2026</b> (Grupo Sancor Seguros): 1 of 3 winners, one per challenge. Prize in IT equipment for the team and the university.</span></li>
+            <li><span data-l="es"><b>Constituida como AIDA ASISTENTE S.A.S.</b>, la sociedad que opera la startup.</span><span data-l="en"><b>Incorporated as AIDA ASISTENTE S.A.S.</b>, the company that runs the startup.</span></li>
+          </ul>
+          <div class="chips"><span class="chip">Kotlin</span><span class="chip">Android</span><span class="chip"><span data-l="es">LLM multimodal</span><span data-l="en">Multimodal LLM</span></span><span class="chip">Groq API</span><span class="chip">Vosk</span><span class="chip">Node.js</span><span class="chip">AWS</span><span class="chip">Google Play</span></div>
+          <div class="case__links">
+            <a class="caselink" href="https://aidaasistente.com/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>aidaasistente.com
+            </a>
+            <a class="caselink" href="https://www.linkedin.com/company/aidaasistente" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>LinkedIn
+            </a>
+            <a class="caselink" href="https://www.sancorseguros.com.ar/coopathon-universitario" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>Coopathon · Sancor
+            </a>
+            <a class="caselink" href="https://youtu.be/Sl-CFzgz-u0" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              <span data-l="es">Video de presentación</span><span data-l="en">Demo video</span>
+            </a>
+          </div>
+        </div>
+      </details>
+
+      <!-- TECH DEL FUEGO -->
+      <details class="case">
+        <summary>
+          <div class="case__meta">
+            <span class="tag tag--live"><span data-l="es">Actualidad</span><span data-l="en">Current</span></span>
+            <span class="tag">Tech del Fuego</span>
+          </div>
+          <h3><span data-l="es">Producción real para PyMEs</span><span data-l="en">Real production for small business</span></h3>
+          <p class="case__hook" data-l="es">Como ingeniero de IA del equipo inicial: automatizaciones, LLMs privados integrados a CRM y tableros de rentabilidad para empresas de la región.</p>
+          <p class="case__hook" data-l="en">As AI engineer on the founding team: automations, private LLMs wired into CRMs, and profitability dashboards for regional companies.</p>
+          <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="case__body">
+          <dl class="spec">
+            <div>
+              <dt><span data-l="es">Desafío</span><span data-l="en">Challenge</span></dt>
+              <dd data-l="es">El cliente típico no quiere «usar IA»: quiere dejar de perder horas en facturación, stock y consultas repetidas. Hay que <strong>traducir el problema de negocio</strong> antes de escribir una línea de código.</dd>
+              <dd data-l="en">The typical client doesn't want to "use AI": they want to stop losing hours on invoicing, stock and repeated queries. You have to <strong>translate the business problem</strong> before writing a line of code.</dd>
+            </div>
+            <div>
+              <dt><span data-l="es">Solución</span><span data-l="en">Solution</span></dt>
+              <dd>
+                <ul>
+                  <li><span data-l="es">LLMs privados y asistentes de voz y texto en WhatsApp, integrados a CRM.</span><span data-l="en">Private LLMs and voice/text WhatsApp assistants wired into CRMs.</span></li>
+                  <li><span data-l="es"><strong>CumbreBot:</strong> registro de gastos por WhatsApp, eliminando la fricción que hace fracasar a las planillas.</span><span data-l="en"><strong>CumbreBot:</strong> expense tracking over WhatsApp, removing the friction that kills spreadsheets.</span></li>
+                  <li><span data-l="es">Facturación y control de stock andando desde el día uno en un almacén de Río Grande.</span><span data-l="en">Invoicing and stock control live from day one in a Río Grande store.</span></li>
+                  <li><span data-l="es">Auditoría de sesgos y revisión frente a inyección de prompts y fuga de información.</span><span data-l="en">Bias auditing and review against prompt injection and data leakage.</span></li>
                 </ul>
               </dd>
             </div>
           </dl>
           <div class="outcome">
-            <b data-l="es">Primer puesto entre más de 30 equipos</b>
-            <b data-l="en">First place among 30+ teams</b>
-            <span data-l="es">Jurado de Samsung, Randstad y Streambe, sobre 600 postulantes iniciales. El premio fue un Galaxy S24.</span>
-            <span data-l="en">Jury from Samsung, Randstad and Streambe, out of 600 initial applicants. The prize was a Galaxy S24.</span>
+            <b data-l="es">Ciclo completo a cargo</b>
+            <b data-l="en">Full cycle owned end to end</b>
+            <span data-l="es">Relevamiento con el cliente, desarrollo, despliegue y acompañamiento posterior.</span>
+            <span data-l="en">Client discovery, development, deployment and ongoing support.</span>
           </div>
-          <div class="chips"><span class="chip">Python</span><span class="chip">Computer Vision</span><span class="chip">pysentimiento</span><span class="chip">Telegram API</span><span class="chip">VPS Linux</span><span class="chip">systemd</span><span class="chip">POO</span></div>
+          <div class="chips"><span class="chip">LLMs privados</span><span class="chip">WhatsApp API</span><span class="chip">Make</span><span class="chip">Power BI</span><span class="chip">Linux VPS</span><span class="chip">OCR</span></div>
           <div class="case__links">
-            <a class="caselink" href="https://aida-chatbot.github.io/WebAIDA/" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-              <span data-l="es">Sitio de AIDA</span><span data-l="en">AIDA website</span>
+            <a class="caselink" href="https://techdelfuego.com" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>techdelfuego.com
             </a>
-            <a class="caselink" href="https://youtu.be/Sl-CFzgz-u0" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-              <span data-l="es">Video de presentación</span><span data-l="en">Demo video</span>
+            <a class="caselink" href="https://finanzas.techdelfuego.com" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>CumbreBot
+            </a>
+            <a class="caselink" href="https://www.linkedin.com/company/techdelfuego" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>LinkedIn
             </a>
           </div>
         </div>
@@ -894,6 +984,56 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
             <figcaption class="mono"><span data-l="es">El asistente en uso — cada respuesta cita sus fuentes (IRAM 1666-2020, CIRSOC 200, manuales Segerer)</span><span data-l="en">The assistant in use — every answer cites its sources (IRAM 1666-2020, CIRSOC 200, Segerer manuals)</span></figcaption>
           </figure>
           <div class="chips"><span class="chip">Llama 3</span><span class="chip">RAG</span><span class="chip">ChromaDB</span><span class="chip">Flask</span><span class="chip">React</span><span class="chip">Whisper</span><span class="chip">Edge-TTS</span></div>
+        </div>
+      </details>
+
+      <!-- COTORRA -->
+      <details class="case">
+        <summary>
+          <div class="case__meta">
+            <span class="tag">Vibeathon Nerdearla · 2026</span>
+            <span class="tag">Open source</span>
+          </div>
+          <h3><span data-l="es">Cotorra — subtítulos y traducción en vivo</span><span data-l="en">Cotorra — live captions and translation</span></h3>
+          <p class="case__hook" data-l="es">Transcripción y traducción simultánea para todos los escenarios de una conferencia a la vez, por <strong>US$0,31 la hora de charla</strong> contra US$50–250 de una solución comercial.</p>
+          <p class="case__hook" data-l="en">Simultaneous transcription and translation for every stage of a conference at once, at <strong>US$0.31 per talk hour</strong> versus US$50–250 for a commercial service.</p>
+          <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+        </summary>
+        <div class="case__body">
+          <dl class="spec">
+            <div>
+              <dt><span data-l="es">Desafío</span><span data-l="en">Challenge</span></dt>
+              <dd data-l="es">Nerdearla tiene más de 30 charlas en inglés, muchas en simultáneo, y las subtitula con dos servicios pagos operados a mano, escenario por escenario: cuando se traba, alguien entra remoto a apretar F5. Construido en la <strong>ventana de 24 horas</strong> de la Vibeathon.</dd>
+              <dd data-l="en">Nerdearla runs 30+ talks in English, many in parallel, and captions them with two paid services operated by hand, stage by stage: when one freezes, someone remotes in to press F5. Built inside the Vibeathon's <strong>24-hour window</strong>.</dd>
+            </div>
+            <div>
+              <dt><span data-l="es">Solución</span><span data-l="en">Solution</span></dt>
+              <dd>
+                <ul>
+                  <li><span data-l="es">Un proceso por escenario: la cantidad la limita la CPU, no una licencia; si uno cae, se recupera solo.</span><span data-l="en">One process per stage: CPU sets the limit, not a licence; if one fails, it recovers on its own.</span></li>
+                  <li><span data-l="es">Gemini multimodal devuelve transcripción y traducciones en una sola llamada; segmentación adaptativa para bajar la latencia.</span><span data-l="en">Multimodal Gemini returns transcript and translations in a single call; adaptive segmentation keeps latency down.</span></li>
+                  <li><span data-l="es">Glosarios por evento y un prompt que prohíbe inventar lo que no se dijo.</span><span data-l="en">Per-event glossaries and a prompt that forbids inventing what wasn't said.</span></li>
+                  <li><span data-l="es">Panel de operación con semáforo, overlay para OBS / vMix y subtítulos en el celular del público.</span><span data-l="en">An operations panel with status lights, an OBS / vMix overlay, and captions on the audience's phones.</span></li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+          <div class="outcome">
+            <b data-l="es">Se levanta en otra conferencia con un solo comando</b>
+            <b data-l="en">Runs at any other conference with a single command</b>
+            <span data-l="es">Docker Compose, 140 tests con CI y licencia Apache 2.0. El costo por hora está medido, no estimado.</span>
+            <span data-l="en">Docker Compose, 140 tests with CI and an Apache 2.0 licence. The hourly cost is measured, not estimated.</span>
+          </div>
+          <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Gemini 2.5 Flash</span><span class="chip">WebSockets</span><span class="chip">Docker</span><span class="chip">CI</span><span class="chip">Open source</span></div>
+          <div class="case__links">
+            <a class="caselink" href="https://github.com/SantiagoOroz/cotorra" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>GitHub
+            </a>
+            <a class="caselink" href="https://youtu.be/xIqsBC4m3TY" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              <span data-l="es">Video demo</span><span data-l="en">Demo video</span>
+            </a>
+          </div>
         </div>
       </details>
 
@@ -1029,138 +1169,80 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
         </div>
       </details>
 
-      <!-- TECH DEL FUEGO -->
-      <details class="case">
-        <summary>
-          <div class="case__meta">
-            <span class="tag tag--live"><span data-l="es">Actualidad</span><span data-l="en">Current</span></span>
-            <span class="tag">Tech del Fuego</span>
-          </div>
-          <h3><span data-l="es">Producción real para PyMEs</span><span data-l="en">Real production for small business</span></h3>
-          <p class="case__hook" data-l="es">Como ingeniero de IA del equipo inicial: automatizaciones, LLMs privados integrados a CRM y tableros de rentabilidad para empresas de la región.</p>
-          <p class="case__hook" data-l="en">As AI engineer on the founding team: automations, private LLMs wired into CRMs, and profitability dashboards for regional companies.</p>
-          <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
-        </summary>
-        <div class="case__body">
-          <dl class="spec">
-            <div>
-              <dt><span data-l="es">Desafío</span><span data-l="en">Challenge</span></dt>
-              <dd data-l="es">El cliente típico no quiere «usar IA»: quiere dejar de perder horas en facturación, stock y consultas repetidas. Hay que <strong>traducir el problema de negocio</strong> antes de escribir una línea de código.</dd>
-              <dd data-l="en">The typical client doesn't want to "use AI": they want to stop losing hours on invoicing, stock and repeated queries. You have to <strong>translate the business problem</strong> before writing a line of code.</dd>
-            </div>
-            <div>
-              <dt><span data-l="es">Solución</span><span data-l="en">Solution</span></dt>
-              <dd>
-                <ul>
-                  <li><span data-l="es">LLMs privados y asistentes de voz y texto en WhatsApp, integrados a CRM.</span><span data-l="en">Private LLMs and voice/text WhatsApp assistants wired into CRMs.</span></li>
-                  <li><span data-l="es"><strong>CumbreBot:</strong> registro de gastos por WhatsApp, eliminando la fricción que hace fracasar a las planillas.</span><span data-l="en"><strong>CumbreBot:</strong> expense tracking over WhatsApp, removing the friction that kills spreadsheets.</span></li>
-                  <li><span data-l="es">Facturación y control de stock andando desde el día uno en un almacén de Río Grande.</span><span data-l="en">Invoicing and stock control live from day one in a Río Grande store.</span></li>
-                  <li><span data-l="es">Auditoría de sesgos y revisión frente a inyección de prompts y fuga de información.</span><span data-l="en">Bias auditing and review against prompt injection and data leakage.</span></li>
-                </ul>
-              </dd>
-            </div>
-          </dl>
-          <div class="outcome">
-            <b data-l="es">Ciclo completo a cargo</b>
-            <b data-l="en">Full cycle owned end to end</b>
-            <span data-l="es">Relevamiento con el cliente, desarrollo, despliegue y acompañamiento posterior.</span>
-            <span data-l="en">Client discovery, development, deployment and ongoing support.</span>
-          </div>
-          <div class="chips"><span class="chip">LLMs privados</span><span class="chip">WhatsApp API</span><span class="chip">Make</span><span class="chip">Power BI</span><span class="chip">Linux VPS</span><span class="chip">OCR</span></div>
-          <div class="case__links">
-            <a class="caselink" href="https://techdelfuego.com" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>techdelfuego.com
-            </a>
-            <a class="caselink" href="https://finanzas.techdelfuego.com" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>CumbreBot
-            </a>
-            <a class="caselink" href="https://www.linkedin.com/company/techdelfuego" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>LinkedIn
-            </a>
-          </div>
-        </div>
-      </details>
-
-      <!-- PRINT INTELLIGENCE -->
-      <details class="case">
-        <summary>
-          <div class="case__meta">
+      <!-- MÁS PROYECTOS -->
+      <div class="case more">
+        <p class="mono more__h"><span data-l="es">Más proyectos</span><span data-l="en">More projects</span></p>
+        <ul class="more__list">
+          <li>
+            <a href="https://santiagooroz.github.io/centinela/" target="_blank" rel="noopener"><b><span data-l="es">Centinela — alerta temprana de jaurías</span><span data-l="en">Centinela — early warning for feral dog packs</span></b></a>
+            <span class="tag">NAU Fest × HP · #AIforImpact 2026</span>
+            <p data-l="es">Visión artificial sobre cámaras trampa y fotos de vecinos que arma un mapa vivo de jaurías en Río Grande y un ranking semanal de dónde intervenir.</p>
+            <p data-l="en">Computer vision over trail cameras and residents' photos, building a live map of dog packs in Río Grande and a weekly ranking of where to act.</p>
+          </li>
+          <li>
+            <b><span data-l="es">Print Intelligence — diagnóstico explicable</span><span data-l="en">Print Intelligence — explainable diagnosis</span></b>
             <span class="tag"><span data-l="es">Sistema experto</span><span data-l="en">Expert system</span></span>
-            <span class="tag">Python</span>
-          </div>
-          <h3><span data-l="es">Print Intelligence — diagnóstico explicable</span><span data-l="en">Print Intelligence — explainable diagnosis</span></h3>
-          <p class="case__hook" data-l="es">Motor de inferencia escrito desde cero, deliberadamente sin redes neuronales: cada conclusión tiene que poder explicarse.</p>
-          <p class="case__hook" data-l="en">An inference engine written from scratch, deliberately without neural networks: every conclusion has to be explainable.</p>
-          <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
-        </summary>
-        <div class="case__body">
-          <dl class="spec">
-            <div>
-              <dt><span data-l="es">Desafío</span><span data-l="en">Challenge</span></dt>
-              <dd data-l="es">Sistema web para diagnosticar fallas de hardware guiando al usuario con preguntas. El requisito era <strong>trazabilidad total, sin cajas negras</strong>: el usuario debía ver por qué se llegó a ese diagnóstico y no a otro.</dd>
-              <dd data-l="en">A web system diagnosing hardware faults by guiding the user through questions. The requirement was <strong>full traceability, no black boxes</strong>: the user had to see why that diagnosis was reached and not another.</dd>
-            </div>
-            <div>
-              <dt><span data-l="es">Solución</span><span data-l="en">Solution</span></dt>
-              <dd>
-                <ul>
-                  <li><span data-l="es">Motor de inferencia por encadenamiento hacia adelante, programado desde cero.</span><span data-l="en">A forward-chaining inference engine, written from scratch.</span></li>
-                  <li><span data-l="es">Base de conocimiento en JSON: se agregan reglas sin tocar el código.</span><span data-l="en">A JSON knowledge base: rules are added without touching the code.</span></li>
-                  <li><span data-l="es">Lógica de explicación que detalla el razonamiento paso a paso.</span><span data-l="en">Explanation logic laying out the reasoning step by step.</span></li>
-                </ul>
-              </dd>
-            </div>
-          </dl>
-          <div class="outcome">
-            <b data-l="es">Mantenible por alguien que no programa</b>
-            <b data-l="en">Maintainable by a non-programmer</b>
-            <span data-l="es">El mismo criterio que después apliqué al protocolo de evidencia de AXIS.</span>
-            <span data-l="en">The same principle I later applied to the AXIS evidence protocol.</span>
-          </div>
-          <div class="chips"><span class="chip">Python</span><span class="chip">Forward chaining</span><span class="chip">JSON</span><span class="chip">Explainability</span></div>
-        </div>
-      </details>
+            <p data-l="es">Motor de inferencia escrito desde cero, sin redes neuronales: cada diagnóstico de hardware muestra el razonamiento que lo produjo.</p>
+            <p data-l="en">An inference engine written from scratch, with no neural networks: every hardware diagnosis shows the reasoning behind it.</p>
+          </li>
+          <li>
+            <b><span data-l="es">Predicción de demanda hotelera</span><span data-l="en">Hotel demand forecasting</span></b>
+            <span class="tag">Machine Learning · 2025</span>
+            <p data-l="es">XGBoost contra Random Forest para anticipar la ocupación en Tierra del Fuego, con datos estacionales incompletos.</p>
+            <p data-l="en">XGBoost benchmarked against Random Forest to forecast occupancy in Tierra del Fuego, on incomplete seasonal data.</p>
+          </li>
+        </ul>
+      </div>
 
-      <!-- HOTELERA -->
-      <details class="case">
-        <summary>
-          <div class="case__meta">
-            <span class="tag">Machine Learning</span>
-            <span class="tag">2025</span>
-          </div>
-          <h3><span data-l="es">Predicción de demanda hotelera</span><span data-l="en">Hotel demand forecasting</span></h3>
-          <p class="case__hook" data-l="es">Modelo XGBoost para anticipar la ocupación hotelera en Tierra del Fuego y sostener decisiones de precios y personal.</p>
-          <p class="case__hook" data-l="en">An XGBoost model forecasting hotel occupancy in Tierra del Fuego to support pricing and staffing decisions.</p>
-          <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
-        </summary>
-        <div class="case__body">
-          <dl class="spec">
-            <div>
-              <dt><span data-l="es">Desafío</span><span data-l="en">Challenge</span></dt>
-              <dd data-l="es">El turismo fueguino es fuertemente estacional y la ocupación condiciona precios, compras y personal. Datos incompletos y ruidosos, con eventos puntuales que rompen la serie.</dd>
-              <dd data-l="en">Fuegian tourism is strongly seasonal and occupancy drives pricing, purchasing and staffing. Incomplete, noisy data with one-off events breaking the series.</dd>
-            </div>
-            <div>
-              <dt><span data-l="es">Solución</span><span data-l="en">Solution</span></dt>
-              <dd>
-                <ul>
-                  <li><span data-l="es">Análisis exploratorio, limpieza e imputación avanzada de faltantes.</span><span data-l="en">Exploratory analysis, cleaning and advanced imputation of missing values.</span></li>
-                  <li><span data-l="es">Feature engineering sobre estacionalidad y variables de calendario.</span><span data-l="en">Feature engineering on seasonality and calendar variables.</span></li>
-                  <li><span data-l="es">XGBoost de regresión, comparado contra Random Forest como línea de base.</span><span data-l="en">XGBoost regression, benchmarked against Random Forest as a baseline.</span></li>
-                </ul>
-              </dd>
-            </div>
-          </dl>
-          <div class="outcome">
-            <b data-l="es">Predictor de ocupación utilizable para planificar temporada</b>
-            <b data-l="en">An occupancy predictor usable for season planning</b>
-            <span data-l="es">El mismo enfoque que aplico hoy a demanda y stock en clientes reales.</span>
-            <span data-l="en">The same approach I now apply to demand and stock for real clients.</span>
-          </div>
-          <div class="chips"><span class="chip">XGBoost</span><span class="chip">Random Forest</span><span class="chip">Scikit-learn</span><span class="chip">Pandas</span></div>
-        </div>
-      </details>
+    </div>
+  </div>
+</section>
 
+<!-- ============ PROYECTOS EN GITHUB ============ -->
+<section class="section section--tint" id="proyectos">
+  <div class="wrap">
+    <div class="shead">
+      <span class="mono shead__idx">GH</span>
+      <h2><span data-l="es">Proyectos en GitHub</span><span data-l="en">GitHub projects</span></h2>
+      <span class="mono shead__note">github.com/SantiagoOroz</span>
+    </div>
+    <div class="gh-grid">
+      <a class="gh" href="https://github.com/SantiagoOroz/cotorra" target="_blank" rel="noopener">
+        <span class="mono">Python · Gemini</span>
+        <b>cotorra</b>
+        <p data-l="es">Subtítulos en vivo para cualquier conferencia: transcripción y traducción en tiempo real. Open source. Hecho para el Nerdearla 2026 Vibeathon.</p>
+        <p data-l="en">Live subtitles for any conference: real-time transcription and translation. Open source. Built for the Nerdearla 2026 Vibeathon.</p>
+      </a>
+      <a class="gh" href="https://github.com/SantiagoOroz/centinela" target="_blank" rel="noopener">
+        <span class="mono">HTML · AI for Impact</span>
+        <b>centinela</b>
+        <p data-l="es">MVP de una red de alerta temprana de jaurías de perros. Desarrollado para el challenge #AIforImpact2026.</p>
+        <p data-l="en">MVP of an early-warning network for dog packs. Built for the #AIforImpact2026 challenge.</p>
+      </a>
+      <a class="gh" href="https://github.com/SantiagoOroz/agente-ventas-laburen" target="_blank" rel="noopener">
+        <span class="mono">TypeScript · MCP</span>
+        <b>agente-ventas-laburen</b>
+        <p data-l="es">Agente conversacional de ventas que combina un LLM, el protocolo MCP y un CRM. Actúa sobre la base de clientes, no solo responde preguntas.</p>
+        <p data-l="en">Conversational sales agent combining an LLM, the MCP protocol and a CRM. It acts on the customer base, not just answers questions.</p>
+      </a>
+      <a class="gh" href="https://github.com/SantiagoOroz/AA-SantiagoOroz-PredHOT" target="_blank" rel="noopener">
+        <span class="mono">Jupyter · Regresión</span>
+        <b>AA-SantiagoOroz-PredHOT</b>
+        <p data-l="es">Modelo de regresión no lineal que predice la ocupación hotelera mensual en Ushuaia y Río Grande.</p>
+        <p data-l="en">Non-linear regression model predicting monthly hotel occupancy in Ushuaia and Río Grande.</p>
+      </a>
+      <a class="gh" href="https://github.com/SantiagoOroz/PrintExperts" target="_blank" rel="noopener">
+        <span class="mono">HTML · Sistema experto</span>
+        <b>PrintExperts</b>
+        <p data-l="es">Aplicación web con sistema experto que diagnostica fallas comunes de impresoras, con explicación de cada paso.</p>
+        <p data-l="en">Web app with an expert system that diagnoses common printer faults, explaining each step.</p>
+      </a>
+      <a class="gh" href="https://github.com/SantiagoOroz/AXIS-IBM_DevDay_AIDemystifiedHackathon" target="_blank" rel="noopener">
+        <span class="mono">IBM · watsonx.ai</span>
+        <b>AXIS</b>
+        <p data-l="es">Agente de gobernanza agéntica: convierte contratos en flujos autónomos y monitorea su cumplimiento. Hackathon de IBM.</p>
+        <p data-l="en">Agentic governance agent: turns contracts into autonomous workflows and monitors compliance. IBM hackathon.</p>
+      </a>
     </div>
   </div>
 </section>
@@ -1178,7 +1260,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <div class="srow">
         <div class="srow__h"><b><span data-l="es">IA generativa y LLMs</span><span data-l="en">Generative AI and LLMs</span></b><span class="mono"><span data-l="es">Núcleo</span><span data-l="en">Core</span></span></div>
         <div class="srow__items">
-          <span class="tech is-core">RAG</span><span class="tech is-core">LangChain</span><span class="tech is-core">ChromaDB</span><span class="tech is-core">Llama 3</span><span class="tech">Llama 4 Scout</span><span class="tech">LM Studio</span><span class="tech">Groq API</span><span class="tech">IBM watsonx</span><span class="tech">Multi-agente</span><span class="tech">ReAct</span>
+          <span class="tech is-core">RAG</span><span class="tech is-core">LangChain</span><span class="tech is-core">ChromaDB</span><span class="tech is-core">Llama 3</span><span class="tech">Llama 4 Scout</span><span class="tech">LM Studio</span><span class="tech">Groq API</span><span class="tech">Gemini</span><span class="tech">IBM watsonx</span><span class="tech">Multi-agente</span><span class="tech">ReAct</span>
         </div>
       </div>
       <div class="srow">
@@ -1196,13 +1278,13 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <div class="srow">
         <div class="srow__h"><b><span data-l="es">Desarrollo de software</span><span data-l="en">Software development</span></b><span class="mono">Backend / Frontend</span></div>
         <div class="srow__items">
-          <span class="tech is-core">Flask</span><span class="tech is-core">POO</span><span class="tech">React</span><span class="tech">JavaScript ES6</span><span class="tech">Node.js</span><span class="tech">Express</span><span class="tech">MongoDB</span><span class="tech">Jinja2</span><span class="tech">MVC</span><span class="tech">Firestore</span><span class="tech">VBA</span>
+          <span class="tech is-core">Flask</span><span class="tech is-core">POO</span><span class="tech">React</span><span class="tech">JavaScript ES6</span><span class="tech">Node.js</span><span class="tech">Express</span><span class="tech">MongoDB</span><span class="tech">Jinja2</span><span class="tech">MVC</span><span class="tech">Firestore</span><span class="tech">VBA</span><span class="tech is-core">Kotlin</span><span class="tech is-core">Android</span><span class="tech">FastAPI</span>
         </div>
       </div>
       <div class="srow">
         <div class="srow__h"><b><span data-l="es">Infraestructura</span><span data-l="en">Infrastructure</span></b><span class="mono"><span data-l="es">Producción</span><span data-l="en">Production</span></span></div>
         <div class="srow__items">
-          <span class="tech is-core">Linux</span><span class="tech is-core">VPS</span><span class="tech is-core">systemd</span><span class="tech is-core">Git / GitHub</span><span class="tech">Bash</span><span class="tech">Docker</span><span class="tech is-core">Webhooks</span><span class="tech">On-premise</span>
+          <span class="tech is-core">Linux</span><span class="tech is-core">VPS</span><span class="tech is-core">systemd</span><span class="tech is-core">Git / GitHub</span><span class="tech">Bash</span><span class="tech">Docker</span><span class="tech">AWS</span><span class="tech is-core">Webhooks</span><span class="tech">On-premise</span>
         </div>
       </div>
       <div class="srow">
@@ -1231,6 +1313,22 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
         <p class="tl__org"><a href="https://techdelfuego.com" target="_blank" rel="noopener">Tech del Fuego</a> · Río Grande</p>
         <p data-l="es">Equipo inicial de una firma de ciberseguridad, IA y datos. Automatización de procesos, LLMs privados integrados a CRM y auditoría de seguridad de modelos.</p>
         <p data-l="en">Founding team of a cybersecurity, AI and data firm. Process automation, private LLMs wired into CRMs, and model security auditing.</p>
+      </article>
+
+      <article class="tl tl--hi">
+        <p class="mono tl__date"><span data-l="es">2025 — Actualidad</span><span data-l="en">2025 — Present</span></p>
+        <h3><span data-l="es">Cofundador · AIDA</span><span data-l="en">Co-founder · AIDA</span></h3>
+        <p class="tl__org"><span class="orglogo"><img src="aida.jpg" alt="" width="129" height="128" loading="lazy"></span><a href="https://aidaasistente.com/" target="_blank" rel="noopener">aidaasistente.com</a></p>
+        <p data-l="es">Del Capstone de Samsung a una startup: <strong>3er puesto en el Santander X Argentina Award 2026</strong>, con financiación, y la app por salir en Google Play.</p>
+        <p data-l="en">From the Samsung Capstone to a startup: <strong>3rd place at the 2026 Santander X Argentina Award</strong>, with funding, and the app about to launch on Google Play.</p>
+      </article>
+
+      <article class="tl">
+        <p class="mono tl__date">2026</p>
+        <h3><span data-l="es">Business for All — Harvard Business Impact</span><span data-l="en">Business for All — Harvard Business Impact</span></h3>
+        <p class="tl__org"><span data-l="es">Beca Santander · seis certificados</span><span data-l="en">Santander scholarship · six certificates</span></p>
+        <p data-l="es">Finanzas, marketing, negociación, caso de negocio, foco en el cliente y medición del desempeño. Además, una beca para cursar inglés con el <strong>British Council</strong>, ya en nivel B2.</p>
+        <p data-l="en">Finance, marketing, negotiation, business cases, customer focus and performance measurement. Plus a scholarship to study English with the <strong>British Council</strong>, now at B2 level.</p>
       </article>
 
       <article class="tl tl--hi">
@@ -1317,7 +1415,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
         <div class="fact"><span class="mono"><span data-l="es">Modalidad</span><span data-l="en">Mode</span></span><b><span data-l="es">Remoto · Híbrido · Reubicación</span><span data-l="en">Remote · Hybrid · Relocation</span></b></div>
         <div class="fact"><span class="mono"><span data-l="es">Rol actual</span><span data-l="en">Current role</span></span><b><span data-l="es">Ingeniero de IA, Tech del Fuego</span><span data-l="en">AI Engineer, Tech del Fuego</span></b></div>
         <div class="fact"><span class="mono"><span data-l="es">Español</span><span data-l="en">Spanish</span></span><b><span data-l="es">Nativo</span><span data-l="en">Native</span></b></div>
-        <div class="fact"><span class="mono"><span data-l="es">Inglés</span><span data-l="en">English</span></span><b>B1 — <span data-l="es">Instituto Infy</span><span data-l="en">Infy Institute</span></b></div>
+        <div class="fact"><span class="mono"><span data-l="es">Inglés</span><span data-l="en">English</span></span><b><span data-l="es">B2 en curso — British Council</span><span data-l="en">B2 in progress — British Council</span></b></div>
         <div class="fact"><span class="mono"><span data-l="es">Foco</span><span data-l="en">Focus</span></span><b><span data-l="es">MLOps · IA privada · Seguridad</span><span data-l="en">MLOps · Private AI · Security</span></b></div>
         <div class="fact"><span class="mono"><span data-l="es">Edad</span><span data-l="en">Age</span></span><b><span data-age>20</span> <span data-l="es">años</span><span data-l="en">years</span></b></div>
       </div>
@@ -1436,7 +1534,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
   (function () {
     var items = ["Python","RAG","Llama 3","ChromaDB","LangChain","Whisper","Power BI","XGBoost",
                  "Flask","React","Linux","systemd","Docker","watsonx","Pandas","Scikit-learn",
-                 "Computer Vision","Edge-TTS","SQL","MERN","On-premise","Git"];
+                 "Computer Vision","Edge-TTS","SQL","MERN","On-premise","Git","Kotlin","Android","Gemini"];
     var track = document.getElementById("ticker");
     function group() {
       var g = document.createElement("div");
