@@ -77,6 +77,8 @@
   --signal-dim:  #9E3D24;
   --glacier:     #62B6BC;
   --on-signal:   #0A1317;
+  --logo-mono:   brightness(0) invert(.9);
+  --logo-tile:   #EEF2F0;
 
   --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --f-body:    "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -102,6 +104,8 @@
     --signal-dim:  #D98166;
     --glacier:     #1B6F76;
     --on-signal:   #FFF6F3;
+    --logo-mono:   brightness(0) opacity(.78);
+    --logo-tile:   #FFFFFF;
   }
 }
 :root[data-theme="light"] {
@@ -118,6 +122,8 @@
   --signal-dim:  #D98166;
   --glacier:     #1B6F76;
   --on-signal:   #FFF6F3;
+  --logo-mono:   brightness(0) opacity(.78);
+  --logo-tile:   #FFFFFF;
 }
 :root[data-theme="dark"] {
   --ground:      #0A1317;
@@ -133,6 +139,8 @@
   --signal-dim:  #9E3D24;
   --glacier:     #62B6BC;
   --on-signal:   #0A1317;
+  --logo-mono:   brightness(0) invert(.9);
+  --logo-tile:   #EEF2F0;
 }
 
 /* ============================================================
@@ -568,22 +576,36 @@ h1.name em { display: block; font-style: normal; color: var(--signal); }
 .tl__date { margin-bottom: .25rem; }
 .tl h3 { font-size: 1.0625rem; margin-bottom: .15rem; }
 .tl__org { color: var(--signal); font-size: .875rem; font-weight: 500; margin-bottom: .35rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
-/* Placa clara: los logos institucionales son a color sobre blanco,
-   así que necesitan su propio fondo para leerse en el tema oscuro. */
-/* Alto fijo y ancho automático: acepta tanto marcas cuadradas
-   como lockups horizontales sin achicar ninguna. */
+/* Logos. Dos tratamientos, para que ninguno quede como un parche blanco
+   en el tema oscuro:
+   · .orglogo — marca cuadrada a color, en una ficha de tamaño fijo con
+     esquinas suaves. Todas miden lo mismo, así se leen como un set.
+   · .orglogo--word — logotipo horizontal, en monocromo del color del texto,
+     sin placa: blanco en oscuro, casi negro en claro. */
 .orglogo {
-  height: 26px; flex: none; padding: 3px 5px;
-  background: #fff; border: 1px solid var(--line-soft);
-  display: inline-flex; align-items: center;
+  width: 28px; height: 28px; flex: none; border-radius: 6px; overflow: hidden;
+  background: var(--logo-tile); display: inline-grid; place-items: center;
 }
-.orglogo img { height: 100%; width: auto; max-width: 120px; object-fit: contain; }
-/* Para logos que ya traen su propio fondo, la placa blanca sobra. */
-.orglogo--bleed { background: none; border: 0; padding: 0; }
+.orglogo img { width: 100%; height: 100%; object-fit: cover; }
+/* Marcas con fondo transparente: un poco de aire dentro de la ficha */
+.orglogo--pad img { width: 80%; height: 80%; object-fit: contain; }
+.orglogo--word { width: auto; height: 20px; border-radius: 0; background: none; overflow: visible; display: inline-flex; align-items: center; }
+.orglogo--word img { width: auto; height: 100%; max-width: 110px; object-fit: contain; filter: var(--logo-mono); }
+/* Escudo: es casi cuadrado, va a la altura de las fichas */
+.orglogo--shield { height: 28px; }
+/* Newsan trae su propia caja roja: se muestra tal cual */
+.orglogo--bleed { width: auto; height: 22px; border-radius: 3px; background: none; display: inline-flex; }
+.orglogo--bleed img { width: auto; }
 /* Marca de proyecto en la cabecera de un caso */
 .case__brand { display: flex; align-items: center; gap: .75rem; margin-bottom: .5rem; }
 .case__brand h3 { margin-bottom: 0; }
-.case__brand .orglogo { height: 38px; padding: 0; border-radius: 2px; overflow: hidden; }
+.case__brand .orglogo { width: 40px; height: 40px; border-radius: 8px; }
+.case__brand .orglogo--word { width: auto; height: 22px; border-radius: 0; }
+.case__brand .orglogo--bleed { width: auto; height: 26px; border-radius: 3px; }
+/* Marca circular: sin ficha, ya tiene su propio borde */
+.orglogo--round { border-radius: 50%; background: none; }
+/* Proyectos menores con marca */
+.more__brand { display: flex; align-items: center; gap: .6rem; }
 .tl p { color: var(--ink-2); font-size: .9375rem; font-weight: 300; max-width: var(--measure); line-height: 1.55; }
 
 /* ---------- Sobre / Contacto ---------- */
@@ -828,7 +850,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
     <div class="cases">
 
       <!-- AIDA -->
-      <details class="case" open>
+      <details class="case">
         <summary>
           <div class="case__meta">
             <span class="tag tag--win">★ <span data-l="es">3er puesto · Santander X 2026</span><span data-l="en">3rd place · Santander X 2026</span></span>
@@ -897,7 +919,10 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
             <span class="tag tag--live"><span data-l="es">Actualidad</span><span data-l="en">Current</span></span>
             <span class="tag">Tech del Fuego</span>
           </div>
-          <h3><span data-l="es">Producción real para PyMEs</span><span data-l="en">Real production for small business</span></h3>
+          <div class="case__brand">
+            <span class="orglogo orglogo--pad"><img src="org-tdf.svg" alt="" width="801" height="478" loading="lazy"></span>
+            <h3><span data-l="es">Producción real para PyMEs</span><span data-l="en">Real production for small business</span></h3>
+          </div>
           <p class="case__hook" data-l="es">Como ingeniero de IA del equipo inicial: automatizaciones, LLMs privados integrados a CRM y tableros de rentabilidad para empresas de la región.</p>
           <p class="case__hook" data-l="en">As AI engineer on the founding team: automations, private LLMs wired into CRMs, and profitability dashboards for regional companies.</p>
           <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
@@ -949,7 +974,10 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
             <span class="tag"><span data-l="es">Entregado</span><span data-l="en">Delivered</span></span>
             <span class="tag">El Dorado SRL · 2025</span>
           </div>
-          <h3><span data-l="es">Chatbot técnico con LLM local</span><span data-l="en">Technical chatbot on a local LLM</span></h3>
+          <div class="case__brand">
+            <span class="orglogo"><img src="org-eldorado.jpg" alt="" width="24" height="24" loading="lazy"></span>
+            <h3><span data-l="es">Chatbot técnico con LLM local</span><span data-l="en">Technical chatbot on a local LLM</span></h3>
+          </div>
           <p class="case__hook" data-l="es">RAG sobre normas ISO y documentación de hormigón, con la restricción de que ningún dato podía salir de la red interna.</p>
           <p class="case__hook" data-l="en">RAG over ISO standards and concrete documentation, under the constraint that no data could leave the internal network.</p>
           <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
@@ -1045,7 +1073,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
             <span class="tag">Agentic AI</span>
           </div>
           <div class="case__brand">
-            <span class="orglogo"><img src="org-ibm.svg" alt="IBM" width="1075" height="401" loading="lazy"></span>
+            <span class="orglogo orglogo--word"><img src="org-ibm.svg" alt="IBM" width="1075" height="401" loading="lazy"></span>
             <h3><span data-l="es">AXIS — agentes con evidencia obligatoria</span><span data-l="en">AXIS — agents with mandatory evidence</span></h3>
           </div>
           <p class="case__hook" data-l="es">Micro-agentes que conectan contratos legales estáticos con la operación diaria, diseñados para que ninguna decisión pueda ser una alucinación.</p>
@@ -1132,7 +1160,10 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
             <span class="tag">Newsan · 2024</span>
             <span class="tag">Business Intelligence</span>
           </div>
-          <h3><span data-l="es">Newsan — BI de ergonomía en planta</span><span data-l="en">Newsan — plant ergonomics BI</span></h3>
+          <div class="case__brand">
+            <span class="orglogo orglogo--bleed"><img src="org-newsan.png" alt="Newsan" width="222" height="64" loading="lazy"></span>
+            <h3><span data-l="es">Newsan — BI de ergonomía en planta</span><span data-l="en">Newsan — plant ergonomics BI</span></h3>
+          </div>
           <p class="case__hook" data-l="es">Herramienta que permite a Seguridad e Higiene identificar puestos críticos y simular rotaciones de personal para minimizar la fatiga física.</p>
           <p class="case__hook" data-l="en">A tool letting Health &amp; Safety spot critical workstations and simulate staff rotation schemes to minimise physical fatigue.</p>
           <span class="case__more"><span class="lbl-open"><span data-l="es">Ver detalle</span><span data-l="en">Detail</span></span><span class="lbl-close"><span data-l="es">Cerrar</span><span data-l="en">Close</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
@@ -1174,13 +1205,13 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
         <p class="mono more__h"><span data-l="es">Más proyectos</span><span data-l="en">More projects</span></p>
         <ul class="more__list">
           <li>
-            <a href="https://santiagooroz.github.io/centinela/" target="_blank" rel="noopener"><b><span data-l="es">Centinela — alerta temprana de jaurías</span><span data-l="en">Centinela — early warning for feral dog packs</span></b></a>
+            <span class="more__brand"><span class="orglogo"><img src="proj-centinela.png" alt="" width="256" height="256" loading="lazy"></span><a href="https://santiagooroz.github.io/centinela/" target="_blank" rel="noopener"><b><span data-l="es">Centinela — alerta temprana de jaurías</span><span data-l="en">Centinela — early warning for feral dog packs</span></b></a></span>
             <span class="tag">NAU Fest × HP · #AIforImpact 2026</span>
             <p data-l="es">Visión artificial sobre cámaras trampa y fotos de vecinos que arma un mapa vivo de jaurías en Río Grande y un ranking semanal de dónde intervenir.</p>
             <p data-l="en">Computer vision over trail cameras and residents' photos, building a live map of dog packs in Río Grande and a weekly ranking of where to act.</p>
           </li>
           <li>
-            <b><span data-l="es">Print Intelligence — diagnóstico explicable</span><span data-l="en">Print Intelligence — explainable diagnosis</span></b>
+            <span class="more__brand"><span class="orglogo orglogo--round"><img src="proj-printintel.png" alt="" width="256" height="256" loading="lazy"></span><b><span data-l="es">Print Intelligence — diagnóstico explicable</span><span data-l="en">Print Intelligence — explainable diagnosis</span></b></span>
             <span class="tag"><span data-l="es">Sistema experto</span><span data-l="en">Expert system</span></span>
             <p data-l="es">Motor de inferencia escrito desde cero, sin redes neuronales: cada diagnóstico de hardware muestra el razonamiento que lo produjo.</p>
             <p data-l="en">An inference engine written from scratch, with no neural networks: every hardware diagnosis shows the reasoning behind it.</p>
@@ -1310,7 +1341,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <article class="tl tl--hi">
         <p class="mono tl__date"><span data-l="es">Abr 2026 — Actualidad</span><span data-l="en">Apr 2026 — Present</span></p>
         <h3><span data-l="es">Ingeniero de Inteligencia Artificial</span><span data-l="en">Artificial Intelligence Engineer</span></h3>
-        <p class="tl__org"><a href="https://techdelfuego.com" target="_blank" rel="noopener">Tech del Fuego</a> · Río Grande</p>
+        <p class="tl__org"><span class="orglogo orglogo--pad"><img src="org-tdf.svg" alt="" width="801" height="478" loading="lazy"></span><a href="https://techdelfuego.com" target="_blank" rel="noopener">Tech del Fuego</a> · Río Grande</p>
         <p data-l="es">Equipo inicial de una firma de ciberseguridad, IA y datos. Automatización de procesos, LLMs privados integrados a CRM y auditoría de seguridad de modelos.</p>
         <p data-l="en">Founding team of a cybersecurity, AI and data firm. Process automation, private LLMs wired into CRMs, and model security auditing.</p>
       </article>
@@ -1326,7 +1357,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <article class="tl">
         <p class="mono tl__date">2026</p>
         <h3><span data-l="es">Business for All — Harvard Business Impact</span><span data-l="en">Business for All — Harvard Business Impact</span></h3>
-        <p class="tl__org"><span data-l="es">Beca Santander · seis certificados</span><span data-l="en">Santander scholarship · six certificates</span></p>
+        <p class="tl__org"><span class="orglogo orglogo--word orglogo--shield"><img src="org-harvard.svg" alt="Harvard Business Impact" width="45" height="52" loading="lazy"></span><span data-l="es">Beca Santander · seis certificados</span><span data-l="en">Santander scholarship · six certificates</span></p>
         <p data-l="es">Finanzas, marketing, negociación, caso de negocio, foco en el cliente y medición del desempeño. Además, una beca para cursar inglés con el <strong>British Council</strong>, ya en nivel B2.</p>
         <p data-l="en">Finance, marketing, negotiation, business cases, customer focus and performance measurement. Plus a scholarship to study English with the <strong>British Council</strong>, now at B2 level.</p>
       </article>
@@ -1334,7 +1365,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <article class="tl tl--hi">
         <p class="mono tl__date">2026</p>
         <h3><span data-l="es">Beca Full Stack Developer ITBA</span><span data-l="en">ITBA Full Stack Developer Scholarship</span></h3>
-        <p class="tl__org"><span class="orglogo"><img src="org-itba.png" alt="ITBA Educación Ejecutiva" width="289" height="64" loading="lazy"></span><a href="https://www.linkedin.com/feed/update/urn:li:activity:7490723294686601216/" target="_blank" rel="noopener">Santander Open Academy</a></p>
+        <p class="tl__org"><span class="orglogo orglogo--word"><img src="org-itba.png" alt="ITBA Educación Ejecutiva" width="289" height="64" loading="lazy"></span><a href="https://www.linkedin.com/feed/update/urn:li:activity:7490723294686601216/" target="_blank" rel="noopener">Santander Open Academy</a></p>
         <p data-l="es">Uno de 400 seleccionados. Diecisiete semanas intensivas de stack MERN, para escalar e integrar de forma más robusta los modelos y agentes que ya venía construyendo.</p>
         <p data-l="en">One of 400 selected. Seventeen intensive weeks on the MERN stack, to scale and integrate the models and agents I was already building.</p>
       </article>
@@ -1358,7 +1389,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <article class="tl tl--hi">
         <p class="mono tl__date"><span data-l="es">Jun — Dic 2025</span><span data-l="en">Jun — Dec 2025</span></p>
         <h3>Samsung Innovation Campus — Big Data &amp; AI</h3>
-        <p class="tl__org"><span class="orglogo"><img src="org-samsung.svg" alt="Samsung" width="705" height="108" loading="lazy"></span>Electronics Argentina</p>
+        <p class="tl__org"><span class="orglogo orglogo--word"><img src="org-samsung.svg" alt="Samsung" width="705" height="108" loading="lazy"></span>Electronics Argentina</p>
         <p data-l="es">140 horas de formación intensiva más Capstone Project. <strong>Primer puesto nacional</strong> con AIDA, entre 600 postulantes iniciales.</p>
         <p data-l="en">140 hours of intensive training plus the Capstone Project. <strong>First place nationally</strong> with AIDA, out of 600 initial applicants.</p>
       </article>
@@ -1366,7 +1397,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <article class="tl">
         <p class="mono tl__date"><span data-l="es">Ene 2024 — Nov 2025</span><span data-l="en">Jan 2024 — Nov 2025</span></p>
         <h3><span data-l="es">Técnico Superior en Ciencia de Datos e IA</span><span data-l="en">Higher Technician in Data Science and AI</span></h3>
-        <p class="tl__org"><span class="orglogo"><img src="org-politecnico.png" alt="" width="24" height="24" loading="lazy"></span>Centro Politécnico Superior Malvinas Argentinas</p>
+        <p class="tl__org"><span class="orglogo orglogo--pad"><img src="org-politecnico.png" alt="" width="24" height="24" loading="lazy"></span>Centro Politécnico Superior Malvinas Argentinas</p>
         <p data-l="es">Carrera finalizada con promedio destacado y sin desaprobar finales.</p>
         <p data-l="en">Completed with distinction and without failing a single final.</p>
       </article>
@@ -1382,7 +1413,7 @@ footer { border-top: 1px solid var(--line-soft); background: var(--ground-deep);
       <article class="tl">
         <p class="mono tl__date">2018 — 2023</p>
         <h3><span data-l="es">Bachiller en Economía y Administración</span><span data-l="en">Secondary degree in Economics and Administration</span></h3>
-        <p class="tl__org">Instituto Salesiano Don Bosco · <span data-l="es">Promedio</span><span data-l="en">GPA</span> 8,55</p>
+        <p class="tl__org"><span class="orglogo"><img src="org-donbosco.png" alt="" width="200" height="200" loading="lazy"></span>Instituto Salesiano Don Bosco · <span data-l="es">Promedio</span><span data-l="en">GPA</span> 8,55</p>
         <p data-l="es">Menciones de honor en Derecho Económico y Sistemas de Información Contable. La base de por qué miro primero el problema de negocio.</p>
         <p data-l="en">Honours in Economic Law and Accounting Information Systems. The reason I look at the business problem first.</p>
       </article>
